@@ -1,0 +1,8 @@
+= simple_form_for @quote, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :content
+  = f.input :name
+  = f.input :source
+  = f.input :language
+  .form-actions
+    = f.button :submit, :class => 'btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), quotes_path, :class => 'btn'
