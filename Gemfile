@@ -13,6 +13,7 @@ gem 'twitter-bootstrap-rails'
 gem 'haml-rails'
 
 gem 'omniauth-twitter'
+gem 'omniauth-facebook'
 
 group :development do
   gem 'awesome_print'
