@@ -1,8 +1,8 @@
 = simple_form_for @quote, :html => { :class => 'form-horizontal' } do |f|
-  = f.input :content
-  = f.input :name
-  = f.input :source
+  = f.input :content, input_html: { class: 'span8', rows: 5 }, placeholder: 'Quotes & Words...'
+  = f.input :name, placeholder: 'by whom'
+  = f.input :source, placeholder: 'Book, Movie or any media'
   = f.input :language
   .form-actions
-    = f.button :submit, :class => 'btn-primary'
-    = link_to t('.cancel', :default => t("helpers.links.cancel")), quotes_path, :class => 'btn'
+    = f.button :submit, :class => 'btn btn-primary'
+    = link_to 'Cancel', quotes_path, :class => 'btn'
