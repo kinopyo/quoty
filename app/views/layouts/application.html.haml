@@ -25,6 +25,18 @@
               %li= link_to "Link 1", "/path1"
               %li= link_to "Link 2", "/path2"
               %li= link_to "Link 3", "/path3"
+            %ul.nav.pull-right
+              - if signed_in?
+                %li.dropdown
+                  = link_to '#', class: 'dropdown-toggle', 'data-toggle' => 'dropdown' do
+                    = image_tag current_user.image, size: '24x24', class: 'avatar_tiny'
+                    = current_user.name
+                  %ul.dropdown-menu
+                    = link_to 'My page', '#'
+                    = link_to 'Edit Page', '#'
+                    = link_to 'Sign out', logout_path
+              - else
+                = link_to "Sign in with Twitter", "/auth/twitter"
 
     .container
       = bootstrap_flash

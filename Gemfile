@@ -12,6 +12,8 @@ gem 'simple_form'
 gem 'twitter-bootstrap-rails'
 gem 'haml-rails'
 
+gem 'omniauth-twitter'
+
 group :development do
   gem 'awesome_print'
   gem 'quiet_assets'
