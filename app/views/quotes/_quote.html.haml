@@ -1,0 +1,5 @@
+%li
+  %blockquote.quote_body= link_to quote.content, quote
+  .meta_info
+    = quote.name
+    = "-《#{quote.source}》" if quote.source?

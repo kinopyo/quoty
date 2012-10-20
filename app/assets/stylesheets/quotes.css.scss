@@ -1,3 +1,39 @@
-// Place all the styles related to the Quotes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#quote {
+  .quote_body {
+    margin: 40px 0;
+    font-size: 36px;
+    line-height: 57px;
+    font-style: italic;
+  }
+
+  .meta_info {
+    font-size: 18px;
+    text-align: right;
+  }
+
+  .uploader {
+    text-align: right;
+    margin-top: 10px;
+  }
+}
+
+#quotes {
+  li {
+    list-style-type: none;
+    margin-bottom: 50px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .quote_body {
+    margin: 10px 0;
+    font-size: 24px;
+    line-height: 35px;
+    font-style: italic;
+  }
+
+  .meta_info {
+    font-size: 14px;
+    text-align: right;
+  }
+}

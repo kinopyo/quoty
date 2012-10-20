@@ -2,7 +2,6 @@
   = f.input :content, input_html: { class: 'span8', rows: 5 }, placeholder: 'Quotes & Words...'
   = f.input :name, placeholder: 'by whom'
   = f.input :source, placeholder: 'Book, Movie or any media'
-  = f.input :language
   .form-actions
     = f.button :submit, :class => 'btn btn-primary'
     = link_to 'Cancel', quotes_path, :class => 'btn'

@@ -1,25 +1,12 @@
-- model_class = Quote
-.page-header
-  %h1=t '.title', :default => model_class.model_name.human
+#quote
+  %blockquote.quote_body= @quote.content
+  .meta_info
+    = @quote.name
+    = "-《#{@quote.source}》" if @quote.source?
+  .uploader
+    Uploaded by #{link_to @quote.user.name, @quote.user}
 
-%p
-  %strong= model_class.human_attribute_name(:content) + ':'
-  %br
-  = @quote.content
-%p
-  %strong= model_class.human_attribute_name(:name) + ':'
-  %br
-  = @quote.name
-%p
-  %strong= model_class.human_attribute_name(:source) + ':'
-  %br
-  = @quote.source
-%p
-  %strong= model_class.human_attribute_name(:language) + ':'
-  %br
-  = @quote.language
-
-.form-actions
-  = link_to t('.back', :default => t("helpers.links.back")), quotes_path, :class => 'btn'
-  = link_to t('.edit', :default => t("helpers.links.edit")), edit_quote_path(@quote), :class => 'btn'
-  = link_to t('.destroy', :default => t("helpers.links.destroy")), quote_path(@quote), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
+- if @quote.user == current_user
+  .form-actions
+    = link_to 'Edit', edit_quote_path(@quote), :class => 'btn'
+    = link_to 'Destroy', quote_path(@quote), :method => "delete", :data => { :confirm => 'Are you sure?' }, :class => 'btn btn-danger'
