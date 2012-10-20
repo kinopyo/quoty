@@ -43,8 +43,14 @@
       = bootstrap_flash
       = yield
 
-      %footer
-        %p &copy; Company 2012
+    %footer.footer
+      .container
+        %p
+          Designed and built by
+          = link_to '@kinopyo', 'https://twitter.com/fantasyday'
+        %p
+          You can find the source code on
+          = link_to 'Github', 'https://github.com/kinopyo/quoty'
     /
       Javascripts
       \==================================================
