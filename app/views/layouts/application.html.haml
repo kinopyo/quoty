@@ -34,6 +34,10 @@
                     = link_to 'Sign out', logout_path
               - else
                 %li= link_to "Sign in", login_path
+            .pull-right
+              = link_to new_quote_path, class: 'btn btn-primary' do
+                %i.icon-edit.icon-white
+                New Quote
 
     .container
       = bootstrap_flash
