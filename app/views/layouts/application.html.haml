@@ -36,7 +36,7 @@
                     = link_to 'Edit Page', '#'
                     = link_to 'Sign out', logout_path
               - else
-                = link_to "Sign in with Twitter", "/auth/twitter"
+                %li= link_to "Sign in", login_path
 
     .container
       = bootstrap_flash

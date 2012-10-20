@@ -1,4 +1,6 @@
 class QuotesController < ApplicationController
+  before_filter :require_login, except: [:index, :show]
+
   def index
     @quotes = Quote.all
   end
@@ -8,11 +10,11 @@ class QuotesController < ApplicationController
   end
 
   def new
-    @quote = Quote.new
+    @quote = current_user.quotes.new
   end
 
   def create
-    @quote = Quote.new(params[:quote])
+    @quote = current_user.quotes.new(params[:quote])
     if @quote.save
       redirect_to @quote, notice: 'created.'
     else
@@ -21,11 +23,11 @@ class QuotesController < ApplicationController
   end
 
   def edit
-    @quote = Quote.find(params[:id])
+    @quote = current_user.quotes.find(params[:id])
   end
 
   def update
-    @quote = Quote.find(params[:id])
+    @quote = current_user.quotes.find(params[:id])
 
     if @quote.update_attributes(params[:quote])
       redirect_to @quote, notice: 'updated.'
@@ -35,7 +37,7 @@ class QuotesController < ApplicationController
   end
 
   def destroy
-    @quote = Quote.find(params[:id])
+    @quote = current_user.quotes.find(params[:id])
 
     if @quote.destroy
       redirect_to action: :index, notice: 'destroyed.'

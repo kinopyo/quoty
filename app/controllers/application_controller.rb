@@ -16,4 +16,11 @@ class ApplicationController < ActionController::Base
     @current_user = user
     session[:user_id] = user.nil? ? user : user.id
   end
+
+  def require_login
+    unless signed_in?
+      session[:return_to] = request.path
+      redirect_to login_path, alert: 'You must be logged in to access this section.'
+    end
+  end
 end
