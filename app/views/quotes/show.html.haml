@@ -1,8 +1,9 @@
 #quote
-  %blockquote.quote_body= @quote.content
-  .meta_info
-    = @quote.name
-    = "-《#{@quote.source}》" if @quote.source?
+  %blockquote
+    .quote_body= @quote.content
+    .meta_info
+      = @quote.name
+      %cite= "-《#{@quote.source}》" if @quote.source?
   .uploader
     Uploaded by #{link_to @quote.user.name, @quote.user}
 
