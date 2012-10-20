@@ -5,7 +5,7 @@
       = @quote.name
       %cite= "-《#{@quote.source}》" if @quote.source?
   .uploader
-    Uploaded by #{link_to @quote.user.name, @quote.user}
+    Uploaded by #{link_to @quote.user.name, @quote.user}, #{time_ago_in_words(@quote.created_at)} ago.
 
 - if @quote.user == current_user
   .form-actions
