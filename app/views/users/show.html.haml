@@ -1,0 +1,9 @@
+.page-header
+  %h1 #{@user.name}'s quoties:
+
+%p.pull-right
+  %i.icon-leaf
+  = link_to "#{@user.name}'s JSON feed url", user_url(@user, format: :json)
+.clearfix
+
+%ul#quotes= render @user.quotes

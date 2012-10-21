@@ -29,7 +29,7 @@
                     = image_tag current_user.image, size: '24x24', class: 'avatar_tiny'
                     = current_user.name
                   %ul.dropdown-menu
-                    = link_to 'My page', '#'
+                    = link_to 'My page', current_user
                     = link_to 'Edit Page', '#'
                     = link_to 'Sign out', logout_path
               - else
