@@ -1,5 +1,5 @@
 GEM
-  remote: https://rubygems.org/
+  remote: http://rubygems.org/
   specs:
     actionmailer (3.2.8)
       actionpack (= 3.2.8)
@@ -68,6 +68,7 @@ GEM
     faraday (0.8.4)
       multipart-post (~> 1.1)
     ffi (1.1.5)
+    friendly_id (4.0.8)
     haml (3.1.7)
     haml-rails (0.3.5)
       actionpack (>= 3.1, < 4.1)
@@ -230,6 +231,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   database_cleaner
   factory_girl_rails
+  friendly_id
   haml-rails
   jquery-rails
   launchy

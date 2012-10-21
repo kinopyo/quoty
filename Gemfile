@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 gem 'rails', '3.2.8'
 
@@ -14,6 +14,8 @@ gem 'haml-rails'
 
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
+
+gem 'friendly_id'
 
 group :development do
   gem 'awesome_print'

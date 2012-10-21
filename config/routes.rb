@@ -5,6 +5,8 @@ Quoty::Application.routes.draw do
   match '/logout', to: 'sessions#destroy'
 
   resources :quotes
-  resources :users
+
   root to: 'quotes#index'
+
+  resources :users, path: ''
 end
