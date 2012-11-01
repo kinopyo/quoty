@@ -1,3 +1,9 @@
-%ul
-  %li= link_to 'Login with Twitter', '/auth/twitter'
-  %li= link_to 'Login with Facebook', '/auth/facebook'
+%ul.social-login
+  %li
+    = link_to '/auth/twitter', class: 'btn' do
+      %i.icon-twitter
+      Login with Twitter
+  %li
+    = link_to '/auth/facebook', class: 'btn' do
+      %i.icon-facebook
+      Login with Facebook
