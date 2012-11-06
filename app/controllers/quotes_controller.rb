@@ -40,7 +40,7 @@ class QuotesController < ApplicationController
     @quote = current_user.quotes.find(params[:id])
 
     if @quote.destroy
-      redirect_to action: :index, notice: 'destroyed.'
+      redirect_to root_url, notice: 'destroyed.'
     end
   end
 end
