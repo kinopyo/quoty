@@ -16,6 +16,8 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 
 gem 'friendly_id'
+gem 'turbolinks'
+gem "twitter-bootstrap-turbo", "~> 2.1.3"
 
 group :development do
   gem 'awesome_print'
