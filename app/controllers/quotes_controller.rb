@@ -2,7 +2,7 @@ class QuotesController < ApplicationController
   before_filter :require_login, except: [:index, :show]
 
   def index
-    @quotes = Quote.all
+    @quotes = Quote.order('created_at DESC')
   end
 
   def show
