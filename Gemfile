@@ -19,6 +19,9 @@ gem 'friendly_id'
 gem 'turbolinks'
 gem "twitter-bootstrap-turbo", "~> 2.1.3"
 
+# language detect
+gem 'cld'
+
 group :development do
   gem 'awesome_print'
   gem 'quiet_assets'
