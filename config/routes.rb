@@ -4,6 +4,7 @@ Quoty::Application.routes.draw do
   match '/login', to: 'sessions#new'
   match '/logout', to: 'sessions#destroy'
 
+  match '/quotes/:language', to: 'quotes#language', language: /[a-z]+/, as: :language
   resources :quotes
 
   root to: 'quotes#index'

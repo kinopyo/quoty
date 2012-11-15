@@ -43,4 +43,8 @@ class QuotesController < ApplicationController
       redirect_to root_url, notice: 'destroyed.'
     end
   end
+
+  def language
+    @quotes = Quote.where(language: params[:language])
+  end
 end

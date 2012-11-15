@@ -22,6 +22,9 @@
           %a.brand(href="/") Quoty
           .container.nav-collapse
             %ul.nav
+              %li= link_to "English", language_path('english')
+              %li= link_to "日本語", language_path('japanese')
+              %li= link_to "中文", language_path('chinese')
             %ul.nav.pull-right
               - if signed_in?
                 %li.dropdown
