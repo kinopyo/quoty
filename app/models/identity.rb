@@ -1,16 +1,7 @@
-class Identity < ActiveRecord::Base
-  attr_accessible :provider, :uid, :image
+class Identity <OmniAuth::Identity::Models::ActiveRecord
+  attr_accessible :name, :email, :password, :password_confirmation
 
-  belongs_to :user
-
-  validates_presence_of :uid, :provider
-  validates_uniqueness_of :uid, scope: :provider
-
-  def self.find_with_omniauth(auth)
-    find_by_provider_and_uid(auth['provider'], auth['uid'])
-  end
-
-  def self.create_with_omniauth(auth)
-    create(uid: auth['uid'], provider: auth['provider'], image: auth['info']['image'])
-  end
+  validates :name, presence: true
+  validates :email, presence: true, uniqueness: true, allow_blank: true, format:
+    { with: /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i }
 end

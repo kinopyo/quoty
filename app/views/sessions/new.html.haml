@@ -7,3 +7,18 @@
     = link_to '/auth/facebook', class: 'btn' do
       %i.icon-facebook
       Login with Facebook
+
+%p
+  %strong Don't use these services?
+  = link_to 'Create an account', new_identity_path
+  or login below.
+
+= form_tag "/auth/identity/callback" do
+  .field
+    = label_tag :auth_key, "Email"
+    = text_field_tag :auth_key
+  .field
+    = label_tag :password
+    = password_field_tag :password
+  .actions
+    = submit_tag "Login", class: 'btn'

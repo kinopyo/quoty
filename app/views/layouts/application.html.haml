@@ -29,7 +29,7 @@
               - if signed_in?
                 %li.dropdown
                   = link_to '#', class: 'dropdown-toggle', 'data-toggle' => 'dropdown' do
-                    = image_tag current_user.image, size: '24x24', class: 'avatar_tiny'
+                    = image_tag current_user.image, size: '24x24', class: 'avatar_tiny' if current_user.image
                     = current_user.name
                   %ul.dropdown-menu
                     = link_to 'My page', current_user

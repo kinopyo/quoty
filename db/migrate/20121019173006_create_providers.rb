@@ -1,6 +1,6 @@
-class CreateIdentities < ActiveRecord::Migration
+class CreateProviders < ActiveRecord::Migration
   def change
-    create_table :identities do |t|
+    create_table :providers do |t|
       t.string :provider
       t.string :uid
       t.string :image
@@ -8,6 +8,6 @@ class CreateIdentities < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :identities, :user_id
+    add_index :providers, :user_id
   end
 end

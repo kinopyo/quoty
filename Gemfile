@@ -14,6 +14,8 @@ gem 'haml-rails'
 
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
+gem 'omniauth-identity'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 gem 'friendly_id'
 
