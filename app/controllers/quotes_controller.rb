@@ -1,5 +1,5 @@
 class QuotesController < ApplicationController
-  before_filter :require_login, except: [:index, :show]
+  before_filter :require_login, except: [:index, :show, :language]
 
   def index
     @quotes = Quote.order('created_at DESC')
