@@ -3,5 +3,8 @@
 
 en:
   bookmarks:
-    success: 'Bookmarked!'
-    failure: 'You already bookmarked this.'
+    create:
+      success: 'Bookmarked!'
+      failure: 'You already bookmarked this.'
+    destroy:
+      done: 'Removed the quote from your bookmark lists.'

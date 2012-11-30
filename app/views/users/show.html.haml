@@ -1,5 +1,9 @@
 .page-header
-  %h1 #{@user.name}'s quoties:
+  %h1 #{@user.name}'s posted quoties:
+  - if @user.quotes.present?
+    %ul#quotes= render @user.quotes
+  - else
+    %p No quotes posted yet.
 
 %p.pull-right
   %i.icon-leaf

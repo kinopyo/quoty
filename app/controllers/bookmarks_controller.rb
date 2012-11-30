@@ -12,6 +12,8 @@ class BookmarksController < ApplicationController
   end
 
   def destroy
-
+    @bookmark = Bookmark.find(params[:id])
+    @bookmark.destroy
+    redirect_to current_user, notice: t(:'bookmarks.destroy.done')
   end
 end

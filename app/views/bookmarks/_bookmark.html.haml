@@ -1,2 +1,3 @@
 %li
-  = link_to '&times;'.html_safe, bookmark, method: :delete if bookmark.user == current_use
+  = link_to bookmark.quote.content, bookmark.quote
+  = link_to 'Delete', bookmark, method: :delete, class: 'btn btn-danger btn-small' if bookmark.user == current_user
