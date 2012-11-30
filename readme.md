@@ -29,11 +29,13 @@ In most cases:
 ```
 git clone git@github.com:kinopyo/quoty.git
 cd quoty
-bundle install
-rake db:create
+bundle
+rake db:setup
 rails s
 open "http://localhost:3000"
 ```
+
+If you need twitter or facebook integration, you have to setup your own keys to `config/initializers/omniauth.rb`.
 
 ## TODO ##
 https://www.pivotaltracker.com/projects/697543
