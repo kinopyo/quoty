@@ -6,4 +6,12 @@
   = link_to "#{@user.name}'s JSON feed url", user_url(@user, format: :json)
 .clearfix
 
+.bookmarks
+  %h2 #{@user.name}'s Bookmark
+  %ul.bookmark_list
+    - if @user.bookmarks.present?
+      = render @user.bookmarks
+    - else
+      No bookmark.
+
 %ul#quotes= render @user.quotes

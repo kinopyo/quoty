@@ -7,6 +7,7 @@ Quoty::Application.routes.draw do
   match '/language/:language', to: 'quotes#language', language: /[a-z]+/, as: :language
   resources :quotes
   resources :users
+  resources :bookmarks, only: [:create, :destroy]
 
   resources :identities, only: [:new]
 

@@ -13,5 +13,5 @@
   .form-actions
     = link_to 'Edit', edit_quote_path(@quote), :class => 'btn'
     = link_to 'Destroy', quote_path(@quote), :method => "delete", :data => { :confirm => 'Are you sure?' }, :class => 'btn btn-danger'
-
+= link_to 'Bookmark', bookmarks_path(quote_id: @quote.id), method: :post, id: dom_id(@quote, :bookmark), class: 'btn'
 = render 'disqus_thread'
