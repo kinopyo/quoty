@@ -1,0 +1,25 @@
+.quote {
+  position: relative;
+  blockquote {
+    margin-left: 60px;
+  }
+  .score {
+    position: absolute;
+    text-align: center;
+    left: 0px;
+    top: 0.5em;
+    width: 50px;
+    .score_value {
+      font-size: 1.6em;
+      font-weight: bold;
+      margin-bottom: 0.3em;
+    }
+    a {
+      text-decoration: none;
+      color: #666;
+      &.active.up { color: lime; }
+      &.active.down { color: red; }
+      i { font-size: 18px; }
+    }
+  }
+}

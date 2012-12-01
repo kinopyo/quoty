@@ -1,7 +1,13 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  before_filter :set_current_user
+
   protected
+
+  def set_current_user
+    User.current_user = current_user
+  end
 
   def current_user
     @current_user ||= User.find_by_id(session[:user_id])
@@ -13,6 +19,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :signed_in?
 
   def current_user=(user)
+    User.current_user = user
     @current_user = user
     session[:user_id] = user.nil? ? user : user.id
   end
