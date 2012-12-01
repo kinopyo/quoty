@@ -3,7 +3,7 @@ class CreateVotes < ActiveRecord::Migration
     create_table :votes do |t|
       t.integer :user_id
       t.integer :quote_id
-      t.integer :direction
+      t.integer :score
 
       t.timestamps
     end

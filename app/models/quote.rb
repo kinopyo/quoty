@@ -25,4 +25,23 @@ class Quote < ActiveRecord::Base
     when 'english' then 'English'
     end
   end
+
+  def update_score
+    # This might not be the best way to do it, please feel
+    # free to refactor!
+    total_score = 0
+    votes.each do |vote|
+      total_score += vote.score
+    end
+    self.score = total_score
+    save!
+  end
+
+  def my_vote
+    if User.current_user.present?
+      votes.where(user_id: User.current_user.id).first
+    else
+      nil
+    end
+  end
 end

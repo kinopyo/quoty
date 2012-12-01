@@ -1,4 +1,6 @@
-#quote
+#quote.quote
+  .score{id: "quote#{@quote.id}_score"}
+    = render "votes/score", quote: @quote
   %blockquote
     .quote_body= @quote.content
     .meta_info

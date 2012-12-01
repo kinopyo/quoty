@@ -12,4 +12,13 @@ class User < ActiveRecord::Base
   def self.create_with_omniauth(info)
     create(name: info['name'], image: info['image'], email: info['email'])
   end
+
+  # http://stackoverflow.com/questions/2513383/access-current-user-in-model
+  def self.current_user
+    Thread.current[:current_user]
+  end
+
+  def self.current_user=(user)
+    Thread.current[:current_user] = user
+  end
 end
