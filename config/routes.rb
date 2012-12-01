@@ -5,7 +5,9 @@ Quoty::Application.routes.draw do
   match '/logout', to: 'sessions#destroy'
 
   match '/language/:language', to: 'quotes#language', language: /[a-z]+/, as: :language
-  resources :quotes
+  resources :quotes do
+    resources :votes, only: [:create, :destroy]
+  end
   resources :users
   resources :bookmarks, only: [:create, :destroy]
 

@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :providers, dependent: :destroy
   has_many :quotes
   has_many :bookmarks, dependent: :destroy
+  has_many :votes, dependent: :destroy
 
   extend FriendlyId
   friendly_id :name, use: :slugged
