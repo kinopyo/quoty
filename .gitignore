@@ -13,3 +13,8 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore POW and RVM config files
+.powrc
+.powenv
+.rvmrc
