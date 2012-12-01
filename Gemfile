@@ -22,6 +22,9 @@ gem 'friendly_id'
 # language detect
 gem 'cld'
 
+# automatically link URLs for quote sources
+gem 'rails_autolink'
+
 group :development do
   gem 'awesome_print'
   gem 'quiet_assets'
