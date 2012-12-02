@@ -1,9 +1,15 @@
-#quote
+#quote.quote
+  .score{id: "quote#{@quote.id}_score"}
+    = render "votes/score", quote: @quote
   %blockquote
     .quote_body= @quote.content
     .meta_info
       = @quote.name
-      %cite= "-《#{@quote.source}》" if @quote.source?
+      - if @quote.source?
+        %cite
+          &mdash;《
+          = auto_link(@quote.source, html: { target: '_blank'}) { |text| truncate(text, length: 30) }
+          》
   .uploader
     Uploaded by #{link_to @quote.user.name, @quote.user}, #{time_ago_in_words(@quote.created_at)} ago.
     In

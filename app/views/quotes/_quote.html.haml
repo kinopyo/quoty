@@ -1,4 +1,6 @@
-%li
+%li.quote
+  .score{id: "quote#{quote.id}_score"}
+    = render "votes/score", quote: quote
   %blockquote
     .quote_body= link_to quote.content, quote
     .meta_info
