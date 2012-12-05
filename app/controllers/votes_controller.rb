@@ -1,29 +1,15 @@
 class VotesController < ApplicationController
   before_filter :require_login
 
-  def create
-    @quote = Quote.find(params[:quote_id])
-    if @quote.my_vote.present?
-      @quote.my_vote.destroy
+  def vote
+    quote = Quote.find(params[:quote_id])
+    @vote = current_user.votes.where(quote_id: quote).first
+    if @vote
+      @vote.destroy
+    else
+      score = params[:score] == 'up' ? 1 : -1
+      @vote = current_user.votes.create!(quote: quote, score: score)
     end
-    @vote = current_user.votes.new
-    @vote.quote = Quote.find(params[:quote_id])
-    if params[:score] == "up"
-      @vote.score = 1
-    elsif params[:score] == "down"
-      @vote.score = -1
-    end
-    @vote.save!
-    @vote.quote.update_score
-    render 'votes/update_votes'
-  end
-
-  def destroy
-    @vote = Vote.find(params[:id])
-    @quote = @vote.quote
-    @vote.destroy
-    @quote.update_score
-    render 'votes/update_votes'
   end
 
   private

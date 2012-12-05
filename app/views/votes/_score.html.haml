@@ -1,17 +1,7 @@
 .score_value= quote.score
-- if quote.my_vote.present?
-  - if quote.my_vote.score == 1
-    = link_to quote_vote_path(quote, quote.my_vote), class: "up active", remote: true, method: :delete do
-      %i.icon-arrow-up
-    = link_to quote_votes_path(quote, score: "down"), class: "down", remote: true, method: :post do
-      %i.icon-arrow-down
-  - elsif quote.my_vote.score == -1
-    = link_to quote_votes_path(quote, score: "up"), class: "up", remote: true, method: :post do
-      %i.icon-arrow-up
-    = link_to quote_vote_path(quote, quote.my_vote), class: "down active", remote: true, method: :delete do
-      %i.icon-arrow-down
-- else
-  = link_to quote_votes_path(quote, score: "up"), class: "up", remote: true, method: :post, id: dom_id(quote, :vote_up) do
-    %i.icon-arrow-up
-  = link_to quote_votes_path(quote, score: "down"), class: "down", remote: true, method: :post, id: dom_id(quote, :vote_down) do
-    %i.icon-arrow-down
+
+= link_to quote_vote_path(quote, score: 'up'), class: "up #{vote_class(:up, quote)}", remote: true, method: :post, id: dom_id(quote, :vote_up) do
+  %i.icon-arrow-up
+
+= link_to quote_vote_path(quote, score: 'down'), class: "down #{vote_class(:down, quote)}", remote: true, method: :post, id: dom_id(quote, :vote_down) do
+  %i.icon-arrow-down
