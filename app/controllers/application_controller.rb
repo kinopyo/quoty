@@ -26,8 +26,20 @@ class ApplicationController < ActionController::Base
 
   def require_login
     unless signed_in?
-      session[:return_to] = request.path
-      redirect_to login_path, alert: 'You must be logged in to access this section.'
+      respond_to do |format|
+        format.html do
+          session[:return_to] = request.path
+          redirect_to login_path, alert: 'You must be logged in to access this section.'
+        end
+
+        format.js { render template: 'shared/require_login', locals: { message: require_login_message } }
+        format.json { head :unauthorized }
+      end
     end
+  end
+
+  # can override this in each controller
+  def require_login_message
+    "That action needs to login."
   end
 end

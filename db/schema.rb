@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(:version => 20121201135155) do
     t.datetime "updated_at", :null => false
   end
 
-  add_index "providers", ["user_id"], :name => "index_identities_on_user_id"
+  add_index "providers", ["user_id"], :name => "index_providers_on_user_id"
 
   create_table "quotes", :force => true do |t|
     t.text     "content"

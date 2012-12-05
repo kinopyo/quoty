@@ -25,4 +25,10 @@ class VotesController < ApplicationController
     @quote.update_score
     render 'votes/update_votes'
   end
+
+  private
+
+  def require_login_message
+    "To vote a quote you need to login."
+  end
 end
