@@ -5,7 +5,6 @@ gem 'rails', '3.2.8'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 gem 'thin'
 gem 'jquery-rails'
 gem 'simple_form'
@@ -31,6 +30,7 @@ group :development do
 end
 
 group :test, :development do
+  gem 'sqlite3'
   gem 'pry'
   gem 'pry-remote'
   gem 'pry-rails'
@@ -47,4 +47,8 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
+end
+
+group :production do
+  gem 'pg'
 end
