@@ -1,6 +1,6 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.9'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -8,7 +8,7 @@ gem 'rails', '3.2.8'
 gem 'thin'
 gem 'jquery-rails'
 gem 'simple_form'
-gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails', '~> 2.1.7'
 gem 'haml-rails'
 
 gem 'omniauth-twitter'
@@ -47,6 +47,10 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
+
+  # need these 2 gems to temporary fix twitter-bootstrap-rails bug
+  gem 'less-rails'
+  gem 'therubyracer'
 end
 
 group :production do
