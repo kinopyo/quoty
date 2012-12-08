@@ -33,9 +33,9 @@
                     = current_user.name
                     %span.caret
                   %ul.dropdown-menu
-                    = link_to 'My page', current_user
-                    = link_to 'Edit Page', '#'
-                    = link_to 'Sign out', logout_path
+                    %li= link_to 'My page', current_user
+                    %li= link_to 'Edit Page', '#'
+                    %li= link_to 'Sign out', logout_path
               - else
                 %li= link_to "Sign in", login_path
             .pull-right
