@@ -8,7 +8,7 @@ Quoty::Application.routes.draw do
   resources :quotes do
     post 'vote', to: 'votes#vote'
   end
-  resources :users
+  resources :users, only: [:show, :edit, :update]
   resources :bookmarks, only: [:create, :destroy]
 
   resources :identities, only: [:new]
