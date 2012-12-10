@@ -23,4 +23,7 @@ en:
     #   defaults:
     #     username: 'User name to sign in.'
     #     password: 'No special characters, please.'
-
+    hints:
+      user:
+        preference:
+          languages: "You will only see the quotes in the language you've chosen."

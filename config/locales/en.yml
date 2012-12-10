@@ -8,3 +8,11 @@ en:
       failure: 'You already bookmarked this.'
     destroy:
       done: 'Removed the quote from your bookmark lists.'
+  users:
+    update:
+      success: 'Thanks, your settings have been saved.'
+
+  helpers:
+    submit:
+      user:
+        update: Save changes
