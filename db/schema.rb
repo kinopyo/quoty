@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121201135155) do
+ActiveRecord::Schema.define(:version => 20121210114602) do
 
   create_table "bookmarks", :force => true do |t|
     t.integer  "user_id"
@@ -54,6 +54,16 @@ ActiveRecord::Schema.define(:version => 20121201135155) do
   end
 
   add_index "quotes", ["user_id"], :name => "index_quotes_on_user_id"
+
+  create_table "user_preferences", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "locale"
+    t.string   "languages"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "user_preferences", ["user_id"], :name => "index_user_preferences_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"
