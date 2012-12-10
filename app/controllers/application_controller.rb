@@ -1,13 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  before_filter :set_current_user
+  before_filter :set_locale_and_language
 
   protected
-
-  def set_current_user
-    User.current_user = current_user
-  end
 
   def current_user
     @current_user ||= User.find_by_id(session[:user_id])
@@ -19,7 +15,6 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :signed_in?
 
   def current_user=(user)
-    User.current_user = user
     @current_user = user
     session[:user_id] = user.nil? ? user : user.id
   end
@@ -41,5 +36,24 @@ class ApplicationController < ActionController::Base
   # can override this in each controller
   def require_login_message
     "That action needs to login."
+  end
+
+  def set_locale_and_language
+    logger.debug "* Accept-Language: #{request.env['HTTP_ACCEPT_LANGUAGE']}"
+    language_short = extract_locale_from_accept_language_header
+    I18n.locale = language_short
+    cookies[:languages] = case language_short
+      when 'zh' then 'chinese'
+      when 'ja' then 'japanese'
+      else 'english'
+    end if cookies[:languages].blank?
+
+    logger.debug "* Locale set to '#{I18n.locale}'"
+  end
+
+  private
+
+  def extract_locale_from_accept_language_header
+    request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
   end
 end
