@@ -1,7 +1,9 @@
 ## What is Quoty?
+http://quoty.me
+
 **Quoty** - A place where people can share and save the most touching and inspiring quotes or words, in a *modern* way.
 
-One of my hobby projects build with Rails, deployed on [Heroku](http://quoty.herokuapp.com/), try it.
+One of my hobby projects build with Rails, deployed on Heroku, [try it](http://quoty.me).
 
 ## The Vision ##
 
