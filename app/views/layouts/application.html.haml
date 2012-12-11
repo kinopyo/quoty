@@ -33,15 +33,15 @@
                     = current_user.name
                     %span.caret
                   %ul.dropdown-menu
-                    %li= link_to 'My page', current_user
-                    %li= link_to 'Settings', [:edit, current_user]
-                    %li= link_to 'Sign out', logout_path
+                    %li= link_to t('.my_page'), current_user
+                    %li= link_to t('.settings'), [:edit, current_user]
+                    %li= link_to t('.sign_out'), logout_path
               - else
                 %li= link_to "Sign in", login_path
             .pull-right
               = link_to new_quote_path, class: 'btn btn-primary' do
                 %i.icon-pencil
-                New Quote
+                = t('.new_quote')
 
     .container
       = bootstrap_flash
