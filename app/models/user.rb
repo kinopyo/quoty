@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :image, :email, :preference_attributes
+  attr_accessible :name, :image, :email, :profile, :preference_attributes
 
   has_many :providers, dependent: :destroy
   has_many :quotes

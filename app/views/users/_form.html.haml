@@ -1,6 +1,7 @@
 = simple_form_for @user, html: { class: 'form-horizontal', id: 'user_form' } do |f|
   = f.input :name
   = f.input :email
+  = f.input :profile, input_html: { rows: 5, class: 'span6' }
   %hr
   = f.simple_fields_for :preference do |preference_form|
     = preference_form.input :languages, as: :select, collection: %w(english japanese chinese), prompt: 'Select language'
