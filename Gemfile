@@ -23,6 +23,9 @@ gem 'exception_notification'
 # language detect
 gem 'cld'
 
+# markdown
+gem 'redcarpet'
+
 # automatically link URLs for quote sources
 gem 'rails_autolink'
 
