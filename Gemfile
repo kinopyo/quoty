@@ -24,6 +24,8 @@ gem 'cld'
 # automatically link URLs for quote sources
 gem 'rails_autolink'
 
+gem 'public_activity'
+
 group :development do
   gem 'awesome_print'
   gem 'quiet_assets'

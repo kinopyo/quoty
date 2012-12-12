@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  include PublicActivity::Activist
+  activist
+
   attr_accessible :name, :image, :email, :profile, :preference_attributes
 
   has_many :providers, dependent: :destroy

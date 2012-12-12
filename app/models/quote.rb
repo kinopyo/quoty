@@ -1,5 +1,8 @@
 # coding: utf-8
 class Quote < ActiveRecord::Base
+  include PublicActivity::Model
+  tracked owner: :user, only: [:create]
+
   attr_accessible :content, :language, :name, :source
 
   belongs_to :user

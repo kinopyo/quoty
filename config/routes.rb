@@ -11,7 +11,9 @@ Quoty::Application.routes.draw do
   resources :quotes do
     post 'vote', to: 'votes#vote'
   end
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update] do
+    resources :activities, only: [:index]
+  end
   resources :bookmarks, only: [:create, :destroy]
 
   resources :identities, only: [:new]
