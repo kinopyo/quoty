@@ -14,7 +14,7 @@
       font-weight: bold;
       margin-bottom: 0.3em;
     }
-    a {
+    .vote_link {
       text-decoration: none;
       color: #666;
       &.active.up { color: lime; }

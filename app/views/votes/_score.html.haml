@@ -1,7 +1,7 @@
 .score_value= quote.score
 
-= link_to quote_vote_path(quote, score: 'up'), class: "up #{vote_class(:up, quote)}", remote: true, method: :post, id: dom_id(quote, :vote_up) do
+= link_to quote_vote_path(quote, score: 'up'), class: "vote_link up #{vote_class(:up, quote)}", remote: true, method: :post, id: dom_id(quote, :vote_up) do
   %i.icon-arrow-up
 
-= link_to quote_vote_path(quote, score: 'down'), class: "down #{vote_class(:down, quote)}", remote: true, method: :post, id: dom_id(quote, :vote_down) do
+= link_to quote_vote_path(quote, score: 'down'), class: "vote_link down #{vote_class(:down, quote)}", remote: true, method: :post, id: dom_id(quote, :vote_down) do
   %i.icon-arrow-down
