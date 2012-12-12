@@ -1,7 +1,9 @@
 # coding: utf-8
 class Quote < ActiveRecord::Base
   include PublicActivity::Model
-  tracked owner: :user, only: [:create]
+  tracked owner: :user, only: [:create], params: {
+    summary: proc { |c, m| m.content }
+  }
 
   attr_accessible :content, :language, :name, :source
 

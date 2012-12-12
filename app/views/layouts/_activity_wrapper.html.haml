@@ -1,0 +1,14 @@
+.activity
+  .body
+    = timeago a.created_at
+    .title
+      - if a.owner
+        = link_to a.owner.name, a.owner
+      - else
+        someone
+      = content_for :action
+    .details
+      .avatar
+        - if a.owner
+          = image_tag a.owner.image, size: '30x30'
+      = yield

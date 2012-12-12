@@ -1,7 +1,7 @@
 class ActivitiesController < ApplicationController
   def index
     @user = User.find(params[:user_id])
-    @activities = @user.activities
+    @activities = @user.activities.order('created_at DESC')
 
     respond_to do |format|
       format.html

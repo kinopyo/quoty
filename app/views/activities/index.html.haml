@@ -5,4 +5,4 @@
 
 %ul.activities
   - @activities.each do |activity|
-    %li= render_activity(activity)
+    %li= render_activity(activity, layout: 'layouts/activity_wrapper')
