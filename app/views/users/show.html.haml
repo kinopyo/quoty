@@ -1,19 +1,28 @@
 .page-header
-  %h1 #{@user.name}'s posted quoties:
-  - if @user.quotes.present?
-    %ul#quotes= render @user.quotes
-  - else
-    %p No quotes posted yet.
+  %h1 #{@user.name}'s Page
 
-%p.pull-right
-  %i.icon-leaf
-  = link_to "#{@user.name}'s JSON feed url", user_url(@user, format: :json)
-.clearfix
+%ul.nav.nav-tabs
+  %li.active
+    %a{"data-toggle" => "tab", :href => "#activities"} Activities
+  %li
+    %a{"data-toggle" => "tab", :href => "#bookmarks"} Bookmarks
+  %li
+    %a{"data-toggle" => "tab", :href => "#posted_quotes"} Posted Quotes
 
-.bookmarks
-  %h2 #{@user.name}'s Bookmark
-  %ul.bookmark_list
-    - if @user.bookmarks.present?
-      = render @user.bookmarks
+.tab-content
+  #activities.tab-pane.active
+    %ul.activities
+      - @activities.each do |activity|
+        %li= render_activity(activity, layout: 'layouts/activity_wrapper')
+  #bookmarks.tab-pane
+    .bookmarks
+      %ul.bookmark_list
+        - if @user.bookmarks.present?
+          = render @user.bookmarks
+        - else
+          No bookmark yet.
+  #posted_quotes.tab-pane
+    - if @user.quotes.present?
+      %ul#quotes= render @user.quotes
     - else
-      No bookmark.
+      %p No quotes posted yet.

@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @activities = @user.activities.order('created_at DESC').limit(10)
 
     respond_to do |format|
       format.html
