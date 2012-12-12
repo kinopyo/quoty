@@ -12,8 +12,9 @@
           》
   .uploader
     Uploaded by #{link_to @quote.user.name, @quote.user}, #{time_ago_in_words(@quote.created_at)} ago.
-    In
-    = link_to @quote.language_in_its_own, language_path(@quote.language)
+    - if @quote.language
+      In
+      = link_to @quote.language_in_its_own, language_path(@quote.language)
 
 - if @quote.user == current_user
   .form-actions
