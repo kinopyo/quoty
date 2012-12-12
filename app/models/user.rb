@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   include PublicActivity::Model
   tracked skip_defaults: true
-  has_many :activities, class_name: 'PublicActivity::Activity', as: :owner
+  has_many :activities, class_name: 'PublicActivity::Activity', as: :owner, dependent: :destroy
 
   attr_accessible :name, :image, :email, :profile, :preference_attributes
 
