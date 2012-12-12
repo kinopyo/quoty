@@ -12,3 +12,11 @@
  *= require bootstrap_and_overrides
  *= require_tree .
  */
+
+abbr.timeago {
+  border: none;
+  cursor: default;
+  color: #BBB;
+  font-weight: normal;
+  font-size: 13px;
+}
