@@ -1,0 +1,32 @@
+.activities {
+  margin: 0;
+  width: 50%;
+
+  li {
+    list-style: none;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #d3ccb6;
+  }
+
+  blockquote {
+    margin: 20px 0;
+    font-size: 18px;
+    line-height: 25px;
+  }
+
+  .body {
+    overflow: hidden;
+  }
+
+  .avatar {
+    float: left;
+    margin-right: 20px;
+  }
+
+  .quote_content_link {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

@@ -23,3 +23,7 @@ en:
     submit:
       user:
         update: Save changes
+
+  activity:
+    quote:
+      create: "Posted a new quote."
