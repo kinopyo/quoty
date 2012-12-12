@@ -12,4 +12,4 @@
     .details
       = yield
     .timestamp
-      = timeago a.created_at
+      = timeago a.trackable.try(:created_at) || a.created_at
