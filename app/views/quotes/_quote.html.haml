@@ -2,7 +2,8 @@
   .score{id: "quote#{quote.id}_score"}
     = render "votes/score", quote: quote
   %blockquote
-    .quote_body= link_to quote.content, quote
+    .quote_body
+      = link_to simple_format(quote.content), quote
     .meta_info
       = quote.name
       - if quote.source?
