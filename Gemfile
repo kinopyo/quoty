@@ -18,6 +18,8 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 gem 'friendly_id',  '~> 4.0.1'
 
+gem 'exception_notification'
+
 # language detect
 gem 'cld'
 
