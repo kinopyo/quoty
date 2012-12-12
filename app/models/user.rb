@@ -1,8 +1,7 @@
 class User < ActiveRecord::Base
-  include PublicActivity::Activist
   include PublicActivity::Model
-  activist
   tracked skip_defaults: true
+  has_many :activities, class_name: 'PublicActivity::Activity', as: :owner
 
   attr_accessible :name, :image, :email, :profile, :preference_attributes
 
