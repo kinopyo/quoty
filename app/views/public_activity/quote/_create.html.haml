@@ -2,4 +2,7 @@
   posted a new
   = link_to_trackable a.trackable, a.trackable_type
 
-= p[:summary]
+- if a.trackable
+  = link_to a.trackable, class: 'quote_content_link' do
+    %blockquote= p[:summary]
+

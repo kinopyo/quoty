@@ -2,7 +2,7 @@
 class Quote < ActiveRecord::Base
   include PublicActivity::Model
   tracked owner: :user, only: [:create], params: {
-    summary: proc { |c, m| m.content }
+    summary: proc { |c, m| c.truncate(m.content, length: 100) }
   }
 
   attr_accessible :content, :language, :name, :source
