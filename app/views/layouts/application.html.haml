@@ -33,9 +33,23 @@
                     = current_user.name
                     %span.caret
                   %ul.dropdown-menu
-                    %li= link_to t('.my_page'), current_user
-                    %li= link_to t('.settings'), [:edit, current_user]
-                    %li= link_to t('.sign_out'), logout_path
+                    %li
+                      = link_to current_user do
+                        %i.icon-user
+                        = t('.my_page')
+                    %li
+                      = link_to user_activities_path(current_user) do
+                        %i.icon-rss
+                        = t('.activities')
+                    %li
+                      = link_to [:edit, current_user] do
+                        %i.icon-cog
+                        = t('.settings')
+                    %li.divider
+                    %li
+                      = link_to logout_path do
+                        %i.icon-signout
+                        = t('.sign_out')
               - else
                 %li= link_to "Sign in", login_path
             .pull-right
