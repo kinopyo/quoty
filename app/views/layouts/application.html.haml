@@ -58,7 +58,7 @@
                 = t('.new_quote')
 
     .container
-      = bootstrap_flash
+      .flash_message= bootstrap_flash
       = yield
     = render 'layouts/google_analytics'
     %footer.footer

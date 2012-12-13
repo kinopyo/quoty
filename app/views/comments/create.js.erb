@@ -1,0 +1,10 @@
+<% if @comment.valid? %>
+$('.comments').append('<%= j render(@comment) %>');
+$('.comment_form')[0].reset();
+$('#comment_content').attr('rows', 1);
+$('#comments_count').text('<%= pluralize(@quote.reload.comments_count, "comment") %>');
+$('.no_records').remove();
+Quoty.Util.alert('#new_comment', "<%= t('comments.create.success') %>");
+<% else %>
+Quoty.Util.alert('#new_comment', "<%= t('comments.create.failure') %>", 'error');
+<% end %>
