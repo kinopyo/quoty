@@ -1,3 +1,8 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+$ ->
+  # expand comment textbox when focused,
+  # restore it when blur and nothing is inputed
+  $('#comment_content')
+    .on 'focus', ->
+      $(this).attr('rows', 3)
+    .on 'blur', ->
+      $(this).attr('rows', 1) if $(this).val() == ''

@@ -8,7 +8,8 @@ class Quote < ActiveRecord::Base
   attr_accessible :content, :language, :name, :source
 
   belongs_to :user
-  has_many :votes
+  has_many :votes, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates :content, presence: true
 

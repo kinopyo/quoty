@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121211113220) do
+ActiveRecord::Schema.define(:version => 20121213071548) do
 
   create_table "activities", :force => true do |t|
     t.integer  "trackable_id"
@@ -35,6 +35,17 @@ ActiveRecord::Schema.define(:version => 20121211113220) do
 
   add_index "bookmarks", ["quote_id"], :name => "index_bookmarks_on_quote_id"
   add_index "bookmarks", ["user_id"], :name => "index_bookmarks_on_user_id"
+
+  create_table "comments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "quote_id"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "comments", ["quote_id"], :name => "index_comments_on_quote_id"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "identities", :force => true do |t|
     t.string   "name"
@@ -60,10 +71,11 @@ ActiveRecord::Schema.define(:version => 20121211113220) do
     t.string   "name"
     t.string   "source"
     t.string   "language"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.integer  "user_id"
-    t.integer  "score",      :default => 0
+    t.integer  "score",          :default => 0
+    t.integer  "comments_count", :default => 0
   end
 
   add_index "quotes", ["user_id"], :name => "index_quotes_on_user_id"

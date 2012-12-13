@@ -21,4 +21,18 @@
     = link_to 'Edit', edit_quote_path(@quote), :class => 'btn'
     = link_to 'Destroy', quote_path(@quote), :method => "delete", :data => { :confirm => 'Are you sure?' }, :class => 'btn btn-danger'
 = link_to 'Bookmark', bookmarks_path(quote_id: @quote.id), method: :post, id: dom_id(@quote, :bookmark), class: 'btn'
-= render 'disqus_thread'
+
+.comment_container
+  %h3= t('common.comment_header')
+  - if signed_in?
+    = render 'comments/form', quote: @quote
+  - else
+    To post a comment you need to #{link_to 'Login', login_path}.
+
+  %h4#comments_count
+    = pluralize(@quote.comments_count, 'comment')
+  %ul.comments
+    = render(@quote.comments)
+  - if @quote.comments_count == 0
+    .no_records
+      = t('.no_comment')
