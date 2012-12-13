@@ -1,0 +1,10 @@
+- single_content_for :action do
+  commented on a
+  = link_to_trackable a.trackable.quote, 'Quote'
+
+- if a.trackable
+  .comment_summary
+    %i.icon-comment-alt
+    = link_to a.trackable.quote, class: '' do
+      = p[:summary]
+
