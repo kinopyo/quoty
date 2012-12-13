@@ -60,7 +60,7 @@
     .container
       = bootstrap_flash
       = yield
-
+    = render 'layouts/google_analytics'
     %footer.footer
       .container
         %p= link_to 'About this site', about_path
