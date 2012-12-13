@@ -27,7 +27,7 @@ class Quote < ActiveRecord::Base
     case language
     when 'chinese' then '中文'
     when 'japanese' then '日本語'
-    when 'english' then 'English'
+    else language.capitalize
     end
   end
 end
