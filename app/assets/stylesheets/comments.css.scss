@@ -21,3 +21,14 @@
     margin-right: 20px;
   }
 }
+
+.comment_form {
+  .avatar,
+  #comment_submit {
+    position: absolute;
+  }
+
+  #comment_content {
+    margin-left: 40px;
+  }
+}
