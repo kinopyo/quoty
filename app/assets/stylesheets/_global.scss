@@ -4,3 +4,23 @@
   border-top: 1px solid #E5E5E5;
   background-color: whiteSmoke;
 }
+
+.no_records {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  opacity: .6;
+  line-height: 107px;
+  text-align: center;
+}
+
+abbr.timeago {
+  border: none;
+  cursor: default;
+  color: #BBB;
+  font-weight: normal;
+  font-size: 13px;
+}
+
+.no-margin {
+  margin: 0;
+}

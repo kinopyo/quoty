@@ -2,6 +2,9 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  quotes:
+    show:
+      no_comment: 'No one has commented yet.'
   bookmarks:
     create:
       success: 'Bookmarked!'
@@ -13,17 +16,31 @@ en:
       settings: 'Settings'
     update:
       success: 'Thanks, your settings have been saved.'
+  comments:
+    create:
+      success: 'Comment posted.'
+      failure: 'Please insert comment.'
   layouts:
     application:
       new_quote: 'New Quote'
       settings: 'Settings'
       sign_out: 'Sign out'
 
+  common:
+    comment_header: 'Comments'
+    posting: 'Posting...'
+
   helpers:
     submit:
       user:
         update: Save changes
+      comment:
+        create: 'Post'
 
   activity:
     quote:
       create: "Posted a new quote."
+
+  placeholders:
+    comment:
+      content: "What's on your mind?"

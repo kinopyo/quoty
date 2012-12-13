@@ -1,0 +1,8 @@
+%li.comment
+  .avatar
+    = user_avatar(comment.user, size: '60x60', class: 'img-circle')
+  .body
+    .title= link_to comment.user.name, comment.user
+    .content= comment.content
+  .timestamp
+    = timeago comment.created_at

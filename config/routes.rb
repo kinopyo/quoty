@@ -10,6 +10,8 @@ Quoty::Application.routes.draw do
   match '/language/:language', to: 'quotes#language', language: /[a-z]+/, as: :language
   resources :quotes do
     post 'vote', to: 'votes#vote'
+
+    resources :comments, only: [:new, :create]
   end
   resources :users, only: [:show, :edit, :update] do
     resources :activities, only: [:index]
