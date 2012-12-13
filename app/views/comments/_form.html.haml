@@ -1,0 +1,4 @@
+= simple_form_for [quote, Comment.new], html: { class: 'comment_form form-inline' } do |f|
+  = user_avatar(current_user, size: '30x30')
+  = f.input_field :content, rows: '1', class: 'span6', placeholder: t('placeholders.comment.content')
+  = f.button :submit, class: 'btn', id: 'comment_submit', data: { disable_with: t('common.posting') }

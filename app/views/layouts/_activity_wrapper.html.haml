@@ -1,7 +1,8 @@
 .activity.clearfix
   .avatar
     - if a.owner
-      = image_tag a.owner.image, size: '60x60', class: 'img-circle'
+      = user_avatar(a.owner, size: '60x60', class: 'img-circle')
+
   .body
     .title
       - if a.owner
