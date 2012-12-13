@@ -1,0 +1,18 @@
+-# TODO: refactor the 'like/dislike' type check on Vote
+- single_content_for :action do
+  - if a.trackable.score == 1
+    liked
+  - else
+    disliked
+  a
+  = link_to_trackable a.trackable.quote, 'Quote'
+
+- if a.trackable
+  .comment_summary
+    - if a.trackable.score == 1
+      %i.icon-thumbs-up
+    - else
+      %i.icon-thumbs-down
+    = link_to a.trackable.quote do
+      = p[:summary]
+
