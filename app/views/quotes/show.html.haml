@@ -29,12 +29,10 @@
   - else
     To post a comment you need to #{link_to 'Login', login_path}.
 
-  - if @quote.comments_count > 0
-    %h4
-      = pluralize(@quote.comments_count, 'comment')
-    %ul.comments
-      = render(@quote.comments)
-  - else
+  %h4#comments_count
+    = pluralize(@quote.comments_count, 'comment')
+  %ul.comments
+    = render(@quote.comments)
+  - if @quote.comments_count == 0
     .no_records
       = t('.no_comment')
-      asdf

@@ -12,10 +12,12 @@ class CommentsController < ApplicationController
     if @comment.save
       respond_to do |format|
         format.html { redirect_to @quote, notice: I18n.t('comments.create.success') }
+        format.js
       end
     else
       respond_to do |format|
         format.html { render :new }
+        format.js
       end
     end
   end

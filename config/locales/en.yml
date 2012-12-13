@@ -19,6 +19,7 @@ en:
   comments:
     create:
       success: 'Comment posted.'
+      failure: 'Please insert comment.'
   layouts:
     application:
       new_quote: 'New Quote'
@@ -42,4 +43,4 @@ en:
 
   placeholders:
     comment:
-      content: "What's your thought?"
+      content: "What's on your mind?"
