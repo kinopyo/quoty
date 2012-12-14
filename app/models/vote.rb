@@ -18,7 +18,7 @@ class Vote < ActiveRecord::Base
   private
 
   def update_score
-    quote.score = quote.votes.sum(score)
+    quote.score = quote.votes.sum(&:score)
     quote.save!
   end
 end
