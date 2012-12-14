@@ -21,5 +21,26 @@
       &.active.down { color: red; }
       i { font-size: 18px; }
     }
+
+    .popover {
+      width: 317px;
+    }
+    .popover-title {
+      display: none;
+    }
+    .suggestion_footer {
+      padding: 15px;
+      margin-bottom: 0;
+      background-color: whiteSmoke;
+      border-top: 1px solid #DDD;
+
+      .btn-primary {
+        margin-right: 10px;
+      }
+    }
+    .suggestion_comment {
+      text-align: left;
+      padding-bottom: 20px;
+    }
   }
 }
