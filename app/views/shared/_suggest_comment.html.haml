@@ -1,0 +1,9 @@
+.media
+  = link_to '#', class: 'pull-right' do
+    = image_tag 'onion_thinking.gif', size: '90x90', class: 'media-object'
+  .media-body
+    .suggestion_comment
+      = t('votes.suggest_post_comment_html')
+.suggestion_footer
+  = link_to 'Post a comment', quote_path(quote, anchor: 'quote_comments'), class: 'btn btn-primary'
+  = link_to 'Next time', '#', class: 'btn btn-small popover_close', data: { ajax_id: ajax_id }
