@@ -29,6 +29,9 @@ en:
   common:
     comment_header: 'Comments'
     posting: 'Posting...'
+    email: 'Email'
+    password: 'Password'
+    logging_in: 'Logging in...'
 
   helpers:
     submit:

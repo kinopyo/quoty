@@ -24,3 +24,17 @@ abbr.timeago {
 .no-margin {
   margin: 0;
 }
+
+#login_modal {
+  .login_message {
+    margin-bottom: 30px;
+  }
+
+  .modal-footer {
+    text-align: left;
+  }
+
+  .social_login_container {
+    border-right: 1px solid #EEE;
+  }
+}
