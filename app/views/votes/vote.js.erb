@@ -1,1 +1,7 @@
 $("#quote<%= @vote.quote.id %>_score").html("<%= j render "votes/score", quote: @vote.quote %>");
+<% if @vote.down_vote? && @vote.persisted? %>
+$('#<%= params[:ajax_id]%>').popover({title: '<%= image_tag "onion_thinking.gif", size: "30x30" %>', content: '<%= j render "shared/suggest_comment", quote: @quote, ajax_id: params[:ajax_id] %>', html: true, trigger: 'manual'}).popover('show');
+setTimeout(function() {
+  $('#<%= params[:ajax_id]%>').popover('hide');
+}, 10000);
+<% end %>

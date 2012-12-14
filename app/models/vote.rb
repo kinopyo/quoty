@@ -11,6 +11,10 @@ class Vote < ActiveRecord::Base
   after_create :update_score
   after_destroy :update_score
 
+  def down_vote?
+    score == -1
+  end
+
   private
 
   def update_score
