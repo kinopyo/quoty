@@ -1,4 +1,2 @@
-$('#<%= params[:ajax_id]%>').popover({title: '<%= message %>', content: '<%= j(link_to "Sign up or login", login_path(rt: request.fullpath)) %>', html: true, trigger: 'manual'}).popover('show');
-setTimeout(function() {
-  $('#<%= params[:ajax_id]%>').popover('hide');
-}, 6000);
+$('.modal_container').html('<%= j render "shared/require_login", message: message %>');
+$('#login_modal').modal();
