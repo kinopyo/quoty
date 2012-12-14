@@ -3,5 +3,5 @@ $ ->
 
   $("abbr.timeago").timeago()
 
-  $("a[data-remote]").each ->
+  $(document).delegate "a[data-remote]", 'ajax:before', (e) ->
     $(this).appendParam "ajax_id", @id
