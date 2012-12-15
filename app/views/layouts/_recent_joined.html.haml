@@ -1,0 +1,10 @@
+- User.recent.limit(9).each do |user|
+  - if User.order("created_at DESC")[0] == user
+    #most_recent_joined.media
+      = link_to '#', class: 'pull-left' do
+        = user_avatar(user, size: '48x48', class: 'img-rounded media-object', no_link: true)
+      .media-body
+        %h4.media-heading= user.name
+        Joined #{timeago(user.created_at)}
+  - else
+    = user_avatar(user, size: '32x32', link_options: { rel: "tooltip", title: "#{user.name}, joined #{time_ago_in_words(user.created_at)} ago" })
