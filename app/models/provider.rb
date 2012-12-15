@@ -2,7 +2,7 @@ class Provider < ActiveRecord::Base
   attr_accessible :provider, :uid, :image
 
   belongs_to :user
-  has_one :identity, conditions: "provider = 'identity'", dependent: :destroy
+  belongs_to :identity, dependent: :destroy, foreign_key: :uid
 
   validates_presence_of :uid, :provider
   validates_uniqueness_of :uid, scope: :provider
