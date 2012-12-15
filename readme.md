@@ -41,3 +41,8 @@ If you need twitter or facebook integration, you have to setup your own keys to 
 
 ## TODO ##
 https://www.pivotaltracker.com/projects/697543
+
+
+## License ##
+
+[MIT License](http://opensource.org/licenses/MIT). Copyright (c) 2012 Qihuan Piao
