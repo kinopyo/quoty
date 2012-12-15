@@ -38,3 +38,11 @@ abbr.timeago {
     border-right: 1px solid #EEE;
   }
 }
+
+#most_recent_joined {
+  margin-bottom: 20px;
+  .timeago {
+    font-size: 14px;
+    color: #333;
+  }
+}

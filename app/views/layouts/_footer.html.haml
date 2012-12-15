@@ -1,7 +1,7 @@
 %footer.footer
   .container
     .row-fluid
-      .span6
+      .span4
         %p= link_to 'About this site', about_path
         %p
           Designed and built by
@@ -9,6 +9,8 @@
         %p
           You can find the source code on
           = link_to 'Github', 'https://github.com/kinopyo/quoty'
-      .social_footer.span6
+      .recent_joined_footer.span4
+        = render 'layouts/recent_joined'
+      .social_footer.span4
         :plain
           <div class="fb-like" data-href="https://www.facebook.com/pages/Quoty/465845253461976" data-send="false" data-width="450" data-show-faces="true"></div>
