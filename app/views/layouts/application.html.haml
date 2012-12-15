@@ -63,13 +63,26 @@
     = render 'layouts/google_analytics'
     %footer.footer
       .container
-        %p= link_to 'About this site', about_path
-        %p
-          Designed and built by
-          = link_to '@kinopyo', 'https://twitter.com/fantasyday'
-        %p
-          You can find the source code on
-          = link_to 'Github', 'https://github.com/kinopyo/quoty'
+        .row-fluid
+          .span6
+            %p= link_to 'About this site', about_path
+            %p
+              Designed and built by
+              = link_to '@kinopyo', 'https://twitter.com/fantasyday'
+            %p
+              You can find the source code on
+              = link_to 'Github', 'https://github.com/kinopyo/quoty'
+          .span6
+            :plain
+              <div class="fb-like" data-href="https://www.facebook.com/pages/Quoty/465845253461976" data-send="false" data-width="450" data-show-faces="true"></div>
+              <div id="fb-root"></div>
+              <script>(function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=434760919921020";
+                fjs.parentNode.insertBefore(js, fjs);
+              }(document, 'script', 'facebook-jssdk'));</script>
     /
       Javascripts
       \==================================================
