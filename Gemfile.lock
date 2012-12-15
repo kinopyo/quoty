@@ -32,6 +32,10 @@ GEM
     arel (3.0.2)
     awesome_print (1.1.0)
     bcrypt-ruby (3.0.1)
+    better_errors (0.2.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.7.0)
+    binding_of_caller (0.6.8)
     builder (3.0.4)
     capybara (1.1.2)
       mime-types (>= 1.16)
@@ -262,6 +266,8 @@ PLATFORMS
 DEPENDENCIES
   awesome_print
   bcrypt-ruby (~> 3.0.0)
+  better_errors
+  binding_of_caller
   capybara
   capybara-webkit
   cld
