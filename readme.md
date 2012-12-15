@@ -59,8 +59,8 @@ I'll put your name into the contributors list ^_^
 
 ## Contributors ##
 
-- Designed and built by @kinopyo
-- First pull request sent by @gueorgui
+- Designed and built by [@kinopyo](https://github.com/kinopyo)
+- First pull request sent by [@gueorgui](https://github.com/gueorgui)
 
 ## License ##
 
