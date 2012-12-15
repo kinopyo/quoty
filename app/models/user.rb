@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   has_one :preference, class_name: 'UserPreference'
   accepts_nested_attributes_for :preference
 
+  scope :recent, -> { order("users.created_at DESC") }
+
   extend FriendlyId
   friendly_id :name, use: :slugged
 
