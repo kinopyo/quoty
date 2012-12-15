@@ -61,18 +61,8 @@
       .flash_message= bootstrap_flash
       = yield
     = render 'layouts/google_analytics'
-    %footer.footer
-      .container
-        %p= link_to 'About this site', about_path
-        %p
-          Designed and built by
-          = link_to '@kinopyo', 'https://twitter.com/fantasyday'
-        %p
-          You can find the source code on
-          = link_to 'Github', 'https://github.com/kinopyo/quoty'
-    /
-      Javascripts
-      \==================================================
-    / Placed at the end of the document so the pages load faster
+    = render 'layouts/footer'
+
     = javascript_include_tag "application"
+    = render 'layouts/footer_javascripts'
   .modal_container
