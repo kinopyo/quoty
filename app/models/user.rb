@@ -20,4 +20,9 @@ class User < ActiveRecord::Base
   def self.create_with_omniauth(info)
     create(name: info['name'], image: info['image'], email: info['email'])
   end
+
+  def email=(val)
+    self.email_md5 = Digest::MD5.hexdigest(val || "")
+    self[:email] = val
+  end
 end
