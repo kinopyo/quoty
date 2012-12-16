@@ -62,5 +62,6 @@ end
 
 group :production do
   gem 'pg'
-  gem 'exception_notification'
+  # use master branch for this issue: https://github.com/smartinez87/exception_notification/issues/103
+  gem 'exception_notification', git: 'git://github.com/smartinez87/exception_notification.git'
 end
