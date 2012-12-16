@@ -1,3 +1,10 @@
+.quote_body {
+  font-family: Lora, Georgia, 'Times New Roman', Times, serif;
+  a p {
+    color: #333;
+  }
+}
+
 #quote {
   .quote_body {
     margin: 40px 0;
