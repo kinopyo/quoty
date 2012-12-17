@@ -31,6 +31,7 @@ class SessionsController < ApplicationController
         # The provider we found had a user associated with it so let's
         # just log them in here
         self.current_user = @provider.user
+        current_user.update_info_from_omniauth!(auth['info']) unless @provider.provider == 'identity'
         redirect_to return_path, notice: 'Signed in!'
       else
         # No user associated with the provider so we need to create a new one
