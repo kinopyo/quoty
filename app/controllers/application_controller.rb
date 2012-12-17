@@ -42,7 +42,8 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale_and_language
-    logger.debug "* Accept-Language: #{request.env['HTTP_ACCEPT_LANGUAGE']}"
+    return unless request.env['HTTP_ACCEPT_LANGUAGE']
+
     language_short = extract_locale_from_accept_language_header
     I18n.locale = language_short
     language_full = case language_short
@@ -54,14 +55,10 @@ class ApplicationController < ActionController::Base
     if signed_in?
       if current_user.preference.try(:languages).blank?
         current_user.create_preference(languages: language_full)
-        logger.debug "* Language set to '#{language_full}' in UserPreference"
       end
     else
       cookies[:languages] = language_full if cookies[:languages].blank?
-      logger.debug "* Language set to '#{language_full}' in cookie"
     end
-
-    logger.debug "* Locale set to '#{I18n.locale}'"
   end
 
   def current_user_languages
