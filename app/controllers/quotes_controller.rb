@@ -16,6 +16,7 @@ class QuotesController < ApplicationController
   def create
     @quote = current_user.quotes.new(params[:quote])
     if @quote.save
+      flash[:track_pageview] = 'quote_created'
       redirect_to @quote, notice: 'created.'
     else
       render 'new'
