@@ -20,4 +20,17 @@ module ApplicationHelper
       "#{object_type.downcase}"
     end
   end
+
+  def bootstrap_flash_message
+    flash_messages = []
+    flash.each do |type, message|
+     next unless [:notice, :alert].include?(type)
+     type = :success if type == :notice
+     type = :error   if type == :alert
+     text = content_tag(:div, link_to("&times;".html_safe, "#", class: "close", "data-dismiss" => "alert") + message, class: "alert fade in alert-#{type}")
+     flash_messages << text if message
+    end
+
+    flash_messages.join("\n").html_safe
+  end
 end
