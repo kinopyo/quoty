@@ -45,6 +45,6 @@ class QuotesController < ApplicationController
   end
 
   def language
-    @quotes = Quote.where(language: params[:language])
+    @quotes = Quote.where(language: params[:language]).order('created_at DESC')
   end
 end
