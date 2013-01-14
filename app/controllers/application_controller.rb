@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   include ActionView::Helpers::TextHelper
 
   before_filter :set_locale_and_language
+  before_filter :enable_profiler_for_admin
 
   def current_user
     @current_user ||= User.find_by_id(session[:user_id])
@@ -73,5 +74,9 @@ class ApplicationController < ActionController::Base
 
   def extract_locale_from_accept_language_header
     request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
+  end
+
+  def enable_profiler_for_admin
+    Rack::MiniProfiler.authorize_request if current_user.try(:admin?)
   end
 end
