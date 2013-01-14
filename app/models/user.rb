@@ -37,4 +37,8 @@ class User < ActiveRecord::Base
         omniauth_info_updated_at: Time.now)
     end
   end
+
+  def admin?
+    is_admin
+  end
 end
