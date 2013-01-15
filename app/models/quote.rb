@@ -5,7 +5,7 @@ class Quote < ActiveRecord::Base
     summary: proc { |c, m| c.truncate(m.content, length: 100) }
   }
 
-  attr_accessible :content, :language, :name, :source
+  attr_accessible :content, :language, :name, :source, :context
 
   belongs_to :user
   has_many :votes, dependent: :destroy
