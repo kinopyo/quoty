@@ -122,6 +122,9 @@ GEM
     mime-types (1.19)
     multi_json (1.5.0)
     multipart-post (1.1.5)
+    net-sftp (2.0.5)
+      net-ssh (>= 2.0.9)
+    net-ssh (2.6.3)
     nokogiri (1.5.5)
     oauth (0.4.6)
     oauth2 (0.8.0)
@@ -289,6 +292,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   less-rails
+  net-sftp
   omniauth-facebook
   omniauth-identity
   omniauth-twitter

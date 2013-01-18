@@ -1,5 +1,12 @@
+require Rails.root.join 'lib/sitemap_generator/sftp_adapter'
+
 # Set the host name for URL creation
 SitemapGenerator::Sitemap.default_host = "http://quoty.me"
+SitemapGenerator::Sitemap.sitemaps_host = "http://cdn.kinopyo.com/"
+SitemapGenerator::Sitemap.public_path = 'tmp/'  # to make it work on Heroku
+SitemapGenerator::Sitemap.sitemaps_path = 'sitemaps/'
+SitemapGenerator::Sitemap.adapter = SitemapGenerator::SftpAdapter.new
+
 SitemapGenerator::Sitemap.create do
   add quotes_path, priority: 0.7, changefreq: 'daily'
 

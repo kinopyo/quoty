@@ -26,6 +26,7 @@ gem 'cld'
 gem 'redcarpet'
 
 gem 'sitemap_generator'
+gem 'net-sftp'
 
 # automatically link URLs for quote sources
 gem 'rails_autolink'
