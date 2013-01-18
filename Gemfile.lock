@@ -122,6 +122,9 @@ GEM
     mime-types (1.19)
     multi_json (1.5.0)
     multipart-post (1.1.5)
+    net-sftp (2.0.5)
+      net-ssh (>= 2.0.9)
+    net-ssh (2.6.3)
     nokogiri (1.5.5)
     oauth (0.4.6)
     oauth2 (0.8.0)
@@ -224,6 +227,8 @@ GEM
       actionpack (~> 3.0)
       activemodel (~> 3.0)
     simple_oauth (0.1.9)
+    sitemap_generator (3.4)
+      builder
     slop (3.3.3)
     sprockets (2.2.2)
       hike (~> 1.2)
@@ -287,6 +292,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   less-rails
+  net-sftp
   omniauth-facebook
   omniauth-identity
   omniauth-twitter
@@ -304,6 +310,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 3.2.3)
   simple_form
+  sitemap_generator
   sqlite3
   therubyracer
   thin
