@@ -2,7 +2,7 @@
   .score{id: "quote#{@quote.id}_score"}
     = render "votes/score", quote: @quote
   %blockquote
-    .quote_body= @quote.content
+    .quote_body= simple_format(@quote.content)
     .meta_info
       = @quote.name
       - if @quote.source?
