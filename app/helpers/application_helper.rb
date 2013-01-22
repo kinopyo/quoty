@@ -3,6 +3,18 @@ module ApplicationHelper
     content_for(:title, title)
   end
 
+  def description(description)
+    content_for(:description, description)
+  end
+
+  def stylesheet(*args)
+    content_for(:head) { stylesheet_link_tag(*args) }
+  end
+
+  def javascript(*args)
+    content_for(:head) { javascript_include_tag(*args) }
+  end
+
   # For generating time tags calculated using jquery.timeago
   def timeago(time, options = {})
     options[:class] ||= "timeago"
