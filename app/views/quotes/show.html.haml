@@ -1,3 +1,6 @@
+= title truncate(@quote.content, length: 70)
+= description "#{@quote.content} - #{@quote.name} #{@quote.source}"
+
 #quote.quote
   .score{id: "quote#{@quote.id}_score"}
     = render "votes/score", quote: @quote
