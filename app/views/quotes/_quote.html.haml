@@ -1,6 +1,4 @@
 %li.quote
-  .score{id: "quote#{quote.id}_score"}
-    = render "votes/score", quote: quote
   %blockquote
     .quote_body
       = link_to simple_format(quote.content), quote
@@ -11,3 +9,5 @@
           &mdash;《
           = auto_link(quote.source, html: { target: '_blank'}) { |text| truncate(text, length: 30) }
           》
+  .vote{id: dom_id(quote, :voting)}
+    = render "votes/score", quote: quote

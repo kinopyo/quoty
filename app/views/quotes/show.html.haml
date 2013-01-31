@@ -2,8 +2,6 @@
 = description "#{@quote.content} - #{@quote.name} #{@quote.source}"
 
 #quote.quote
-  .score{id: "quote#{@quote.id}_score"}
-    = render "votes/score", quote: @quote
   %blockquote
     .quote_body= simple_format(@quote.content)
     .meta_info
@@ -21,11 +19,13 @@
       In
       = link_to @quote.language_in_its_own, language_path(@quote.language)
 
+  .vote{id: dom_id(@quote, :voting)}
+    = render "votes/score", quote: @quote
+
 - if @quote.user == current_user
   .form-actions
     = link_to 'Edit', edit_quote_path(@quote), :class => 'btn'
     = link_to 'Destroy', quote_path(@quote), :method => "delete", :data => { :confirm => 'Are you sure?' }, :class => 'btn btn-danger'
-= link_to 'Bookmark', bookmarks_path(quote_id: @quote.id), method: :post, id: dom_id(@quote, :bookmark), class: 'btn'
 
 #quote_comments.comment_container
   %h3= t('common.comment_header')
