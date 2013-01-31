@@ -1,7 +1,6 @@
-.score_value= quote.score
+= link_to quote_vote_path(quote, score: 'up'), data: { toggle: "button" }, class: "btn up tip #{vote_class(:up, quote)}", remote: true, method: :post, id: dom_id(quote, :vote_up), title: 'Like' do
+  %i.icon-thumbs-up
+  Like
 
-= link_to quote_vote_path(quote, score: 'up'), class: "vote_link up #{vote_class(:up, quote)}", remote: true, method: :post, id: dom_id(quote, :vote_up) do
-  %i.icon-arrow-up
-
-= link_to quote_vote_path(quote, score: 'down'), class: "vote_link down #{vote_class(:down, quote)}", remote: true, method: :post, id: dom_id(quote, :vote_down) do
-  %i.icon-arrow-down
+= link_to quote_vote_path(quote, score: 'down'), data: { toggle: "button" }, class: "btn down tip #{vote_class(:down, quote)}", remote: true, method: :post, id: dom_id(quote, :vote_down), title: 'Dislike' do
+  %i.icon-thumbs-down
