@@ -20,7 +20,7 @@
       = link_to @quote.language_in_its_own, language_path(@quote.language)
 
   .vote{id: dom_id(@quote, :voting)}
-    = render "votes/score", quote: @quote
+    = render "votes/vote", quote: @quote
 
 - if @quote.user == current_user
   .form-actions

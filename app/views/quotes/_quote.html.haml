@@ -10,4 +10,4 @@
           = auto_link(quote.source, html: { target: '_blank'}) { |text| truncate(text, length: 30) }
           》
   .vote{id: dom_id(quote, :voting)}
-    = render "votes/score", quote: quote
+    = render "votes/vote", quote: quote
