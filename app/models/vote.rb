@@ -8,17 +8,7 @@ class Vote < ActiveRecord::Base
   belongs_to :user
   attr_accessible :score, :quote
 
-  after_create :update_score
-  after_destroy :update_score
-
   def down_vote?
     score == -1
-  end
-
-  private
-
-  def update_score
-    quote.score = quote.votes.sum(&:score)
-    quote.save!
   end
 end
