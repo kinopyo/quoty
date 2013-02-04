@@ -1,8 +1,13 @@
-= simple_form_for @quote, :html => { :class => 'form-horizontal' } do |f|
+= simple_nested_form_for @quote, html: { class: 'form-horizontal quote_form', multipart: true } do |f|
   = f.input :content, input_html: { class: 'span8', rows: 5 }, placeholder: 'Quotes & Words...'
   = f.input :name, placeholder: 'by whom'
   = f.input :source, placeholder: 'Book, Movie or any media'
   = f.input :context, placeholder: 'Under what context or circumstances...', input_html: { class: 'span8', rows: 2 }
+  .control-group
+    = f.label :photos
+    .controls
+      .row= f.simple_fields_for :photos
+      = f.link_to_add 'Add more ...', :photos, class: 'btn btn-small add_more_photos'
   .form-actions
-    = f.button :submit, :class => 'btn btn-primary'
+    = f.button :submit, class: 'btn btn-primary'
     = link_to 'Cancel', quotes_path, :class => 'btn'

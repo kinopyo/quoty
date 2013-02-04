@@ -1,0 +1,10 @@
+- if f.object.file?
+  .span4
+    .thumbnail
+      = image_tag f.object.file.thumb.url
+      .caption
+        = f.link_to_remove 'Remove', class: 'btn btn-danger'
+- else
+  .span8
+    = f.input_field :file
+    = f.hidden_field :file_cache

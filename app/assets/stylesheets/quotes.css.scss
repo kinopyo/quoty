@@ -13,6 +13,13 @@
     font-style: italic;
   }
 
+  .quote_photo {
+    img {
+      margin-bottom: 20px;
+      width: 100%;
+    }
+  }
+
   .meta_info {
     font-size: 18px;
     text-align: right;
@@ -57,5 +64,11 @@
     margin-top: 15px;
     font-size: 14px;
     text-align: right;
+  }
+}
+
+.quote_form {
+  .add_more_photos {
+    margin: 10px 0 0 10px;
   }
 }

@@ -11,6 +11,7 @@ class QuotesController < ApplicationController
 
   def new
     @quote = current_user.quotes.new
+    @quote.photos.build
   end
 
   def create
@@ -24,6 +25,7 @@ class QuotesController < ApplicationController
 
   def edit
     @quote = current_user.quotes.find(params[:id])
+    @quote.photos.build unless @quote.photos.exists?
   end
 
   def update

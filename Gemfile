@@ -5,6 +5,7 @@ gem 'rails', '3.2.11'
 gem 'thin'
 gem 'jquery-rails'
 gem 'simple_form'
+gem 'nested_form'
 
 gem 'twitter-bootstrap-rails', '~> 2.1.9'
 gem 'less-rails'
@@ -34,6 +35,9 @@ gem 'rails_autolink'
 gem 'public_activity'
 
 gem 'rack-mini-profiler'
+gem 'carrierwave'
+gem 'rmagick', '~> 2.13.2'
+gem 'fog'
 
 group :development do
   gem 'better_errors'
