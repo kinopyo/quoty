@@ -5,11 +5,13 @@ class Quote < ActiveRecord::Base
     summary: proc { |c, m| c.truncate(m.content, length: 100) }
   }
 
-  attr_accessible :content, :language, :name, :source, :context
+  attr_accessible :content, :language, :name, :source, :context, :photos_attributes
 
   belongs_to :user
   has_many :votes, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :photos, dependent: :destroy
+  accepts_nested_attributes_for :photos, allow_destroy: true, reject_if: :all_blank
 
   validates :content, presence: true
 

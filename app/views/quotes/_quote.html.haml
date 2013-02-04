@@ -2,6 +2,9 @@
   %blockquote
     .quote_body
       = link_to simple_format(quote.content), quote
+    - if quote.photos.exists?
+      .quote_photo
+        = image_tag quote.photos.first.file.thumb.url
     .meta_info
       = quote.name
       - if quote.source?

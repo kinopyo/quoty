@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130115144810) do
+ActiveRecord::Schema.define(:version => 20130204133221) do
 
   create_table "activities", :force => true do |t|
     t.integer   "trackable_id"
@@ -53,6 +53,13 @@ ActiveRecord::Schema.define(:version => 20130115144810) do
     t.string    "password_digest"
     t.timestamp "created_at",      :null => false
     t.timestamp "updated_at",      :null => false
+  end
+
+  create_table "photos", :force => true do |t|
+    t.string   "file"
+    t.integer  "quote_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "providers", :force => true do |t|
