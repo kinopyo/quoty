@@ -44,6 +44,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'awesome_print'
   gem 'quiet_assets'
+  gem 'rails-footnotes', '>= 3.7.9'
 end
 
 group :test, :development do
