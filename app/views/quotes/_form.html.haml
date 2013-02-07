@@ -3,6 +3,8 @@
   = f.input :name, placeholder: 'by whom'
   = f.input :source, placeholder: 'Book, Movie or any media'
   = f.input :context, placeholder: 'Under what context or circumstances...', input_html: { class: 'span8', rows: 2 }
+  - if @quote.persisted?
+    = f.input :language, as: :select, collection: %w(english japanese chinese), prompt: 'Select language'
   .control-group
     = f.label :photos
     .controls
