@@ -1,6 +1,6 @@
 %li.quote
   %blockquote
-    .quote_body
+    .quote_body{class: quote.language}
       = link_to simple_format(quote.content), quote
     - if quote.photos.exists?
       .quote_photo
