@@ -38,6 +38,7 @@ gem 'rack-mini-profiler'
 gem 'carrierwave'
 gem 'rmagick', '~> 2.13.2'
 gem 'fog'
+gem 'ancestry'
 
 group :development do
   gem 'better_errors'
