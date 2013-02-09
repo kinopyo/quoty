@@ -1,13 +1,13 @@
 Quoty::Application.routes.draw do
   # sessions
-  match '/auth/:provider/callback', to: 'sessions#create'
-  match '/auth/failure', to: 'sessions#failure'
-  match '/login', to: 'sessions#new'
-  match '/logout', to: 'sessions#destroy'
+  post '/auth/:provider/callback', to: 'sessions#create'
+  get '/auth/failure', to: 'sessions#failure'
+  get '/login', to: 'sessions#new'
+  get '/logout', to: 'sessions#destroy'
 
   get 'about', to: 'pages#about'
 
-  match '/language/:language', to: 'quotes#language', language: /[a-z]+/, as: :language
+  get '/language/:language', to: 'quotes#language', language: /[a-z]+/, as: :language
   resources :quotes do
     post 'vote', to: 'votes#vote'
 
