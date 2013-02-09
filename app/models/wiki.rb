@@ -1,6 +1,7 @@
 class Wiki < ActiveRecord::Base
-  attr_accessible :ancestry, :description, :title
+  has_ancestry
 
+  attr_accessible :description, :title, :parent_id
   belongs_to :user
 
   validates :title, presence: true
