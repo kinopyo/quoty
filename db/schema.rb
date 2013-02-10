@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130204133221) do
+ActiveRecord::Schema.define(:version => 20130210065735) do
 
   create_table "activities", :force => true do |t|
     t.integer   "trackable_id"
@@ -74,18 +74,22 @@ ActiveRecord::Schema.define(:version => 20130204133221) do
   add_index "providers", ["user_id"], :name => "index_identities_on_user_id"
 
   create_table "quotes", :force => true do |t|
-    t.text      "content"
-    t.string    "name"
-    t.string    "source"
-    t.string    "language"
-    t.timestamp "created_at",                    :null => false
-    t.timestamp "updated_at",                    :null => false
-    t.integer   "user_id"
-    t.integer   "score",          :default => 0
-    t.integer   "comments_count", :default => 0
-    t.text      "context"
+    t.text     "content"
+    t.string   "author"
+    t.string   "source"
+    t.string   "language"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.integer  "user_id"
+    t.integer  "score",          :default => 0
+    t.integer  "comments_count", :default => 0
+    t.text     "context"
+    t.integer  "source_wiki_id"
+    t.integer  "author_wiki_id"
   end
 
+  add_index "quotes", ["author_wiki_id"], :name => "index_quotes_on_author_wiki_id"
+  add_index "quotes", ["source_wiki_id"], :name => "index_quotes_on_source_wiki_id"
   add_index "quotes", ["user_id"], :name => "index_quotes_on_user_id"
 
   create_table "user_preferences", :force => true do |t|
@@ -120,5 +124,16 @@ ActiveRecord::Schema.define(:version => 20130204133221) do
     t.timestamp "created_at", :null => false
     t.timestamp "updated_at", :null => false
   end
+
+  create_table "wikis", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "ancestry"
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "wikis", ["ancestry"], :name => "index_wikis_on_ancestry"
 
 end

@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.autocomplete
 //= require_tree ../../../lib/assets/javascripts
 //= require jquery_nested_form
 //= require twitter/bootstrap
