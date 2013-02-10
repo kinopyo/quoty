@@ -1,7 +1,7 @@
 = title truncate(@quote.content, length: 70)
 = description "#{@quote.content} - #{@quote.author} #{@quote.source}"
 
-#quote.quote
+#quote.quote.well
   %blockquote
     .quote_body{class: @quote.language}
       = simple_format(@quote.content)
@@ -28,11 +28,11 @@
     = render "votes/vote", quote: @quote
 
 - if @quote.user == current_user
-  .form-actions
+  .form-actions.well
     = link_to 'Edit', edit_quote_path(@quote), :class => 'btn'
     = link_to 'Destroy', quote_path(@quote), :method => "delete", :data => { :confirm => 'Are you sure?' }, :class => 'btn btn-danger'
 
-#quote_comments.comment_container
+#quote_comments.comment_container.well
   %h3= t('common.comment_header')
   - if signed_in?
     = render 'comments/form', quote: @quote

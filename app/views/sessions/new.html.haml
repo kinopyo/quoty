@@ -1,19 +1,20 @@
-%ul.social-login
-  %li
-    = link_to '/auth/twitter', class: 'btn' do
-      %i.icon-twitter
-      Login with Twitter
-  %li
-    = link_to '/auth/facebook', class: 'btn' do
-      %i.icon-facebook
-      Login with Facebook
+.well
+  %ul.social-login
+    %li
+      = link_to '/auth/twitter', class: 'btn' do
+        %i.icon-twitter
+        Login with Twitter
+    %li
+      = link_to '/auth/facebook', class: 'btn' do
+        %i.icon-facebook
+        Login with Facebook
 
-%p
-  %strong Don't use these services?
-  = link_to 'Create an account', new_identity_path
-  or login below.
+  %p
+    %strong Don't use these services?
+    = link_to 'Create an account', new_identity_path
+    or login below.
 
-= form_tag "/auth/identity/callback", class: 'form-inline' do
-  = text_field_tag :auth_key, nil, placeholder: t('common.email')
-  = password_field_tag :password, nil, placeholder: t('common.password')
-  = submit_tag "Login", class: 'btn'
+  = form_tag "/auth/identity/callback", class: 'form-inline' do
+    = text_field_tag :auth_key, nil, placeholder: t('common.email')
+    = password_field_tag :password, nil, placeholder: t('common.password')
+    = submit_tag "Login", class: 'btn'

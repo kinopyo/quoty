@@ -1,8 +1,9 @@
 = title "#{@user.name}'s Activities"
 
-.page-header
-  %h1 #{@user.name}'s Activities
+.well
+  .page-header
+    %h1 #{@user.name}'s Activities
 
-%ul.activities
-  - @activities.each do |activity|
-    %li= render_activity(activity, layout: 'layouts/activity_wrapper')
+  %ul.activities
+    - @activities.each do |activity|
+      %li= render_activity(activity, layout: 'layouts/activity_wrapper')

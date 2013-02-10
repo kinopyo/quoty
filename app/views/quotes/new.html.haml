@@ -1,4 +1,5 @@
-- model_class = Quote
-.page-header
-  %h1=t '.title', :default => t('helpers.titles.new', :model => model_class.model_name.human, :default => "New #{model_class.model_name.human}")
-= render :partial => "form"
+.well
+  - model_class = Quote
+  .page-header
+    %h1 What would you like to share?
+  = render 'form'

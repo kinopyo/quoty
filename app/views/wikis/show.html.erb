@@ -10,11 +10,13 @@
       </ul>
     <% end %>
 
-    <div class="page-header">
-      <h1><%= @wiki.title %></h1>
-    </div>
+    <div class="well">
+      <div class="page-header">
+        <h1><%= @wiki.title %></h1>
+      </div>
 
-    <%= simple_format @wiki.description %>
+      <%= simple_format @wiki.description %>
+    </div>
 
     <% if current_user == @wiki.user %>
       <div class="form-actions">
@@ -25,7 +27,7 @@
 
     <% if @wiki.quotes.count > 0 %>
       <div class="quotes">
-        <h3>Quotes in <%= @wiki.title %></h3>
+        <h3 class='well'>Quotes in <%= @wiki.title %></h3>
         <ul id="quotes">
           <%= render @wiki.quotes %>
         </ul>
