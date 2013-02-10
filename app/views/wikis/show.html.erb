@@ -22,6 +22,15 @@
         <%= link_to 'Destroy', wiki_path(@wiki), method: "delete", data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
       </div>
     <% end %>
+
+    <% if @wiki.quotes.count > 0 %>
+      <div class="quotes">
+        <h3>Quotes in <%= @wiki.title %></h3>
+        <ul id="quotes">
+          <%= render @wiki.quotes %>
+        </ul>
+      </div>
+    <% end %>
   </div>
 
   <% if @wiki.is_root? && @wiki.has_children? %>
