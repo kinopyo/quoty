@@ -5,7 +5,10 @@
   %h3 A place where people can share and save the most touching and inspiring quotes or words, in a modern way.
 
 
-%ul#quotes= render @quotes
+%ul#quotes
+  = render @quotes
+
+.well= paginate @quotes, remote: true, :window => 2
 
 .well
-  = link_to 'Upload one?', new_quote_path, :class => 'btn btn-primary'
+  = link_to 'Upload one?', new_quote_path, class: 'btn btn-primary'

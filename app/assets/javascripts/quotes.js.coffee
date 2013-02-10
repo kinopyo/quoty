@@ -28,3 +28,11 @@ $ ->
             response([])
       select: (event, ui) ->
         $('#quote_' + $(this).data('wiki-field')).val(ui.item.id)
+
+  # if $('.pagination').length
+  #   $(window).scroll ->
+  #     url = $('.pagination .next_page a').attr('href')
+  #     if url && $(window).scrollTop() > $(document).height() - $(window).height() - 300
+  #       $('.pagination').text("Fetching more products...")
+  #       $.getScript(url)
+  #   $(window).scroll()
