@@ -13,7 +13,9 @@ Quoty::Application.routes.draw do
 
     resources :comments, only: [:new, :create]
   end
-  resources :wikis, path: 'wiki'
+  resources :wikis, path: 'wiki' do
+    get :search, on: :collection
+  end
 
   resources :users, only: [:show, :edit, :update] do
     resources :activities, only: [:index]

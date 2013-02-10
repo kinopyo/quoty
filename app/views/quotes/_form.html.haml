@@ -1,4 +1,4 @@
-= simple_nested_form_for @quote, html: { class: 'form-horizontal quote_form', multipart: true } do |f|
+= simple_nested_form_for @quote, html: { class: 'form-horizontal quote_form', multipart: true, autocomplete: 'off' } do |f|
   = f.input :content, input_html: { class: 'span8', rows: 5 }, placeholder: 'Quotes & Words...'
   = f.input :name, placeholder: 'by whom'
   = f.input :source, placeholder: 'Book, Movie or any media'

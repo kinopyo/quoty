@@ -1,5 +1,5 @@
 class WikisController < ApplicationController
-  before_filter :require_login, except: [:index, :show]
+  before_filter :require_login, except: [:index, :show, :search]
 
   def index
     @wikis = Wiki.order('created_at DESC')
@@ -42,5 +42,10 @@ class WikisController < ApplicationController
     if @wiki.destroy
       redirect_to wikis_path, notice: 'destroyed.'
     end
+  end
+
+  def search
+    @wikis = Wiki.where("title LIKE ?", "%#{params[:query]}%")
+    render json: @wikis.as_json(only: [:id, :title])
   end
 end
