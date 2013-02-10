@@ -5,6 +5,10 @@
   }
 }
 
+.quote blockquote {
+  margin-right: 20px;
+}
+
 #quote {
   .quote_body p{
     margin: 40px 0;
@@ -71,7 +75,7 @@
   }
 
   .meta_info {
-    margin-top: 15px;
+    margin-top: 25px;
     font-size: 14px;
     text-align: right;
   }
