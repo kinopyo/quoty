@@ -13,7 +13,7 @@ $ ->
       $('#comment_content').focus()
 
   if $('.quote_form').length > 0
-    $('#quote_source, #quote_name').autocomplete
+    $('#quote_source, #quote_author').autocomplete
       source: (request, response) ->
         $.ajax
           method: 'get'
@@ -27,4 +27,4 @@ $ ->
           error: (data) ->
             response([])
       select: (event, ui) ->
-        # $('#quote_source_wiki_id').val(ui.item.id)
+        $('#quote_' + $(this).data('wiki-field')).val(ui.item.id)
