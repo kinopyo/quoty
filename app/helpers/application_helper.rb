@@ -43,6 +43,8 @@ module ApplicationHelper
      flash_messages << text if message
     end
 
-    flash_messages.join("\n").html_safe
+    unless flash_messages.empty?
+      content_tag(:div, flash_messages.join("\n").html_safe, class: 'flash_message')
+    end
   end
 end

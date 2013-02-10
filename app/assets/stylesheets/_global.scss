@@ -46,3 +46,13 @@ abbr.timeago {
     color: #333;
   }
 }
+
+.flash_message {
+  display: none;
+  top: 40px;
+  position: absolute;
+  width: 400px;
+  left: 50%;
+  text-align: center;
+  margin-left: -200px;
+}
