@@ -1,0 +1,6 @@
+<div class="page-header">
+  <h2>Wiki pages</h2>
+  <% @wikis.each do |wiki| %>
+    <p><%= link_to wiki.title, wiki %></p>
+  <% end %>
+</div>

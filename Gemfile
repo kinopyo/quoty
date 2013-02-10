@@ -38,7 +38,8 @@ gem 'rack-mini-profiler'
 gem 'carrierwave'
 gem 'rmagick', '~> 2.13.2'
 gem 'fog'
-
+gem 'ancestry'
+gem 'jquery-ui-rails'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'

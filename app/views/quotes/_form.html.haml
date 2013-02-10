@@ -1,8 +1,12 @@
-= simple_nested_form_for @quote, html: { class: 'form-horizontal quote_form', multipart: true } do |f|
+= simple_nested_form_for @quote, html: { class: 'form-horizontal quote_form', multipart: true, autocomplete: 'off' } do |f|
   = f.input :content, input_html: { class: 'span8', rows: 5 }, placeholder: 'Quotes & Words...'
-  = f.input :name, placeholder: 'by whom'
-  = f.input :source, placeholder: 'Book, Movie or any media'
+  = f.input :author, placeholder: 'by whom', input_html: { data: { wiki_field: 'author_wiki_id' } }
+  = f.input :source, placeholder: 'Book, Movie or any media', input_html: { data: { wiki_field: 'source_wiki_id' } }
+  = f.input :author_wiki_id, as: :hidden
+  = f.input :source_wiki_id, as: :hidden
   = f.input :context, placeholder: 'Under what context or circumstances...', input_html: { class: 'span8', rows: 2 }
+  - if @quote.persisted?
+    = f.input :language, as: :select, collection: %w(english japanese chinese), prompt: 'Select language'
   .control-group
     = f.label :photos
     .controls
