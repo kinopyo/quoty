@@ -4,6 +4,7 @@ class Quote < ActiveRecord::Base
   tracked owner: :user, only: [:create], params: {
     summary: proc { |c, m| c.truncate(m.content, length: 100) }
   }
+  paginates_per 10
 
   attr_accessible :content, :language, :author, :source, :context, :photos_attributes, :author_wiki_id, :source_wiki_id
 

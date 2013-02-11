@@ -1,0 +1,6 @@
+$("#quotes").append("<%= j(render(@quotes)) %>");
+<% if @quotes.current_page < @quotes.num_pages %>
+  $('#more_results').replaceWith('<%= j render("more_results") %>');
+<% else %>
+  $('#more_results').remove();
+<% end %>
