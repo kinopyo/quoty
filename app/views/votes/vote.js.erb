@@ -1,4 +1,4 @@
-$("#<%= dom_id(@vote.quote, :voting) %>").html("<%= j render "votes/score", quote: @vote.quote %>");
+$("#<%= dom_id(@vote.quote, :voting) %>").html("<%= j render 'votes/vote', quote: @vote.quote %>");
 <% if @vote.down_vote? && @vote.persisted? %>
 $('#<%= params[:ajax_id]%>').popover({content: '<%= j render "shared/suggest_comment", quote: @quote, ajax_id: params[:ajax_id] %>', html: true, trigger: 'manual'}).popover('show');
 setTimeout(function() {
