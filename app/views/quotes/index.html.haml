@@ -8,7 +8,5 @@
 %ul#quotes
   = render @quotes
 
-.well= paginate @quotes, remote: true, :window => 2
-
 .well
-  = link_to 'Upload one?', new_quote_path, class: 'btn btn-primary'
+  = render 'more_results'

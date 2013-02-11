@@ -1,6 +1,6 @@
 $("#quotes").append("<%= j(render(@quotes)) %>");
 <% if @quotes.current_page < @quotes.num_pages %>
-  $('.pagination').replaceWith('<%= j paginate(@quotes, remote: true) %>');
+  $('#more_results').replaceWith('<%= j render("more_results") %>');
 <% else %>
-  $('.pagination').remove();
+  $('#more_results').remove();
 <% end %>
