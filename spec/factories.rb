@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :user do
-    name 'kinopyo'
+    name 'alice'
     email { "#{name}@example.com".downcase }
   end
 
@@ -11,5 +11,10 @@ FactoryGirl.define do
     name 'Quote author'
     source 'Quote source'
     user
+  end
+
+  factory :identity do
+    name 'alice'
+    password 'foobar'
   end
 end

@@ -52,4 +52,7 @@ RSpec.configure do |config|
   end
 
   config.include FactoryGirl::Syntax::Methods
+
+  config.include(MailerMacros)
+  config.before(:each) { reset_email }
 end

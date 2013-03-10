@@ -78,7 +78,7 @@ Quoty::Application.configure do
     :password       => ENV['SENDGRID_PASSWORD'],
     :domain         => 'heroku.com'
   }
-  config.action_mailer.default_url_options = { :host => 'quoty.me' }
+  config.action_mailer.default_url_options = { host: 'quoty.me' }
 
   config.middleware.use ExceptionNotifier,
                         email_prefix:         '[Quoty]',
