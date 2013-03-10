@@ -23,7 +23,14 @@ en:
     #   defaults:
     #     username: 'User name to sign in.'
     #     password: 'No special characters, please.'
+    labels:
+      defaults:
+        password_confirmation: 'Confirm Password'
+      reset_password:
+        email: 'Please input your email below.'
     hints:
       user:
         preference:
           languages: "You will only see the quotes in the language you've chosen."
+      reset_password:
+        email: "We'll email you a link to a page where you can easily create a new password."

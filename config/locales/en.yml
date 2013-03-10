@@ -16,6 +16,10 @@ en:
       settings: 'Settings'
     update:
       success: 'Thanks, your settings have been saved.'
+  reset_passwords:
+    create: 'Email sent with password reset instructions.'
+    expired: 'Password reset has expired.'
+    success: 'Password has been reset!'
   comments:
     create:
       success: 'Comment posted.'
@@ -49,3 +53,7 @@ en:
   placeholders:
     comment:
       content: "What's on your mind?"
+
+  reset_password_mailer:
+    send_mail:
+      subject: 'Reset Password'

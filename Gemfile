@@ -49,6 +49,7 @@ group :development do
   gem 'awesome_print'
   gem 'quiet_assets'
   gem 'rails-footnotes', '>= 3.7.9'
+  gem 'letter_opener'
 end
 
 group :test, :development do

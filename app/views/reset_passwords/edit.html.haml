@@ -1,0 +1,8 @@
+.well
+  .page-header
+    %h1 Reset your password
+
+  = simple_form_for @identity || :identity, url: reset_password_path(@user.reset_password_token), method: :put do |f|
+    = f.input :password, as: :password, label: 'New password'
+    = f.input :password_confirmation, as: :password
+    = f.submit 'Continue', class: 'btn btn-primary'

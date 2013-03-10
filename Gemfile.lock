@@ -133,6 +133,8 @@ GEM
     less-rails (2.3.2)
       actionpack (>= 3.1)
       less (~> 2.3.1)
+    letter_opener (1.1.0)
+      launchy (~> 2.2.0)
     libv8 (3.11.8.13)
     mail (2.4.4)
       i18n (>= 0.4.0)
@@ -311,6 +313,7 @@ DEPENDENCIES
   kaminari
   launchy
   less-rails
+  letter_opener
   nested_form
   net-sftp
   omniauth-facebook
