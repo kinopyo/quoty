@@ -1,6 +1,6 @@
 Quoty::Application.routes.draw do
   # sessions
-  post '/auth/:provider/callback', to: 'sessions#create'
+  match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   get '/auth/failure', to: 'sessions#failure'
   get '/login', to: 'sessions#new'
   get '/logout', to: 'sessions#destroy'
