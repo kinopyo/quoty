@@ -23,6 +23,7 @@ Quoty::Application.routes.draw do
   resources :bookmarks, only: [:create, :destroy]
 
   resources :identities, only: [:new]
+  resources :reset_passwords, only: [:new, :create, :edit, :update]
 
   root to: 'quotes#index'
 end
