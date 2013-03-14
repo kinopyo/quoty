@@ -30,7 +30,7 @@ $ ->
         $('#quote_' + $(this).data('wiki-field')).val(ui.item.id)
 
   if $('#more_results').length
-    $(this).click ->
+    $('#more_results').click ->
       url = $(this).attr('href')
       $(this).text("Fetching more contents...")
       $.getScript(url)
