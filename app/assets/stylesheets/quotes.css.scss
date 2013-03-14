@@ -51,7 +51,6 @@
   li {
     list-style-type: none;
     margin-bottom: 50px;
-    padding-bottom: 15px;
     border-bottom: 1px solid #ccc;
   }
 
@@ -62,6 +61,7 @@
       font-size: 24px;
       line-height: 35px;
       font-style: italic;
+      text-shadow: 0px 1px 1px rgb(197, 195, 195);
     }
 
     a:hover {
@@ -84,5 +84,39 @@
 .quote_form {
   .add_more_photos {
     margin: 10px 0 0 10px;
+  }
+}
+
+li.quote.well {
+  padding: 0;
+
+  .uploader {
+    padding: 10px 20px;
+    border-bottom: 1px solid #bababa;
+
+
+    .user_avatar {
+      margin-right: 10px;
+    }
+
+    .owner,
+    .user_link {
+      vertical-align: bottom;
+    }
+
+    .user_link {
+      font-size: 1.1em;
+    }
+  }
+
+  .contents {
+    padding: 20px;
+    background: url('bg.jpeg');
+  }
+
+  .actions {
+    background: #e4e4e4;
+    border-top: 1px solid #bababa;
+    padding: 10px 20px;
   }
 }

@@ -1,16 +1,23 @@
 %li.quote.well
-  %blockquote
-    .quote_body{class: quote.language}
-      = link_to simple_format(quote.content), quote
-    - if quote.photos.exists?
-      .quote_photo
-        = image_tag quote.photos.first.file.thumb.url
-    .meta_info
-      = quote.author
-      - if quote.source?
-        %cite
-          &mdash;《
-          = auto_link(quote.source, html: { target: '_blank'}) { |text| truncate(text, length: 30) }
-          》
-  .vote{id: dom_id(quote, :voting)}
-    = render "votes/vote", quote: quote
+  .uploader
+    = user_avatar(quote.user, size: '30x30', class: 'img-rounded user_avatar')
+    %span.owner
+      shared by
+      = link_to quote.user.name, quote.user, class: 'user_link'
+  .contents
+    %blockquote
+      .quote_body{class: quote.language}
+        = link_to simple_format(quote.content), quote
+      - if quote.photos.exists?
+        .quote_photo
+          = image_tag quote.photos.first.file.thumb.url
+      .meta_info
+        = quote.author
+        - if quote.source?
+          %cite
+            &mdash;《
+            = auto_link(quote.source, html: { target: '_blank'}) { |text| truncate(text, length: 30) }
+            》
+  .actions
+    .vote{id: dom_id(quote, :voting)}
+      = render "votes/vote", quote: quote
