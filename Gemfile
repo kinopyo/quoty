@@ -59,7 +59,7 @@ group :test, :development do
   gem 'pry-rails'
   gem 'pry-nav'
   gem 'factory_girl_rails'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '>= 2.13.0'
   gem 'capybara'
   gem 'capybara-webkit'
   gem 'launchy'
