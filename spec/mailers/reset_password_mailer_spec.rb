@@ -6,7 +6,7 @@ describe ResetPasswordMailer do
     let(:mail) { ResetPasswordMailer.send_mail(user) }
 
     it "renders the headers" do
-      mail.to.should == user.email
+      mail.to.should == [user.email]
     end
 
     it "renders the body" do
