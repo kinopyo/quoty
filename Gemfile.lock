@@ -142,6 +142,7 @@ GEM
       treetop (~> 1.4.8)
     method_source (0.8.1)
     mime-types (1.22)
+    mousetrap-rails (0.0.9)
     multi_json (1.7.2)
     multipart-post (1.2.0)
     nested_form (0.3.1)
@@ -314,6 +315,7 @@ DEPENDENCIES
   launchy
   less-rails
   letter_opener
+  mousetrap-rails
   nested_form
   net-sftp
   omniauth-facebook
