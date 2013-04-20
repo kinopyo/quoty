@@ -16,4 +16,5 @@
 //= require_tree ../../../lib/assets/javascripts
 //= require jquery_nested_form
 //= require twitter/bootstrap
+//= require mousetrap
 //= require_tree .

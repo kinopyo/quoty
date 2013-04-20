@@ -43,6 +43,8 @@ gem 'ancestry'
 gem 'jquery-ui-rails'
 gem 'kaminari'
 
+gem 'mousetrap-rails'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
