@@ -11,5 +11,6 @@
  *= require_self
  *= require jquery.ui.autocomplete
  *= require bootstrap_and_overrides
+ *= require mousetrap
  *= require_tree .
  */
