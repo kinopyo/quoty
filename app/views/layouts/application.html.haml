@@ -3,7 +3,7 @@
   %head
     %meta(charset="utf-8")
     %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
-    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
     %title= content_for?(:title) ? yield(:title) : "Quoty"
     = tag(:meta, name: 'description', content: content_for?(:description) ? yield(:description) : "A place where people can share and save the most touching and inspiring quotes or words, in a modern way.")
     = csrf_meta_tags
@@ -20,7 +20,7 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand(href="/") Quoty
+          %a.brand(href="/") Quoty.me
           .container.nav-collapse
             %ul.nav
               %li= link_to "English", language_path('english')
@@ -62,7 +62,7 @@
       = bootstrap_flash_message
       = yield
     = render 'layouts/google_analytics'
-    = render 'layouts/footer'
+    = render 'layouts/footer' unless mobile?
 
     = javascript_include_tag "application"
     = render 'layouts/footer_javascripts'

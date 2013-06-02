@@ -1,4 +1,0 @@
-#this code temporarily disables notes for all controllers
-# Footnotes::Filter.notes = []
-
-Footnotes::Filter.prefix = 'subl://open?url=file://%s&line=%d&column=%d'
