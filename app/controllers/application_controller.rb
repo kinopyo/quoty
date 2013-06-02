@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_locale_and_language
   before_filter :enable_profiler_for_admin
+  before_filter :set_browser_type
 
   def current_user
     @current_user ||= User.find_by_id(session[:user_id])
@@ -70,6 +71,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def set_browser_type
+    @browser_type = detect_browser
+  end
+
   private
 
   def extract_locale_from_accept_language_header
@@ -78,5 +83,17 @@ class ApplicationController < ActionController::Base
 
   def enable_profiler_for_admin
     Rack::MiniProfiler.authorize_request if current_user.try(:admin?)
+  end
+
+  MOBILE_BROWSERS = %w(playbook windows phone android ipod iphone opera mini blackberry palm hiptop avantgo plucker xiino blazer elaine windows ce; ppc; windows ce; smartphone; windows ce; iemobile up.browser up.link mmp symbian smartphone midp wap vodafone o2 pocket kindle mobile pda psp treo)
+
+  def detect_browser
+    agent = request.headers['HTTP_USER_AGENT'].downcase
+
+    MOBILE_BROWSERS.each do |m|
+      return 'mobile' if agent.match(m)
+    end
+
+    'desktop'
   end
 end
