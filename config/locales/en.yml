@@ -2,7 +2,11 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  global:
+    service_name: Quoty.me
   quotes:
+    index:
+      tagline: "A place where people can share and save the most touching and inspiring quotes or words, in a modern way."
     show:
       no_comment: 'No one has commented yet.'
   bookmarks:
