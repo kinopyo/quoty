@@ -1,0 +1,17 @@
+<footer class="footer">
+  <div class="container">
+    <div class="row-fluid">
+      <div class="span4">
+        <p><%= link_to 'About this site', about_path %></p>
+        <p>Designed and built by <%= link_to '@kinopyo', 'https://twitter.com/fantasyday' %></p>
+        <p>You can find the source code on<%= link_to 'Github', 'https://github.com/kinopyo/quoty' %></p>
+      </div>
+      <div class="span4 recent_joined_footer">
+        <%= render 'layouts/recent_joined' %>
+      </div>
+      <div class="span4 social_footer">
+        <div class="fb-like" data-href="https://www.facebook.com/pages/Quoty/465845253461976" data-send="false" data-width="<%= mobile?  ? '360' : '450' %>" data-show-faces="true"></div>
+      </div>
+    </div>
+  </div>
+</footer>
