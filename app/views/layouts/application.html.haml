@@ -62,7 +62,7 @@
       = bootstrap_flash_message
       = yield
     = render 'layouts/google_analytics'
-    = render 'layouts/footer'
+    = render 'layouts/footer' unless mobile?
 
     = javascript_include_tag "application"
     = render 'layouts/footer_javascripts'
