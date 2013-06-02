@@ -47,4 +47,8 @@ module ApplicationHelper
       content_tag(:div, flash_messages.join("\n").html_safe, class: 'flash_message')
     end
   end
+
+  def mobile?
+    @browser_type == 'mobile'
+  end
 end
