@@ -2,3 +2,6 @@
   %h1 #{@quotes.first.language_in_its_own} Quotes
 
 %ul#quotes= render @quotes
+
+.well
+  .paginate= paginate @quotes
