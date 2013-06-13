@@ -1,0 +1,60 @@
+ja:
+  global:
+    service_name: Quoty.me
+  quotes:
+    index:
+      tagline: "人々が最も感動的で励起する言葉を共有し保存する事ができます。"
+    show:
+      no_comment: 'コメントは、まだありません。'
+  bookmarks:
+    create:
+      success: 'ブックマークしました。'
+      failure: 'すでにブックマークしています。'
+    destroy:
+      done: 'ブックマークから引用を削除しました。'
+  users:
+    edit:
+      settings: '設定'
+    update:
+      success: '設定を保存しました。'
+  reset_passwords:
+    create: 'メールを送信しました。'
+    expired: '期限が切れています。'
+    success: 'パスワードがリセットされました！'
+  comments:
+    create:
+      success: 'コメントを投稿しました。'
+      failure: 'コメントを記入してください。'
+  votes:
+    suggest_post_comment_html: '<p>この投稿に関して、強い意見や考えをお持ちですか？</p><br><p>コメントをしてください。</p>'
+  layouts:
+    application:
+      new_quote: '新しい引用'
+      settings: '設定'
+      sign_out: 'サインアウト'
+
+  common:
+    comment_header: 'コメント'
+    posting: '投稿...'
+    email: 'メールアドレス'
+    password: 'パスワード'
+    logging_in: 'ログイン...'
+
+  helpers:
+    submit:
+      user:
+        update: 保存
+      comment:
+        create: '投稿'
+
+  activity:
+    quote:
+      create: "新しい引用を投稿する。"
+
+  placeholders:
+    comment:
+      content: "あなたの気持ちは？"
+
+  reset_password_mailer:
+    send_mail:
+      subject: 'パスワードをリセットする'
