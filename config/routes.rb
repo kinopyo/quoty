@@ -1,4 +1,11 @@
+require 'api_constraints'
+
 Quoty::Application.routes.draw do
+  namespace :api, defaults: { format: 'json' } do
+    scope module: :v1, constraints: ApiConstraints.new(version: 1, default: true) do
+      resources :quotes, only: [:index, :show, :language]
+    end
+  end
   # sessions
   match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   get '/auth/failure', to: 'sessions#failure'
