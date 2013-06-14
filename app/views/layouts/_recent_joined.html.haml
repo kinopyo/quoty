@@ -1,7 +1,7 @@
 - User.recent.limit(9).each do |user|
   - if User.order("created_at DESC")[0] == user
     #most_recent_joined.media
-      = link_to '#', class: 'pull-left' do
+      = link_to user, class: 'pull-left' do
         = user_avatar(user, size: '48x48', class: 'img-rounded media-object', no_link: true)
       .media-body
         %h4.media-heading= user.name
