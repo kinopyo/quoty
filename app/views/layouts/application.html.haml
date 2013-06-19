@@ -52,7 +52,7 @@
                         %i.icon-signout
                         = t('.sign_out')
               - else
-                %li= link_to "Sign in", login_path
+                %li= link_to t('global.login'), login_path
             .pull-right
               = link_to new_quote_path, class: 'btn btn-primary', data: { keybinding: '["c", "a"]' } do
                 %i.icon-pencil

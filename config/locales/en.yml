@@ -4,11 +4,28 @@
 en:
   global:
     service_name: Quoty.me
+    login: 'Login'
+    quote: 'Quote'
+  sessions:
+    new:
+      login_with_twitter: 'Login with Twitter'
+      login_with_facebook: 'Login with Facebook'
+      dont_use_these_services?: "Don't use these services?"
+      create_an_account: 'Create an account'
+      or_login_below: 'or login below.'
+      forget_your_password?: 'Forget your password?'
   quotes:
     index:
       tagline: "A place where people can share and save the most touching and inspiring quotes or words, in a modern way."
     show:
       no_comment: 'No one has commented yet.'
+      uploaded_by: 'Uploaded by %{user_name}, %{time} ago.'
+      in_language: 'In %{language}'
+      edit: 'Edit'
+      destroy: 'Destroy'
+      need_login: 'To post a comment you need to %{login_path}.'
+    quote:
+      shared_by: 'shared by %{user_name}'
   bookmarks:
     create:
       success: 'Bookmarked!'
@@ -16,6 +33,13 @@ en:
     destroy:
       done: 'Removed the quote from your bookmark lists.'
   users:
+    show:
+      activities: 'Activities'
+      bookmarks: 'Bookmarks'
+      posted_quotes: 'Posted Quotes'
+      users_page: "%{user_name}'s Page"
+      no_bookmark_yet: 'No bookmark yet.'
+      no_quotes_posted_yet: 'No quotes posted yet.'
     edit:
       settings: 'Settings'
     update:
@@ -30,9 +54,14 @@ en:
       failure: 'Please insert comment.'
   votes:
     suggest_post_comment_html: '<p>You must have strong opinion or thoughts about it.</p><br><p>Would you like to ...</p>'
+    vote:
+      like: 'Like'
+      dislike: 'Dislike'
   layouts:
     application:
       new_quote: 'New Quote'
+      my_page: 'My Page'
+      activities: 'Activities'
       settings: 'Settings'
       sign_out: 'Sign out'
 
@@ -54,6 +83,10 @@ en:
     quote:
       create: "Posted a new quote."
 
+  activities:
+    index:
+      activities_page: "%{user_name}'s Activities"
+
   placeholders:
     comment:
       content: "What's on your mind?"
@@ -61,3 +94,18 @@ en:
   reset_password_mailer:
     send_mail:
       subject: 'Reset Password'
+
+  public_activity:
+    comment:
+    quote:
+      posted_a_new: 'posted a new %{trackable_type}.'
+    user:
+      joined_quoty: 'joined Quoty.'
+    vote:
+      liked: 'liked a %{quote}'
+      disliked: 'disliked a %{quote}'
+
+  footer:
+    about_this_site: 'About this site'
+    designed_by: 'Designed and built by %{user_name}'
+    find_source_code_on: 'You can find the source code on %{github}'

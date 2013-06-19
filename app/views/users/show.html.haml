@@ -1,14 +1,14 @@
 .well
   .page-header
-    %h1 #{@user.name}'s Page
+    %h1= t('.users_page', user_name: @user.name)
 
   %ul.nav.nav-tabs
     %li.active
-      %a{"data-toggle" => "tab", :href => "#activities"} Activities
+      %a{"data-toggle" => "tab", :href => "#activities"}= t('.activities')
     %li
-      %a{"data-toggle" => "tab", :href => "#bookmarks"} Bookmarks
+      %a{"data-toggle" => "tab", :href => "#bookmarks"}= t('.bookmarks')
     %li
-      %a{"data-toggle" => "tab", :href => "#posted_quotes"} Posted Quotes
+      %a{"data-toggle" => "tab", :href => "#posted_quotes"}= t('.posted_quotes')
 
   .tab-content
     #activities.tab-pane.active
@@ -21,9 +21,9 @@
           - if @user.bookmarks.present?
             = render @user.bookmarks
           - else
-            No bookmark yet.
+            = t('.no_bookmark_yet')
     #posted_quotes.tab-pane
       - if @user.quotes.present?
         %ul#quotes= render @user.quotes
       - else
-        %p No quotes posted yet.
+        %p= t('.no_quotes_posted_yet')
