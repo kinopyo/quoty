@@ -1,11 +1,9 @@
 -# TODO: refactor the 'like/dislike' type check on Vote
 - single_content_for :action do
   - if a.trackable.score == 1
-    liked
+    = t('public_activity.vote.liked', quote: link_to_trackable(a.trackable.quote, t('global.quote'))).html_safe
   - else
-    disliked
-  a
-  = link_to_trackable a.trackable.quote, 'Quote'
+    = t('public_activity.vote.disliked', quote: link_to_trackable(a.trackable.quote, t('global.quote'))).html_safe
 
 - if a.trackable
   .comment_summary

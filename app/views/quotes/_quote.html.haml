@@ -2,8 +2,7 @@
   .uploader
     = user_avatar(quote.user, size: '30x30', class: 'img-rounded user_avatar')
     %span.owner
-      shared by
-      = link_to quote.user.name, quote.user, class: 'user_link'
+      = t('.shared_by', user_name: link_to(quote.user.name, quote.user, class: 'user_link')).html_safe
   .contents
     %blockquote
       .quote_body{class: quote.language}

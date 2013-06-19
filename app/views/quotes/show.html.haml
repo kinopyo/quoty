@@ -19,25 +19,24 @@
       = image_tag photo.file_url, class: 'img-polaroid', alt: 'quote photo'
 
   .uploader
-    Uploaded by #{link_to @quote.user.name, @quote.user}, #{time_ago_in_words(@quote.created_at)} ago.
+    = t('.uploaded_by', user_name: link_to(@quote.user.name, @quote.user), time: time_ago_in_words(@quote.created_at)).html_safe
     - if @quote.language
-      In
-      = link_to @quote.language_in_its_own, language_path(@quote.language)
+      = t('.in_language', language: link_to(@quote.language_in_its_own, language_path(@quote.language))).html_safe
 
   .vote{id: dom_id(@quote, :voting)}
     = render "votes/vote", quote: @quote
 
 - if @quote.user == current_user
   .form-actions.well
-    = link_to 'Edit', edit_quote_path(@quote), :class => 'btn'
-    = link_to 'Destroy', quote_path(@quote), :method => "delete", :data => { :confirm => 'Are you sure?' }, :class => 'btn btn-danger'
+    = link_to t('.edit'), edit_quote_path(@quote), :class => 'btn'
+    = link_to t('.destroy'), quote_path(@quote), :method => "delete", :data => { :confirm => 'Are you sure?' }, :class => 'btn btn-danger'
 
 #quote_comments.comment_container.well
   %h3= t('common.comment_header')
   - if signed_in?
     = render 'comments/form', quote: @quote
   - else
-    To post a comment you need to #{link_to 'Login', login_path}.
+    = t('.need_login', need_login: link_to(t('global.login'), login_path))
 
   %h4#comments_count
     = pluralize(@quote.comments_count, 'comment')

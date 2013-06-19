@@ -1,6 +1,5 @@
 - single_content_for :action do
-  posted a new
-  = link_to_trackable a.trackable, a.trackable_type
+  = t('public_activity.quote.posted_a_new', trackable_type: link_to_trackable(a.trackable, a.trackable_type)).html_safe
 
 - if a.trackable
   = link_to a.trackable, class: 'quote_content_link' do

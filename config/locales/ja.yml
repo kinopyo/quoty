@@ -1,11 +1,28 @@
 ja:
   global:
     service_name: Quoty.me
+    login: 'ログイン'
+    quote: '名言'
+  sessions:
+    new:
+      login_with_twitter: 'Twitterでログイン'
+      login_with_facebook: 'Facebookでログイン'
+      dont_use_these_services?: 'これらのサービスを使っていませんか？'
+      create_an_account: 'アカウントの作成'
+      or_login_below: 'かログインしてください。'
+      forget_your_password?: 'パスワードを忘れましたか？'
   quotes:
     index:
       tagline: "人々が最も感動的で励起する言葉を共有し保存する事ができます。"
     show:
       no_comment: 'コメントは、まだありません。'
+      uploaded_by: 'アップロード %{user_name}, %{time} 前'
+      in_language: '%{language}'
+      edit: '編集'
+      destroy: '削除'
+      need_login: 'コメントを書くには、ログインが必要です。'
+    quote:
+      shared_by: '%{user_name}さんがシェアしました。'
   bookmarks:
     create:
       success: 'ブックマークしました。'
@@ -13,6 +30,13 @@ ja:
     destroy:
       done: 'ブックマークから引用を削除しました。'
   users:
+    show:
+      activities: 'アクティビティ'
+      bookmarks: 'ブックマーク'
+      posted_quotes: '投稿'
+      users_page: '%{user_name}のページ'
+      no_bookmark_yet: 'ブックマークは、まだありません。'
+      no_quotes_posted_yet: 'ポストされた名言は、まだありません。'
     edit:
       settings: '設定'
     update:
@@ -27,9 +51,14 @@ ja:
       failure: 'コメントを記入してください。'
   votes:
     suggest_post_comment_html: '<p>この投稿に関して、強い意見や考えをお持ちですか？</p><br><p>コメントをしてください。</p>'
+    vote:
+      like: 'いいね'
+      dislike: 'よくないね'
   layouts:
     application:
       new_quote: '新しい引用'
+      my_page: 'MYページ'
+      activities: 'アクティビティ'
       settings: '設定'
       sign_out: 'サインアウト'
 
@@ -51,6 +80,10 @@ ja:
     quote:
       create: "新しい引用を投稿する。"
 
+  activities:
+    index:
+      activities_page: '%{user_name}のアクティビティ'
+
   placeholders:
     comment:
       content: "あなたの気持ちは？"
@@ -58,3 +91,18 @@ ja:
   reset_password_mailer:
     send_mail:
       subject: 'パスワードをリセットする'
+
+  public_activity:
+    comment:
+    quote:
+      posted_a_new: 'が %{trackable_type}を投稿しました。'
+    user:
+      joined_quoty: 'Quotyに参加しました。'
+    vote:
+      liked: 'が %{quote}に「いいね」をしました。'
+      disliked: 'が %{quote}に「よくないね」をしました。'
+
+  footer:
+    about_this_site: 'このサイトについて'
+    designed_by: '%{user_name}が開発しました。'
+    find_source_code_on: 'ソースコードは%{github}にあります。'
