@@ -36,7 +36,7 @@
   - if signed_in?
     = render 'comments/form', quote: @quote
   - else
-    = t('.need_login', need_login: link_to(t('global.login'), login_path))
+    = t '.need_login_html', login: link_to(t('global.login'), login_path)
 
   %h4#comments_count
     = pluralize(@quote.comments_count, 'comment')

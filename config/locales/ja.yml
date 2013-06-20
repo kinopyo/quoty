@@ -20,7 +20,7 @@ ja:
       in_language: '%{language}'
       edit: '編集'
       destroy: '削除'
-      need_login: 'コメントを書くには、ログインが必要です。'
+      need_login_html: 'コメントを書くには、%{login}が必要です。'
     quote:
       shared_by: '%{user_name}さんがシェアしました。'
   bookmarks:

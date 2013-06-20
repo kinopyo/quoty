@@ -23,7 +23,7 @@ en:
       in_language: 'In %{language}'
       edit: 'Edit'
       destroy: 'Destroy'
-      need_login: 'To post a comment you need to %{login_path}.'
+      need_login_html: 'To post a comment you need to %{login}.'
     quote:
       shared_by: 'shared by %{user_name}'
   bookmarks:
