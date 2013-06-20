@@ -2,7 +2,7 @@
 
 .well
   .page-header
-    %h1 #{@user.name}'s Activities
+    %h1= t('.activities_page', user_name: @user.name)
 
   %ul.activities
     - @activities.each do |activity|

@@ -2,9 +2,9 @@
   <div class="container">
     <div class="row-fluid">
       <div class="span4">
-        <p><%= link_to 'About this site', about_path %></p>
-        <p>Designed and built by <%= link_to '@kinopyo', 'https://twitter.com/fantasyday' %></p>
-        <p>You can find the source code on<%= link_to 'Github', 'https://github.com/kinopyo/quoty' %></p>
+        <p><%= link_to t('footer.about_this_site'), about_path %></p>
+        <p><%= t('footer.designed_by', user_name: link_to('@kinopyo', 'https://twitter.com/fantasyday')).html_safe %></p>
+        <p><%= t('footer.find_source_code_on', github: link_to('Github', 'https://github.com/kinopyo/quoty')).html_safe %></p>
       </div>
       <div class="span4 recent_joined_footer">
         <%= render 'layouts/recent_joined' %>
