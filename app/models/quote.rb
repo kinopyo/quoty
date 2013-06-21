@@ -2,7 +2,7 @@
 class Quote < ActiveRecord::Base
   include PublicActivity::Model
   tracked owner: :user, only: [:create], params: {
-    summary: proc { |c, m| c.truncate(m.content, length: 100) }
+    summary: proc { |c, m| c && c.truncate(m.content, length: 100) }
   }
   paginates_per 10
 

@@ -8,9 +8,10 @@ FactoryGirl.define do
 
   factory :quote do
     content 'Quote content'
-    name 'Quote author'
+    author 'Quote author'
     source 'Quote source'
-    user
+    context 'Quote context'
+    language 'english'
   end
 
   factory :identity do
