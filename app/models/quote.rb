@@ -24,7 +24,7 @@ class Quote < ActiveRecord::Base
   before_save :find_or_create_author_and_source_wiki
 
   def as_json(options = nil)
-    super(only: [:author, :content, :source])
+    super(only: [:author, :content, :source, :language, :context])
   end
 
   def language_in_its_own
