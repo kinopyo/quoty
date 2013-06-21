@@ -12,6 +12,7 @@ FactoryGirl.define do
     source 'Quote source'
     context 'Quote context'
     language 'english'
+    user
   end
 
   factory :identity do

@@ -1,5 +1,6 @@
 require 'spec_helper'
 
+include UsersHelper
 describe Api::V1::QuotesController do
   describe '#index' do
     it 'returns collection of quotes json' do
@@ -7,12 +8,7 @@ describe Api::V1::QuotesController do
       get :index, format: :json
 
       response.body.should be_json([
-        'id' => quote.id,
-        'content' => quote.content,
-        'author' => quote.author,
-        'source' => quote.source,
-        'language' => quote.language,
-        'context' => quote.context,
+        quote_json(quote)
       ])
     end
   end
@@ -23,13 +19,20 @@ describe Api::V1::QuotesController do
       get :show, id: quote.id, format: :json
 
       response.body.should be_json(
-        'id' => quote.id,
-        'content' => quote.content,
-        'author' => quote.author,
-        'source' => quote.source,
-        'language' => quote.language,
-        'context' => quote.context,
+        quote_json(quote)
       )
     end
+  end
+
+  def quote_json(quote)
+    {
+      'id' => quote.id,
+      'content' => quote.content,
+      'author' => quote.author,
+      'source' => quote.source,
+      'language' => quote.language,
+      'context' => quote.context,
+      'created_at' => quote.created_at.to_time.iso8601,
+    }
   end
 end
