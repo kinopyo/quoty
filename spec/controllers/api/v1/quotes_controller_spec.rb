@@ -36,6 +36,7 @@ describe Api::V1::QuotesController do
       'creator' => {
         'id' => quote.user.id,
         'name' => quote.user.name,
+        'avatar_url' => 'TODO',
       }
     }
   end
