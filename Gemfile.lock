@@ -22,6 +22,8 @@ GEM
       rack-cache (~> 1.2)
       rack-test (~> 0.6.1)
       sprockets (~> 2.2.1)
+    active_model_serializers (0.8.1)
+      activemodel (>= 3.0)
     activemodel (3.2.13)
       activesupport (= 3.2.13)
       builder (~> 3.0.0)
@@ -284,6 +286,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers
   ancestry
   awesome_print
   bcrypt-ruby (~> 3.0.0)
