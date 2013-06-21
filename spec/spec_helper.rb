@@ -6,6 +6,7 @@ require 'rspec/autorun'
 
 require 'capybara/rails'
 require 'capybara/webkit'
+require 'rspec/json_matcher'
 Capybara.javascript_driver = :webkit
 
 # Requires supporting ruby files with custom matchers and macros, etc,
@@ -51,8 +52,13 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
+  config.treat_symbols_as_metadata_keys_with_true_values = true
+  config.filter_run focus: true
+  config.run_all_when_everything_filtered = true
+
   config.include FactoryGirl::Syntax::Methods
 
   config.include(MailerMacros)
   config.before(:each) { reset_email }
+  config.include RSpec::JsonMatcher
 end

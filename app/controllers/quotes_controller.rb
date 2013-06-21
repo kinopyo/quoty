@@ -2,7 +2,7 @@ class QuotesController < ApplicationController
   before_filter :require_login, except: [:index, :show, :language]
 
   def index
-    @quotes = Quote.where(language: current_user_languages).order('created_at DESC').page(params[:page])
+    @quotes = Quote.where(language: current_user_languages).recent.page(params[:page])
   end
 
   def show
@@ -47,6 +47,6 @@ class QuotesController < ApplicationController
   end
 
   def language
-    @quotes = Quote.where(language: params[:language]).order('created_at DESC').page(params[:page])
+    @quotes = Quote.where(language: params[:language]).recent.page(params[:page])
   end
 end
