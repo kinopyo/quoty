@@ -2,7 +2,7 @@
 class Quote < ActiveRecord::Base
   include PublicActivity::Model
   tracked owner: :user, only: [:create], params: {
-    summary: proc { |c, m| c.truncate(m.content, length: 100) }
+    summary: proc { |c, m| c && c.truncate(m.content, length: 100) }
   }
   paginates_per 10
 
@@ -18,12 +18,10 @@ class Quote < ActiveRecord::Base
 
   validates :content, presence: true
 
+  scope :recent, -> { order('quotes.created_at DESC') }
+
   before_create :detect_and_set_language
   before_save :find_or_create_author_and_source_wiki
-
-  def as_json(options = nil)
-    super(only: [:author, :content, :source])
-  end
 
   def language_in_its_own
     case language
