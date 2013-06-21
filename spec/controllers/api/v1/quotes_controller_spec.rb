@@ -33,6 +33,10 @@ describe Api::V1::QuotesController do
       'language' => quote.language,
       'context' => quote.context,
       'created_at' => quote.created_at.to_time.iso8601,
+      'creator' => {
+        'id' => quote.user.id,
+        'name' => quote.user.name,
+      }
     }
   end
 end
