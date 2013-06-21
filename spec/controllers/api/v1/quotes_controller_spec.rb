@@ -7,6 +7,7 @@ describe Api::V1::QuotesController do
       get :index, format: :json
 
       response.body.should be_json([
+        'id' => quote.id,
         'content' => quote.content,
         'author' => quote.author,
         'source' => quote.source,
@@ -22,6 +23,7 @@ describe Api::V1::QuotesController do
       get :show, id: quote.id, format: :json
 
       response.body.should be_json(
+        'id' => quote.id,
         'content' => quote.content,
         'author' => quote.author,
         'source' => quote.source,
