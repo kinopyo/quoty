@@ -1,6 +1,5 @@
 require 'spec_helper'
 
-include UsersHelper
 describe Api::V1::QuotesController do
   describe '#index' do
     it 'returns collection of quotes json' do
