@@ -1,0 +1,17 @@
+<% cache 'recent_joined_users' do %>
+  <% users = User.recent.limit(9) %>
+  <% users.each do |user| %>
+    <% if user == users.first %>
+      <div id="most_recent_joined" class="media">
+        <%= link_to user, class: 'pull-left' do %>
+          <%= user_avatar(user, size: '48x48', class: 'img-rounded media-object', no_link: true) %>
+        <% end %>
+        <div class="media-body">
+          <h4 class="media-heading"><%= user.name %></h4>Joined <%= timeago(user.created_at) %>
+        </div>
+      </div>
+    <% else %>
+      <%= user_avatar(user, size: '32x32', link_options: { rel: "tooltip", title: "#{user.name}, joined #{time_ago_in_words(user.created_at)} ago" }) %>
+    <% end %>
+  <% end %>
+<% end %>
