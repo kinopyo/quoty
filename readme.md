@@ -60,7 +60,8 @@ I'll put your name into the contributors list ^_^
 ## Contributors ##
 
 - Designed and built by [@kinopyo](https://github.com/kinopyo)
-- First pull request sent by [@gueorgui](https://github.com/gueorgui)
+- First pull request by [@gueorgui](https://github.com/gueorgui), added voting feature.
+- Second pull request by [@dddaisuke](https://github.com/dddaisuke), translated to Japanese!
 
 ## License ##
 
