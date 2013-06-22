@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  cache_sweeper :user_sweeper, only: [:create]
+
   def new
   end
 
