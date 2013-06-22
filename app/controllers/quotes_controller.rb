@@ -2,7 +2,7 @@ class QuotesController < ApplicationController
   before_filter :require_login, except: [:index, :show, :language]
 
   def index
-    @quotes = Quote.where(language: current_user_languages).recent.page(params[:page])
+    @quotes = Quote.in(current_user_languages).recent.page(params[:page])
       .includes(:photos, :user)
   end
 

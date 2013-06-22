@@ -19,6 +19,7 @@ class Quote < ActiveRecord::Base
   validates :content, presence: true
 
   scope :recent, -> { order('quotes.created_at DESC') }
+  scope :in, ->(language) { where(language: language) }
 
   before_create :detect_and_set_language
   before_save :find_or_create_author_and_source_wiki
