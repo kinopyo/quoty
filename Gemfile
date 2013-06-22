@@ -23,6 +23,8 @@ gem 'friendly_id',  '~> 4.0.1'
 
 gem 'active_model_serializers'
 
+gem 'newrelic_rpm'
+
 # language detect
 gem 'cld'
 

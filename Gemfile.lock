@@ -150,6 +150,7 @@ GEM
     net-sftp (2.1.2)
       net-ssh (>= 2.6.5)
     net-ssh (2.6.7)
+    newrelic_rpm (3.6.4.122)
     nokogiri (1.5.9)
     oauth (0.4.7)
     oauth2 (0.8.1)
@@ -312,6 +313,7 @@ DEPENDENCIES
   mousetrap-rails
   nested_form
   net-sftp
+  newrelic_rpm
   omniauth-facebook
   omniauth-identity
   omniauth-twitter
