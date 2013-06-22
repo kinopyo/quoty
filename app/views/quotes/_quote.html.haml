@@ -7,7 +7,7 @@
     %blockquote
       .quote_body{class: quote.language}
         = link_to simple_format(quote.content), quote
-      - if quote.photos.exists?
+      - if quote.photos.present?
         .quote_photo
           = image_tag quote.photos.first.file.thumb.url
       .meta_info
