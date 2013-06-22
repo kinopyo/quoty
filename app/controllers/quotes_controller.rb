@@ -48,6 +48,7 @@ class QuotesController < ApplicationController
   end
 
   def language
-    @quotes = Quote.where(language: params[:language]).recent.page(params[:page])
+    @quotes = Quote.in(params[:language]).recent.page(params[:page])
+      .includes(:photos, :user, :votes)
   end
 end
