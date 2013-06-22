@@ -25,6 +25,10 @@ gem 'active_model_serializers'
 
 gem 'newrelic_rpm'
 
+# memcache
+gem 'dalli'
+gem 'memcachier'
+
 # language detect
 gem 'cld'
 
