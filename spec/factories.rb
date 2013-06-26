@@ -19,4 +19,8 @@ FactoryGirl.define do
     name 'alice'
     password 'foobar'
   end
+
+  factory :photo do
+    file { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'fixtures', 'rails.png')) }
+  end
 end
