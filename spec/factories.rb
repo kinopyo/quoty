@@ -13,10 +13,24 @@ FactoryGirl.define do
     context 'Quote context'
     language 'english'
     user
+
+    factory :quote_with_photos do
+      ignore do
+        photos_count 1
+      end
+
+      after(:create) do |quote, evaluator|
+        create_list(:photo, evaluator.photos_count, quote: quote)
+      end
+    end
   end
 
   factory :identity do
     name 'alice'
     password 'foobar'
+  end
+
+  factory :photo do
+    file { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'fixtures', 'rails.png')) }
   end
 end
