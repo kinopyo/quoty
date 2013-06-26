@@ -14,7 +14,7 @@ describe Api::V1::QuotesController do
 
   describe '#show' do
     it 'returns single quote json' do
-      quote = create(:quote)
+      quote = create(:quote_with_photos, photos_count: 2)
       get :show, id: quote.id, format: :json
 
       response.body.should be_json(
@@ -24,7 +24,7 @@ describe Api::V1::QuotesController do
   end
 
   def quote_json(quote)
-    {
+    json = {
       'id' => quote.id,
       'content' => quote.content,
       'author' => quote.author,
@@ -38,5 +38,15 @@ describe Api::V1::QuotesController do
         'avatar_url' => UserAvatarUrl.new(quote.user).url,
       }
     }
+
+    photos = quote.photos.map do |photo|
+      {
+        'id'        => photo.id,
+        'image_url' => photo.file_url,
+        'thumb_url' => photo.file.thumb.url
+      }
+    end
+
+    json.merge('images' => photos)
   end
 end
