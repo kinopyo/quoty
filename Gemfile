@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 ruby "2.0.0"
 
-gem 'rails', '3.2.13'
+gem 'rails', '4.0.0'
 
 gem 'thin'
 gem 'jquery-rails'
-gem 'simple_form'
+gem 'simple_form', '3.0.0.rc'
 gem 'nested_form'
 
 gem 'twitter-bootstrap-rails', '~> 2.1.9'
@@ -19,7 +19,8 @@ gem 'omniauth-facebook'
 gem 'omniauth-identity'
 gem 'bcrypt-ruby', '~> 3.0.0'
 
-gem 'friendly_id',  '~> 4.0.1'
+# have to specify github now
+gem 'friendly_id', '5.0.0.alpha1', github: 'FriendlyId/friendly_id'
 
 gem 'active_model_serializers'
 
@@ -79,14 +80,16 @@ group :test do
   gem 'rspec-json_matcher'
 end
 
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
-end
+gem 'sass-rails',   '~> 4.0.0'
+gem 'coffee-rails', '~> 4.0.0'
+gem 'uglifier', '>= 1.3.0'
 
 group :production, :staging do
   gem 'pg'
   # use master branch for this issue: https://github.com/smartinez87/exception_notification/issues/103
   gem 'exception_notification', git: 'git://github.com/smartinez87/exception_notification.git'
 end
+
+gem 'protected_attributes'
+# workaround for https://github.com/rails/rails-observers/issues/4
+gem 'rails-observers', github: 'kinopyo/rails-observers'
