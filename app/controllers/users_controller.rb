@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_filter :require_login, except: :show
 
   def show
-    @user = User.find(params[:id])
+    @user = User.friendly.find(params[:id])
     @activities = @user.activities.order('created_at DESC').limit(10)
 
     respond_to do |format|
