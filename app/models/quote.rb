@@ -14,7 +14,7 @@ class Quote < ActiveRecord::Base
   has_many :photos, dependent: :destroy
   belongs_to :author_wiki, class_name: 'Wiki', foreign_key: :author_wiki_id
   belongs_to :source_wiki, class_name: 'Wiki', foreign_key: :source_wiki_id
-  accepts_nested_attributes_for :photos, allow_destroy: true#, reject_if: :all_blank
+  accepts_nested_attributes_for :photos, allow_destroy: true, reject_if: :all_blank
 
   validates :content, presence: true
 
