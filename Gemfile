@@ -85,7 +85,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-group :production do
+group :production, :staging do
   gem 'pg'
   # use master branch for this issue: https://github.com/smartinez87/exception_notification/issues/103
   gem 'exception_notification', git: 'git://github.com/smartinez87/exception_notification.git'
