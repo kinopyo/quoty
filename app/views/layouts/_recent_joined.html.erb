@@ -1,4 +1,4 @@
-<% cache 'recent_joined_users' do %>
+<% cache recent_join_user_cache_key do %>
   <% users = User.recent.limit(9) %>
   <% users.each do |user| %>
     <% if user == users.first %>
