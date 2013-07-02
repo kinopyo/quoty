@@ -28,6 +28,7 @@ FactoryGirl.define do
   factory :identity do
     name 'alice'
     password 'foobar'
+    password_confirmation 'foobar'
   end
 
   factory :photo do

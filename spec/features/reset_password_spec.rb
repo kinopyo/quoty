@@ -33,7 +33,7 @@ describe 'ResetPassword' do
       fill_in 'identity_password', with: '1234567'
       fill_in 'identity_password_confirmation', with: '111111'
       click_button 'Continue'
-      page.should have_content("doesn't match confirmation")
+      page.should have_content("doesn't match Password")
       fill_in 'identity_password', with: '1234567'
       fill_in 'identity_password_confirmation', with: '1234567'
       click_button 'Continue'
