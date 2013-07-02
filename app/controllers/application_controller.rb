@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
   before_filter :enable_profiler_for_admin
   before_filter :set_browser_type
 
+  helper_method :current_user, :signed_in?
+
   def current_user
     @current_user ||= User.find_by_id(session[:user_id])
   end
@@ -17,7 +19,6 @@ class ApplicationController < ActionController::Base
   def signed_in?
     !!current_user
   end
-  helper_method :current_user, :signed_in?
 
   def current_user=(user)
     @current_user = user
