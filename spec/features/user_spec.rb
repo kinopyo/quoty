@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'User' do
-  it 'create an account and login', js: true do
+  it 'creates an account' do
     visit login_path
     click_link 'Create an account'
     fill_in 'identity_name', with: 'alice'
@@ -10,10 +10,16 @@ describe 'User' do
     fill_in 'identity_password_confirmation', with: '1234567'
     click_button 'Sign up'
     page.should have_content('Signed in')
+  end
 
-    click_link 'alice'
-    click_link 'Sign out'
-    click_link 'Sign in'
+  it 'logs in' do
+    # TODO move this to factory_girl
+    identity = Identity.create(name: 'alice', email: 'alice@example.com',
+        password: '1234567', password_confirmation: '1234567')
+    user = create(:user)
+    Provider.new.tap { |p| p.user = user; p.identity = identity; p.save }
+
+    visit login_path
     fill_in 'auth_key', with: 'alice@example.com'
     fill_in 'password', with: '1234567'
     click_button 'Login'
