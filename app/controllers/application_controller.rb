@@ -25,16 +25,16 @@ class ApplicationController < ActionController::Base
   end
 
   def require_login
-    unless signed_in?
-      respond_to do |format|
-        format.html do
-          session[:return_to] = request.path
-          redirect_to login_path, alert: 'You must be logged in to access this section.'
-        end
+    return if signed_in?
 
-        format.js { render template: 'shared/require_login', locals: { message: require_login_message } }
-        format.json { head :unauthorized }
+    respond_to do |format|
+      format.html do
+        session[:return_to] = request.path
+        redirect_to login_path, alert: 'You must be logged in to access this section.'
       end
+
+      format.js { render template: 'shared/require_login', locals: { message: require_login_message } }
+      format.json { head :unauthorized }
     end
   end
 
