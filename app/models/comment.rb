@@ -11,5 +11,5 @@ class Comment < ActiveRecord::Base
 
   validates_presence_of :content, :quote
 
-  scope :recent, order("created_at DESC")
+  scope :recent, -> { order("created_at DESC") }
 end
