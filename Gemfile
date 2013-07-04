@@ -88,7 +88,7 @@ gem 'exception_notification', '~> 4.0.0.rc1'
 
 group :production, :staging do
   gem 'pg'
-  # use master branch for this issue: https://github.com/smartinez87/exception_notification/issues/103
+  gem 'rails_12factor'  # heroku specific
 end
 
 gem 'protected_attributes'
