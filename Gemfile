@@ -88,8 +88,9 @@ gem 'exception_notification', '~> 4.0.0.rc1'
 
 group :production, :staging do
   gem 'pg'
-  gem 'rails_12factor'  # heroku specific
 end
+
+gem 'rails_12factor', group: :production  # heroku specific
 
 gem 'protected_attributes'
 # workaround for https://github.com/rails/rails-observers/issues/4
