@@ -1,4 +1,4 @@
-class ApplicationController < ActionController::Base
+ApplicationController.class_eval do
   prepend_before_filter :stub_current_user
 
   def stub_current_user
