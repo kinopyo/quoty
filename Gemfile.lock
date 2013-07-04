@@ -10,14 +10,6 @@ GIT
   specs:
     rails-observers (0.1.1)
 
-GIT
-  remote: git://github.com/smartinez87/exception_notification.git
-  revision: 327b38350f7c58829b173b4929189a0cd63aa337
-  specs:
-    exception_notification (4.0.0.rc1)
-      actionmailer (>= 3.0.4)
-      activesupport (>= 3.0.4)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -90,6 +82,9 @@ GEM
     diff-lcs (1.2.4)
     erubis (2.7.0)
     eventmachine (1.0.3)
+    exception_notification (4.0.0.rc1)
+      actionmailer (>= 3.0.4)
+      activesupport (>= 3.0.4)
     excon (0.6.6)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -313,7 +308,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   dalli
   database_cleaner
-  exception_notification!
+  exception_notification (~> 4.0.0.rc1)
   factory_girl_rails
   fog
   friendly_id (= 5.0.0.alpha1)!

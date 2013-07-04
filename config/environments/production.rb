@@ -82,10 +82,4 @@ Quoty::Application.configure do
     :domain         => 'heroku.com'
   }
   config.action_mailer.default_url_options = { host: 'quoty.me' }
-
-  config.middleware.use ExceptionNotifier,
-                        email_prefix:         '[Quoty]',
-                        sender_address:       "exception@quoty.me",
-                        exception_recipients: 'fantasyday@gmail.com'
-
 end

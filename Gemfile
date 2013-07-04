@@ -84,7 +84,7 @@ gem 'sass-rails',   '~> 4.0.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 
-gem 'exception_notification', git: 'git://github.com/smartinez87/exception_notification.git'
+gem 'exception_notification', '~> 4.0.0.rc1'
 
 group :production, :staging do
   gem 'pg'
