@@ -14,7 +14,7 @@ class WikisController < ApplicationController
   end
 
   def create
-    @wiki = current_user.wikis.new(params[:wiki])
+    @wiki = current_user.wikis.new(wiki_params)
     if @wiki.save
       redirect_to @wiki, notice: 'created.'
     else
@@ -29,7 +29,7 @@ class WikisController < ApplicationController
   def update
     @wiki = current_user.wikis.find(params[:id])
 
-    if @wiki.update_attributes(params[:wiki])
+    if @wiki.update_attributes(wiki_params)
       redirect_to @wiki, notice: 'updated.'
     else
       render 'edit'
@@ -47,5 +47,11 @@ class WikisController < ApplicationController
   def search
     @wikis = Wiki.where("title LIKE ?", "%#{params[:query]}%")
     render json: @wikis.as_json(only: [:id, :title])
+  end
+
+  private
+
+  def wiki_params
+    params.require(:wiki).permit(:title, :description, :parent_id)
   end
 end
