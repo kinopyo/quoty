@@ -6,4 +6,4 @@
   = f.simple_fields_for :preference do |preference_form|
     = preference_form.input :languages, as: :select, collection: %w(english japanese chinese), prompt: 'Select language'
   .form-actions
-    = f.button :submit, disable_with: 'Updating...', id: 'user_submit', class: 'btn btn-primary'
+    = f.button :submit, data: { disable_with: 'Updating...' }, id: 'user_submit', class: 'btn btn-primary'
