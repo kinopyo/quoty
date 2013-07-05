@@ -92,6 +92,5 @@ end
 
 gem 'rails_12factor', group: :production  # heroku specific
 
-gem 'protected_attributes'
 # workaround for https://github.com/rails/rails-observers/issues/4
 gem 'rails-observers', github: 'kinopyo/rails-observers'
