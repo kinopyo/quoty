@@ -42,7 +42,7 @@ gem 'net-sftp'
 # automatically link URLs for quote sources
 gem 'rails_autolink'
 
-gem 'public_activity'
+gem 'public_activity', github: 'pokonski/public_activity', branch: 'rails4'
 
 gem 'rack-mini-profiler'
 gem 'carrierwave'

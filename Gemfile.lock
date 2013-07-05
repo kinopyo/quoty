@@ -10,6 +10,16 @@ GIT
   specs:
     rails-observers (0.1.1)
 
+GIT
+  remote: git://github.com/pokonski/public_activity.git
+  revision: 3fa28064fd00e0896ad2016b6bb9290f27877e5f
+  branch: rails4
+  specs:
+    public_activity (1.1.0)
+      actionpack (>= 3.0.0.rc1)
+      i18n (>= 0.5.0)
+      railties (>= 3.0.0.rc1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -197,11 +207,6 @@ GEM
     pry-remote (0.1.7)
       pry (~> 0.9)
       slop (~> 3.0)
-    public_activity (0.5.4)
-      actionpack (>= 3.0.0)
-      activerecord (>= 3.0.0)
-      activesupport (>= 3.0.0)
-      i18n (>= 0.5.0)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
@@ -336,7 +341,7 @@ DEPENDENCIES
   pry-nav
   pry-rails
   pry-remote
-  public_activity
+  public_activity!
   quiet_assets
   rack-mini-profiler
   rails (= 4.0.0)
