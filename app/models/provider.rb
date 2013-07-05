@@ -1,6 +1,4 @@
 class Provider < ActiveRecord::Base
-  attr_accessible :provider, :uid, :image
-
   belongs_to :user
   belongs_to :identity, dependent: :destroy, foreign_key: :uid
 

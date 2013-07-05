@@ -18,10 +18,17 @@ class UsersController < ApplicationController
   def update
     @user = current_user
 
-    if @user.update_attributes(params[:user])
+    if @user.update_attributes(user_params)
       redirect_to @user, notice: t('users.update.success')
     else
       render :edit
     end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :image, :email, :profile,
+      preference_attributes: [:languages])
   end
 end

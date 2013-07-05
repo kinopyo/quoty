@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_many :activities, class_name: '::PublicActivity::Activity', as: :owner, dependent: :destroy
   has_many :wikis
 
-  attr_accessible :name, :image, :email, :profile, :preference_attributes, :omniauth_info_updated_at
+  # attr_accessible :name, :image, :email, :profile, :preference_attributes, :omniauth_info_updated_at
 
   has_many :providers, dependent: :destroy
   has_many :quotes
