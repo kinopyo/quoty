@@ -20,15 +20,20 @@ class ResetPasswordsController < ApplicationController
     else
       # TODO user.identity association
       @identity = Identity.find_by_email!(@user.email)
-      @identity.assign_attributes(params[:identity])
       # TODO maybe also reset token..?
 
-      if @identity.save
+      if @identity.update(identity_params)
         self.current_user = @user
         redirect_to root_path, notice: I18n.t('reset_passwords.success')
       else
         render :edit
       end
     end
+  end
+
+  private
+
+  def identity_params
+    params.require(:identity).permit(:password, :password_confirmation)
   end
 end
