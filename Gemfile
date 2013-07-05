@@ -42,7 +42,7 @@ gem 'net-sftp'
 # automatically link URLs for quote sources
 gem 'rails_autolink'
 
-gem 'public_activity'
+gem 'public_activity', github: 'pokonski/public_activity', branch: 'rails4'
 
 gem 'rack-mini-profiler'
 gem 'carrierwave'
@@ -92,6 +92,5 @@ end
 
 gem 'rails_12factor', group: :production  # heroku specific
 
-gem 'protected_attributes'
 # workaround for https://github.com/rails/rails-observers/issues/4
 gem 'rails-observers', github: 'kinopyo/rails-observers'

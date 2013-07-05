@@ -4,8 +4,6 @@ class Comment < ActiveRecord::Base
     summary: proc { |c, m| c.truncate(m.content, length: 30) }
   }
 
-  attr_accessible :content, :quote, :user
-
   belongs_to :quote, counter_cache: true
   belongs_to :user
 

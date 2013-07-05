@@ -7,7 +7,8 @@ class CommentsController < ApplicationController
 
   def create
     @quote = Quote.find(params[:quote_id])
-    @comment = @quote.comments.new(params[:comment].merge(user: current_user))
+    @comment = @quote.comments.new(comment_params)
+    @comment.user = current_user
 
     if @comment.save
       respond_to do |format|
@@ -20,5 +21,11 @@ class CommentsController < ApplicationController
         format.js
       end
     end
+  end
+
+  private
+
+  def comment_params
+    params.require(:comment).permit(:content)
   end
 end

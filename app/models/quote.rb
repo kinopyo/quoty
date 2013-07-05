@@ -6,8 +6,6 @@ class Quote < ActiveRecord::Base
   }
   paginates_per 10
 
-  attr_accessible :content, :language, :author, :source, :context, :photos_attributes, :author_wiki_id, :source_wiki_id
-
   belongs_to :user
   has_many :votes, dependent: :destroy
   has_many :comments, dependent: :destroy

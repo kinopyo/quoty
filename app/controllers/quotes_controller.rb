@@ -16,7 +16,7 @@ class QuotesController < ApplicationController
   end
 
   def create
-    @quote = current_user.quotes.new(params[:quote])
+    @quote = current_user.quotes.new(quote_params)
     if @quote.save
       redirect_to @quote, notice: 'Thanks for sharing!'
     else
@@ -32,7 +32,7 @@ class QuotesController < ApplicationController
   def update
     @quote = current_user.quotes.find(params[:id])
 
-    if @quote.update_attributes(params[:quote])
+    if @quote.update_attributes(quote_params)
       redirect_to @quote, notice: 'updated.'
     else
       render 'edit'
@@ -50,5 +50,13 @@ class QuotesController < ApplicationController
   def language
     @quotes = Quote.in(params[:language]).recent.page(params[:page])
       .includes(:photos, :user, :votes)
+  end
+
+  private
+
+  def quote_params
+    params.require(:quote).permit(:content, :language, :author, :source,
+      :context, :author_wiki_id, :source_wiki_id,
+      photos_attributes: [:file, :file_cache, :remove_file])
   end
 end

@@ -1,7 +1,6 @@
 class Wiki < ActiveRecord::Base
   has_ancestry
 
-  attr_accessible :description, :title, :parent_id
   belongs_to :user
   has_many :quotes, class_name: 'Quote', finder_sql: Proc.new {
     %Q{
