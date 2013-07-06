@@ -79,6 +79,7 @@ end
 group :test do
   gem 'rspec-json_matcher'
   gem 'simplecov', require: false
+  gem 'simplecov-rcov', require: false
 end
 
 gem 'sass-rails',   '~> 4.0.0'

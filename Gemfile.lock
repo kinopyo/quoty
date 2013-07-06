@@ -265,6 +265,8 @@ GEM
       multi_json (~> 1.0)
       simplecov-html (~> 0.7.1)
     simplecov-html (0.7.1)
+    simplecov-rcov (0.2.3)
+      simplecov (>= 0.4.1)
     sitemap_generator (4.1.0)
       builder
     slop (3.4.5)
@@ -359,6 +361,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.0)
   simple_form (= 3.0.0.rc)
   simplecov
+  simplecov-rcov
   sitemap_generator
   sqlite3
   therubyracer
