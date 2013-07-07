@@ -90,9 +90,9 @@ gem 'exception_notification', '~> 4.0.0.rc1'
 
 group :production, :staging do
   gem 'pg'
+  gem 'unicorn'
+  gem 'rails_12factor' # heroku specific
 end
-
-gem 'rails_12factor', group: :production  # heroku specific
 
 # workaround for https://github.com/rails/rails-observers/issues/4
 gem 'rails-observers', github: 'kinopyo/rails-observers'
