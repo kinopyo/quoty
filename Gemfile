@@ -90,6 +90,7 @@ gem 'exception_notification', '~> 4.0.0.rc1'
 
 group :production, :staging do
   gem 'pg'
+  gem 'unicorn'
 end
 
 gem 'rails_12factor', group: :production  # heroku specific
