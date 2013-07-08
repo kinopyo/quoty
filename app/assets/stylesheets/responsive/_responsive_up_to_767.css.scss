@@ -1,6 +1,15 @@
 @media (max-width: 767px) {
   body {
-    padding: 0 1em;
+    padding: 0;
+
+    .navbar.navbar-fixed-top {
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+
+    .container.main_content {
+      padding: 0 1em;
+    }
   }
 
   // make it smaller than desktop
