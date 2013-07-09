@@ -20,9 +20,9 @@ Oh I won't put any ads on it. Try to make it clean and simple. A peaceful place.
 
 ## Requirements ##
 
-- Rails 3.2+
-- Ruby 1.9.3+
-- RVM
+- Rails 4.0
+- Ruby 2.0
+- rvm or rbenv
 
 ## Installation ##
 
@@ -62,6 +62,7 @@ I'll put your name into the contributors list ^_^
 - Designed and built by [@kinopyo](https://github.com/kinopyo)
 - First pull request by [@gueorgui](https://github.com/gueorgui), added voting feature.
 - Second pull request by [@dddaisuke](https://github.com/dddaisuke), translated to Japanese!
+- Thrid pull request by [@tanukiti1987](https://github.com/tanukiti1987), fixed smart phone view style!
 
 ## License ##
 
