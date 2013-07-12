@@ -11,9 +11,10 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery.turbolinks
+//= require turbolinks
 //= require jquery_ujs
 //= require jquery.ui.autocomplete
-//= require turbolinks
 //= require_tree ../../../lib/assets/javascripts
 //= require jquery_nested_form
 //= require twitter/bootstrap/bootstrap-tooltip

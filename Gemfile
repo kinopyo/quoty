@@ -3,6 +3,7 @@ ruby "2.0.0"
 
 gem 'rails', '4.0.0'
 gem 'turbolinks'
+gem 'jquery-turbolinks'
 gem 'thin'
 gem 'jquery-rails'
 gem 'simple_form', '3.0.0.rc'
