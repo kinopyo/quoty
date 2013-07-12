@@ -11,6 +11,8 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery.turbolinks
+//= require turbolinks
 //= require jquery_ujs
 //= require jquery.ui.autocomplete
 //= require_tree ../../../lib/assets/javascripts
