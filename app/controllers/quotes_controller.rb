@@ -3,7 +3,7 @@ class QuotesController < ApplicationController
 
   def index
     @quotes = Quote.in(current_user_languages).recent.page(params[:page])
-      .includes(:photos, :user, :votes)
+      .includes(:photos, :user, :votes, :author)
   end
 
   def show
@@ -49,7 +49,7 @@ class QuotesController < ApplicationController
 
   def language
     @quotes = Quote.in(params[:language]).recent.page(params[:page])
-      .includes(:photos, :user, :votes)
+      .includes(:photos, :user, :votes, :author)
   end
 
   private
