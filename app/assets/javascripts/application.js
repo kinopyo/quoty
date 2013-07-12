@@ -17,5 +17,6 @@
 //= require jquery_nested_form
 //= require twitter/bootstrap/bootstrap-tooltip
 //= require twitter/bootstrap/bootstrap-popover
+//= require twitter/bootstrap/bootstrap-dropdown
 //= require mousetrap
 //= require_tree .
