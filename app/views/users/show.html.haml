@@ -4,11 +4,11 @@
 
   %ul.nav.nav-tabs
     %li.active
-      %a{"data-toggle" => "tab", :href => "#activities"}= t('.activities')
+      = link_to t('.activities'), '#activities', data: { toggle: :tab }
     %li
-      %a{"data-toggle" => "tab", :href => "#bookmarks"}= t('.bookmarks')
+      = link_to t('.bookmarks'), '#bookmarks', data: { toggle: :tab }
     %li
-      %a{"data-toggle" => "tab", :href => "#posted_quotes"}= t('.posted_quotes')
+      = link_to t('.posted_quotes'), '#posted_quotes', data: { toggle: :tab }
 
   .tab-content
     #activities.tab-pane.active
