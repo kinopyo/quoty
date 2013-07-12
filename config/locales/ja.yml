@@ -82,7 +82,7 @@ ja:
 
   activities:
     index:
-      activities_page: '%{user_name}のアクティビティ'
+      activities_page: '%{user_name}の最近のアクティビティ'
 
   placeholders:
     comment:
@@ -104,5 +104,6 @@ ja:
 
   footer:
     about_this_site: 'このサイトについて'
+    api_for_developers: '開発者向けのAPIについて'
     designed_by: '%{user_name}が開発しました。'
     find_source_code_on: 'ソースコードは%{github}にあります。'

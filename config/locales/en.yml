@@ -85,7 +85,7 @@ en:
 
   activities:
     index:
-      activities_page: "%{user_name}'s Activities"
+      activities_page: "%{user_name}'s Recent Activities"
 
   placeholders:
     comment:
@@ -107,5 +107,6 @@ en:
 
   footer:
     about_this_site: 'About this site'
+    api_for_developers: 'API for developers'
     designed_by: 'Designed and built by %{user_name}'
     find_source_code_on: 'You can find the source code on %{github}'
