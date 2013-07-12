@@ -1,5 +1,4 @@
-$ ->
-  $(document).delegate '.popover_close', 'click', (e) ->
-    e.preventDefault()
-    e.stopPropagation()
-    $("##{$(this).data('ajax-id')}").popover('destroy')
+$(document).on 'click', '.popover_close', (e) ->
+  e.preventDefault()
+  e.stopPropagation()
+  $("##{$(this).data('ajax-id')}").popover('destroy')
