@@ -109,4 +109,5 @@ en:
     about_this_site: 'About this site'
     api_for_developers: 'API for developers'
     designed_by: 'Designed and built by %{user_name}'
-    find_source_code_on: 'You can find the source code on %{github}'
+    source_code_on: 'Source code on %{github}'
+    feedback: 'Give us Feedback'
