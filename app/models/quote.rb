@@ -35,6 +35,17 @@ class Quote < ActiveRecord::Base
     !! (source =~ %r{(http|https)://})
   end
 
+  def author_name
+    author.try(:name)
+  end
+
+  def author_name=(name)
+    return if author_id_changed?
+
+    author = Author.find_or_create_author(name)
+    self.author_id = author.id
+  end
+
   private
 
   def detect_and_set_language
