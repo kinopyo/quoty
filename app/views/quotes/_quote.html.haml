@@ -11,7 +11,7 @@
         .quote_photo
           = image_tag quote.photos.first.file.thumb.url
       .meta_info
-        = quote.author.try(:name)
+        = quote.author_name
         - if quote.source?
           %cite
             &mdash;《
