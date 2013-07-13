@@ -11,7 +11,6 @@ class Quote < ActiveRecord::Base
   has_many :votes, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :photos, dependent: :destroy
-  belongs_to :author_wiki, class_name: 'Wiki', foreign_key: :author_wiki_id
   belongs_to :source_wiki, class_name: 'Wiki', foreign_key: :source_wiki_id
   accepts_nested_attributes_for :photos, allow_destroy: true, reject_if: :all_blank
 
@@ -56,7 +55,6 @@ class Quote < ActiveRecord::Base
   def find_or_create_author_and_source_wiki
     # do not create wiki for link
     return if source_is_link?
-    find_or_create_wiki(:author) if author_wiki_id.blank? && author_changed? && author.present?
     find_or_create_wiki(:source) if source_wiki_id.blank? && source_changed? && source.present?
   end
 

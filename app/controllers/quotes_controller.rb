@@ -55,8 +55,8 @@ class QuotesController < ApplicationController
   private
 
   def quote_params
-    params.require(:quote).permit(:content, :language, :author, :source,
-      :context, :author_wiki_id, :source_wiki_id,
+    params.require(:quote).permit(:content, :language, :author_name, :source,
+      :context, :author_id, :source_wiki_id,
       photos_attributes: [:file, :file_cache, :_destroy, :id])
   end
 end

@@ -29,6 +29,22 @@ $ ->
       select: (event, ui) ->
         $('#quote_' + $(this).data('wiki-field')).val(ui.item.id)
 
+    $('#quote_author_name').autocomplete
+      source: (request, response) ->
+        $.ajax
+          method: 'get'
+          url: '/authors/search'
+          data:
+            query: request.term
+          success: (data) ->
+            authors = []
+            authors.push {label: author.name, id: author.id} for author in data
+            response(authors)
+          error: (data) ->
+            response([])
+      select: (event, ui) ->
+        $('#quote_author_id').val(ui.item.id)
+
   if $('#more_results').length
     $('#more_results').click ->
       url = $(this).attr('href')
