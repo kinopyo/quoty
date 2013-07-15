@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130712155738) do
+ActiveRecord::Schema.define(version: 20130713030643) do
 
   create_table "activities", force: true do |t|
     t.integer   "trackable_id"
@@ -123,7 +123,6 @@ ActiveRecord::Schema.define(version: 20130712155738) do
 
   create_table "quotes", force: true do |t|
     t.text     "content"
-    t.string   "author"
     t.string   "source"
     t.string   "language"
     t.datetime "created_at",                 null: false
