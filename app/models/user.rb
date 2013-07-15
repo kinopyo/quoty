@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
 
   def update_info_from_omniauth!(info)
     if omniauth_info_updated_at.nil? || omniauth_info_updated_at > 1.week.ago
-      update_attributes!(image: info['image'],
+      update!(image: info['image'],
         profile: profile || info['description'],
         omniauth_info_updated_at: Time.now)
     end

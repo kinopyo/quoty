@@ -32,7 +32,7 @@ class QuotesController < ApplicationController
   def update
     @quote = current_user.quotes.find(params[:id])
 
-    if @quote.update_attributes(quote_params)
+    if @quote.update(quote_params)
       redirect_to @quote, notice: 'updated.'
     else
       render 'edit'

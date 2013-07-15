@@ -29,7 +29,7 @@ class WikisController < ApplicationController
   def update
     @wiki = current_user.wikis.find(params[:id])
 
-    if @wiki.update_attributes(wiki_params)
+    if @wiki.update(wiki_params)
       redirect_to @wiki, notice: 'updated.'
     else
       render 'edit'

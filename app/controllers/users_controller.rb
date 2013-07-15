@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user
 
-    if @user.update_attributes(user_params)
+    if @user.update(user_params)
       redirect_to @user, notice: t('users.update.success')
     else
       render :edit
