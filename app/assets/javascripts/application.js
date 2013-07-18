@@ -22,5 +22,6 @@
 //= require twitter/bootstrap/bootstrap-dropdown
 //= require twitter/bootstrap/bootstrap-modal
 //= require twitter/bootstrap/bootstrap-tab
+//= require twitter/bootstrap/bootstrap-collapse
 //= require mousetrap
 //= require_tree .
