@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130713030643) do
+ActiveRecord::Schema.define(version: 20130713030644) do
 
   create_table "activities", force: true do |t|
     t.integer   "trackable_id"
@@ -134,6 +134,7 @@ ActiveRecord::Schema.define(version: 20130713030643) do
     t.integer  "source_wiki_id"
     t.integer  "author_wiki_id"
     t.integer  "author_id"
+    t.string   "old_author"
   end
 
   add_index "quotes", ["author_id"], name: "index_quotes_on_author_id"
