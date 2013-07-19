@@ -55,6 +55,13 @@ class QuotesController < ApplicationController
   private
 
   def quote_params
+    # FIXME fix this shit
+    params[:quote].tap do |quote|
+      if quote[:author_id].blank? || (params[:action] == 'update' && @quote.author.try(:name) != quote[:author_name])
+        quote.delete(:author_id)
+      end
+    end
+
     params.require(:quote).permit(:content, :language, :author_name, :source,
       :context, :author_id, :source_wiki_id,
       photos_attributes: [:file, :file_cache, :_destroy, :id])

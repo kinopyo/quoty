@@ -12,6 +12,13 @@ describe Quote do
       expect(quote.author_id).to eq(author.id)
     end
 
+    it 'set author_id to nil if given author name is blank' do
+      quote = create(:quote, author_id: 0)
+      quote.author_name = ''
+
+      expect(quote.author_id).to be_nil
+    end
+
     it 'does nothing if author_id is already changed' do
       quote = Quote.new
       quote.author_id = 1

@@ -41,8 +41,12 @@ class Quote < ActiveRecord::Base
   def author_name=(name)
     return if author_id_changed?
 
-    author = Author.find_or_create_author(name)
-    self.author_id = author.id
+    if name.present?
+      author = Author.find_or_create_author(name)
+      self.author_id = author.id
+    else
+      self.author_id = nil
+    end
   end
 
   private

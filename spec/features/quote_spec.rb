@@ -12,4 +12,13 @@ describe 'Quote' do
     page.should have_content('the author')
     page.should have_content('book')
   end
+
+  it 'user edits a quote' do
+    quote = create(:quote)
+    login(quote.user)
+    visit edit_quote_path(quote)
+    fill_in 'quote_author_name', with: 'new author'
+    click_button 'Update'
+    page.should have_content('new author')
+  end
 end
