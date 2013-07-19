@@ -7,10 +7,10 @@ class Quote < ActiveRecord::Base
   paginates_per 10
 
   belongs_to :user
+  belongs_to :author, counter_cache: true
   has_many :votes, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :photos, dependent: :destroy
-  belongs_to :author_wiki, class_name: 'Wiki', foreign_key: :author_wiki_id
   belongs_to :source_wiki, class_name: 'Wiki', foreign_key: :source_wiki_id
   accepts_nested_attributes_for :photos, allow_destroy: true, reject_if: :all_blank
 
@@ -34,6 +34,21 @@ class Quote < ActiveRecord::Base
     !! (source =~ %r{(http|https)://})
   end
 
+  def author_name
+    author.try(:name)
+  end
+
+  def author_name=(name)
+    return if author_id_changed?
+
+    if name.present?
+      author = Author.find_or_create_author(name)
+      self.author_id = author.id
+    else
+      self.author_id = nil
+    end
+  end
+
   private
 
   def detect_and_set_language
@@ -44,7 +59,6 @@ class Quote < ActiveRecord::Base
   def find_or_create_author_and_source_wiki
     # do not create wiki for link
     return if source_is_link?
-    find_or_create_wiki(:author) if author_wiki_id.blank? && author_changed? && author.present?
     find_or_create_wiki(:source) if source_wiki_id.blank? && source_changed? && source.present?
   end
 

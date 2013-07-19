@@ -8,7 +8,7 @@ FactoryGirl.define do
 
   factory :quote do
     content 'Quote content'
-    author 'Quote author'
+    author
     source 'Quote source'
     context 'Quote context'
     language 'english'
@@ -23,6 +23,10 @@ FactoryGirl.define do
         create_list(:photo, evaluator.photos_count, quote: quote)
       end
     end
+  end
+
+  factory :author do
+    name 'kinopyo'
   end
 
   factory :identity do

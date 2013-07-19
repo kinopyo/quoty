@@ -1,12 +1,12 @@
 = title truncate(@quote.content, length: 70)
-= description "#{@quote.content} - #{@quote.author} #{@quote.source}"
+= description "#{@quote.content} - #{@quote.author_name} #{@quote.source}"
 
 #quote.quote.well
   %blockquote
     .quote_body{class: @quote.language}
       = simple_format(@quote.content)
     .meta_info
-      = @quote.author
+      = link_to @quote.author_name, @quote.author if @quote.author
       - if @quote.source?
         %cite
           &mdash;《

@@ -3,7 +3,7 @@ class QuotesController < ApplicationController
 
   def index
     @quotes = Quote.in(current_user_languages).recent.page(params[:page])
-      .includes(:photos, :user, :votes)
+      .includes(:photos, :user, :votes, :author)
   end
 
   def show
@@ -49,14 +49,21 @@ class QuotesController < ApplicationController
 
   def language
     @quotes = Quote.in(params[:language]).recent.page(params[:page])
-      .includes(:photos, :user, :votes)
+      .includes(:photos, :user, :votes, :author)
   end
 
   private
 
   def quote_params
-    params.require(:quote).permit(:content, :language, :author, :source,
-      :context, :author_wiki_id, :source_wiki_id,
+    # FIXME fix this shit
+    params[:quote].tap do |quote|
+      if quote[:author_id].blank? || (params[:action] == 'update' && @quote.author.try(:name) != quote[:author_name])
+        quote.delete(:author_id)
+      end
+    end
+
+    params.require(:quote).permit(:content, :language, :author_name, :source,
+      :context, :author_id, :source_wiki_id,
       photos_attributes: [:file, :file_cache, :_destroy, :id])
   end
 end

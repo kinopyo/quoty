@@ -28,7 +28,7 @@ describe Api::V1::QuotesController do
     json = {
       'id' => quote.id,
       'content' => quote.content,
-      'author' => quote.author,
+      'author' => quote.author_name,
       'source' => quote.source,
       'language' => quote.language,
       'context' => quote.context,

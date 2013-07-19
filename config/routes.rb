@@ -27,6 +27,9 @@ Quoty::Application.routes.draw do
   resources :users, only: [:show, :edit, :update] do
     resources :activities, only: [:index]
   end
+  resources :authors, only: [:show] do
+    get :search, on: :collection
+  end
   resources :bookmarks, only: [:create, :destroy]
 
   resources :identities, only: [:new]

@@ -1,0 +1,9 @@
+<%= title "#{@author.name}'s Quotes" %>
+
+<div class="page-header well">
+  <h1><%= @author.name %>'s Quotes</h1>
+</div>
+
+<ul id="quotes">
+  <%= render @author.quotes %>
+</ul>
