@@ -25,6 +25,10 @@ SitemapGenerator::Sitemap.create do
     add user_path(user)
   end
 
+  Author.find_each do |author|
+    add author_path(author), lastmod: author.updated_at
+  end
+
   # static pages
   add '/about'
 end

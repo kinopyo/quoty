@@ -11,7 +11,7 @@
         .quote_photo
           = image_tag quote.photos.first.file.thumb.url
       .meta_info
-        = quote.author
+        = link_to quote.author_name, quote.author if quote.author
         - if quote.source?
           %cite
             &mdash;《
