@@ -23,15 +23,11 @@
 }
 
 .comment_form {
-  .avatar,
   #comment_submit {
-    position: absolute;
-  }
-
-  #comment_content {
-    margin-left: 40px;
+    vertical-align: top;
   }
 }
+
 .comment_summary {
   margin: 20px 0;
   font-size: 14px;
