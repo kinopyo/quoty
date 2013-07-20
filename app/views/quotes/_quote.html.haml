@@ -19,4 +19,6 @@
             》
   .actions
     .vote{id: dom_id(quote, :voting)}
-      = render "votes/vote", quote: quote
+      - vote = quote.votes.select {|v| v.user == current_user}.first
+      - cache_if vote, vote do
+        = render "votes/vote", quote: quote

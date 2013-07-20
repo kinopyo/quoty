@@ -6,7 +6,8 @@
     %h3= t('.tagline')
 
 %ul#quotes
-  = render @quotes
+  - cache @quotes do
+    = render @quotes
 
 .well
   = render 'more_results'
