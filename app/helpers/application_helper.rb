@@ -51,8 +51,4 @@ module ApplicationHelper
   def mobile?
     @browser_type == 'mobile'
   end
-
-  def recent_join_user_cache_key
-    "recent_joined_#{User.maximum(:id)}"
-  end
 end

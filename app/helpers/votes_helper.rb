@@ -1,7 +1,6 @@
 module VotesHelper
-  def vote_class(score, quote)
+  def vote_class(score, vote)
     # use in-memory find to avoid N+1 queries
-    vote = quote.votes.select {|v| v.user == current_user}.first
     return unless vote
 
     return 'active' if score == :up && vote.score == 1

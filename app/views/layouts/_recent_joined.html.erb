@@ -1,5 +1,5 @@
-<% cache recent_join_user_cache_key do %>
-  <% users = User.recent.limit(9) %>
+<% users = User.recent.limit(9) %>
+<% cache users do %>
   <% users.each do |user| %>
     <% if user == users.first %>
       <div id="most_recent_joined" class="media">

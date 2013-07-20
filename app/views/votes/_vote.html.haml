@@ -1,6 +1,8 @@
-= link_to quote_vote_path(quote, score: 'up'), data: { toggle: "button" }, class: "btn up tip #{vote_class(:up, quote)}", remote: true, method: :post, id: dom_id(quote, :vote_up), title: t('.like') do
-  %i.icon-thumbs-up
-  = t('.like')
+- vote = quote.votes.select {|v| v.user == current_user}.first
+- cache_if vote, vote do
+  = link_to quote_vote_path(quote, score: 'up'), data: { toggle: "button" }, class: "btn up tip #{vote_class(:up, vote)}", remote: true, method: :post, id: dom_id(quote, :vote_up), title: t('.like') do
+    %i.icon-thumbs-up
+    = t('.like')
 
-= link_to quote_vote_path(quote, score: 'down'), data: { toggle: "button" }, class: "btn down tip #{vote_class(:down, quote)}", remote: true, method: :post, id: dom_id(quote, :vote_down), title: t('.dislike') do
-  %i.icon-thumbs-down
+  = link_to quote_vote_path(quote, score: 'down'), data: { toggle: "button" }, class: "btn down tip #{vote_class(:down, vote)}", remote: true, method: :post, id: dom_id(quote, :vote_down), title: t('.dislike') do
+    %i.icon-thumbs-down
