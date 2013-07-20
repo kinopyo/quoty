@@ -53,5 +53,7 @@ module Quoty
       g.view_specs false
       g.helper_specs false
     end
+
+		config.middleware.insert_before 0, 'AuthorSuggestions'
   end
 end
