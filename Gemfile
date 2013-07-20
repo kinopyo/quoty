@@ -22,6 +22,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # have to specify github now
 gem 'friendly_id', '5.0.0.alpha1', github: 'FriendlyId/friendly_id'
+gem 'babosa'
 
 gem 'active_model_serializers'
 
