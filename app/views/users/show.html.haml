@@ -6,24 +6,18 @@
     %li.active
       = link_to t('.activities'), '#activities', data: { toggle: :tab }
     %li
-      = link_to t('.bookmarks'), '#bookmarks', data: { toggle: :tab }
-    %li
       = link_to t('.posted_quotes'), '#posted_quotes', data: { toggle: :tab }
 
   .tab-content
     #activities.tab-pane.active
       %ul.activities
-        - @activities.each do |activity|
-          %li= render_activity(activity, layout: 'layouts/activity_wrapper')
-    #bookmarks.tab-pane
-      .bookmarks
-        %ul.bookmark_list
-          - if @user.bookmarks.present?
-            = render @user.bookmarks
-          - else
-            = t('.no_bookmark_yet')
+        - cache @activities do
+          - @activities.each do |activity|
+            %li= render_activity(activity, layout: 'layouts/activity_wrapper')
     #posted_quotes.tab-pane
       - if @user.quotes.present?
-        %ul#quotes= render @user.quotes
+        %ul#quotes
+          - cache @user.quotes do
+            = render @user.quotes
       - else
         %p= t('.no_quotes_posted_yet')
