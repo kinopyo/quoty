@@ -20,7 +20,6 @@ class Quote < ActiveRecord::Base
   scope :in, ->(language) { where(language: language) }
 
   before_create :detect_and_set_language
-  before_save :find_or_create_author_and_source_wiki
 
   def language_in_its_own
     case language
@@ -62,14 +61,5 @@ class Quote < ActiveRecord::Base
     # do not create wiki for link
     return if source_is_link?
     find_or_create_wiki(:source) if source_wiki_id.blank? && source_changed? && source.present?
-  end
-
-  def find_or_create_wiki(attribute)
-    value = read_attribute(attribute)
-    wiki = Wiki.case_insensitive_search(value).first_or_create do |wiki|
-      wiki.title = value
-      wiki.user = user
-    end
-    send("#{attribute}_wiki_id=", wiki.id)
   end
 end
