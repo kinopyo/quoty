@@ -12,7 +12,7 @@ class Author < ActiveRecord::Base
   def self.search(term)
     # TODO should be able to find author by name or alias, like nickname. Also
     # should be able to find either lowercase or uppercase.
-    Author.where("name LIKE ?", "%#{term}%")
+    Author.where("lower(name) LIKE ?", "%#{term}%")
   end
 
   # let friendly_id compatible with Japanese and Chinese
