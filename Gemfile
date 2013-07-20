@@ -22,6 +22,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # have to specify github now
 gem 'friendly_id', '5.0.0.alpha1', github: 'FriendlyId/friendly_id'
+gem 'babosa'
 
 gem 'active_model_serializers'
 
@@ -87,7 +88,7 @@ gem 'sass-rails',   '~> 4.0.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 
-gem 'exception_notification', '~> 4.0.0.rc1'
+gem 'exception_notification', '~> 4.0.0'
 
 group :production, :staging do
   gem 'pg'
