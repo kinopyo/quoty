@@ -1,11 +1,13 @@
 class User < ActiveRecord::Base
   include PublicActivity::Model
   tracked skip_defaults: true
+
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+  include FriendlyIdSlugHelper
+
   has_many :activities, class_name: '::PublicActivity::Activity', as: :owner, dependent: :destroy
   has_many :wikis
-
-  # attr_accessible :name, :image, :email, :profile, :preference_attributes, :omniauth_info_updated_at
-
   has_many :providers, dependent: :destroy
   has_many :quotes
   has_many :bookmarks, dependent: :destroy
@@ -14,9 +16,6 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :preference
 
   scope :recent, -> { order("users.created_at DESC") }
-
-  extend FriendlyId
-  friendly_id :name, use: :slugged
 
   def self.create_with_omniauth(info)
     create(name: info['name'],

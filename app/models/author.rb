@@ -1,6 +1,7 @@
 class Author < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
+  include FriendlyIdSlugHelper
 
   has_many :quotes, dependent: :destroy
 
