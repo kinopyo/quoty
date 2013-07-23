@@ -1,0 +1,9 @@
+<div class="meta_info">
+  <%= link_to quote.author_name, quote.author if quote.author %>
+  <% if quote.source? %>
+    <% if quote.author.present? %>
+      &mdash;
+    <% end %>
+    <cite><%= auto_link(quote.source, html: { target: '_blank'}) { |text| truncate(text, length: 30) } %></cite>
+  <% end %>
+</div>

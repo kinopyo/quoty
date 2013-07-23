@@ -6,12 +6,7 @@
     .quote_body{class: @quote.language}
       = simple_format(@quote.content)
     .meta_info
-      = link_to @quote.author_name, @quote.author if @quote.author
-      - if @quote.source?
-        %cite
-          &mdash;《
-          = auto_link(@quote.source, html: { target: '_blank'}) { |text| truncate(text, length: 30) }
-          》
+      = render 'quote_meta_info', quote: @quote
   .context
     = @quote.context
   .quote_photo

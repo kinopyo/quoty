@@ -10,13 +10,7 @@
       - if quote.photos.present?
         .quote_photo
           = image_tag quote.photos.first.file.thumb.url
-      .meta_info
-        = link_to quote.author_name, quote.author if quote.author
-        - if quote.source?
-          %cite
-            &mdash;《
-            = auto_link(quote.source, html: { target: '_blank'}) { |text| truncate(text, length: 30) }
-            》
+      = render 'quote_meta_info', quote: quote
   .actions
     .vote{id: dom_id(quote, :voting)}
       = render "votes/vote", quote: quote
