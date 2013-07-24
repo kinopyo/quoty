@@ -10,7 +10,7 @@
       - if quote.photos.present?
         .quote_photo
           = image_tag quote.photos.first.file.thumb.url
-      = render 'quote_meta_info', quote: quote
+      = render 'quotes/quote_meta_info', quote: quote
   .actions
     .vote{id: dom_id(quote, :voting)}
       = render "votes/vote", quote: quote
