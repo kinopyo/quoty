@@ -1,7 +1,7 @@
 class Vote < ActiveRecord::Base
   include PublicActivity::Model
   tracked owner: :user, recipient: proc {|c, m| m.quote.user }, only: [:create], params: {
-    summary: proc { |c, m| c.truncate(m.quote.content, length: 30) }
+    summary: proc { |c, m| c && c.truncate(m.quote.content, length: 30) }
   }
 
   belongs_to :quote, touch: true

@@ -4,6 +4,12 @@ FactoryGirl.define do
   factory :user do
     name 'alice'
     email { "#{name}@example.com".downcase }
+
+    factory :user_with_provider do
+      after(:create) do |user, _|
+        create_list(:provider, 1, user: user)
+      end
+    end
   end
 
   factory :quote do
@@ -27,6 +33,24 @@ FactoryGirl.define do
 
   factory :author do
     name 'kinopyo'
+  end
+
+  factory :comment do
+    user
+    quote
+    content 'comment'
+  end
+
+  factory :vote do
+    score 1
+    user
+    quote
+  end
+
+  factory :provider do
+    provider 'twitter'
+    sequence(:uid) { |n| "abc#{n}1234" }
+    user
   end
 
   factory :identity do
