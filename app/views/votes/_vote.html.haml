@@ -1,8 +1,13 @@
-- vote = quote.votes.select {|v| v.user == current_user}.first
-- cache_if vote, vote do
-  = link_to quote_vote_path(quote, score: 'up'), data: { toggle: "button" }, class: "btn up tip #{vote_class(:up, vote)}", remote: true, method: :post, id: dom_id(quote, :vote_up), title: t('.like') do
+- like = quote.likes.select {|v| v.user == current_user}.first
+- cache_if like, ['v2', like] do
+  = link_to quote_vote_path(quote, score: 'up'), data: { toggle: "button" }, class: "btn up tip #{'active' if like}", remote: true, method: :post, id: dom_id(quote, :vote_up), title: t('.like') do
     %i.icon-thumbs-up
-    = t('.like')
+    - if quote.likes.size > 0
+      = pluralize quote.likes.size, t('.like')
+    - else
+      = t('.like')
 
-  = link_to quote_vote_path(quote, score: 'down'), data: { toggle: "button" }, class: "btn down tip #{vote_class(:down, vote)}", remote: true, method: :post, id: dom_id(quote, :vote_down), title: t('.dislike') do
-    %i.icon-thumbs-down
+%span.recent_likes
+  - quote.recent_likes.each do |like|
+    = user_avatar(like.user, size: '24x24', class: 'img-rounded user_avatar', no_link: true)
+  = '...' if quote.likes.size > 4
