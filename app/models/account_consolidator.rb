@@ -25,6 +25,11 @@ class AccountConsolidator
   private
 
   def update_email
+    User.class_eval do
+      def should_generate_new_friendly_id?
+        false
+      end
+    end
     user.email ||= another.email
     user.save
   end
