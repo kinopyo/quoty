@@ -1,6 +1,6 @@
 %li.quote.well
   .uploader
-    = user_avatar(quote.user, size: '30x30', class: 'img-rounded user_avatar')
+    = user_avatar(quote.user, size: '30x30', class: 'img-circle user_avatar')
     %span.owner
       = t('.shared_by', user_name: link_to(quote.user.name, quote.user, class: 'user_link')).html_safe
   .contents
