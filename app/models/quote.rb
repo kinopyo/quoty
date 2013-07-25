@@ -9,6 +9,7 @@ class Quote < ActiveRecord::Base
   belongs_to :user
   belongs_to :author, counter_cache: true
   has_many :votes, dependent: :destroy
+  has_many :likes, -> { where(score: 1) }, class_name: 'Vote', dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :photos, dependent: :destroy
   belongs_to :source_wiki, class_name: 'Wiki', foreign_key: :source_wiki_id
@@ -45,6 +46,12 @@ class Quote < ActiveRecord::Base
       self.author_id = author.id
     else
       self.author_id = nil
+    end
+  end
+
+  def recent_likes(limit = 4)
+    Rails.cache.fetch([self, 'recent_likes']) do
+      likes.recent.limit(limit)
     end
   end
 

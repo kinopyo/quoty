@@ -7,6 +7,8 @@ class Vote < ActiveRecord::Base
   belongs_to :quote, touch: true
   belongs_to :user
 
+  scope :recent, -> { order(created_at: :desc) }
+
   def down_vote?
     score == -1
   end
