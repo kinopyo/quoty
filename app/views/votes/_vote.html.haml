@@ -1,6 +1,6 @@
 - like = quote.likes.select {|v| v.user == current_user}.first
 - cache_if like, ['v2', like] do
-  = link_to quote_vote_path(quote, score: 'up'), data: { toggle: "button" }, class: "btn up tip #{'active' if like}", remote: true, method: :post, id: dom_id(quote, :vote_up), title: t('.like') do
+  = link_to quote_vote_path(quote, score: 'up'), data: { toggle: "button" }, class: "btn up #{'active' if like}", remote: true, method: :post, id: dom_id(quote, :vote_up), title: t('.like') do
     %i.icon-thumbs-up
     - if quote.likes.size > 0
       = pluralize quote.likes.size, t('.like')
