@@ -1,3 +1,17 @@
+.main_content.loading {
+  opacity: .7;
+  -webkit-transition-duration: 0.16s;
+  -moz-transition-duration: 0.16s;
+  transition-duration: 0.16s;
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  pointer-events: none;
+}
+
 .footer {
   padding: 70px 20px;
   margin-top: 70px;
