@@ -42,20 +42,20 @@ describe AccountConsolidator do
   end
 
   describe 'Updates associations' do
-    it 'updates quotes, votes, comments, activites' do
+    it 'updates quotes, likes, comments, activites' do
       user = create(:user_with_provider)
       another = create(:user_with_provider)
 
       quote = create(:quote, user: another)
       comment = create(:comment, user: another, quote: quote)
-      vote = create(:vote, user: another, quote: quote)
+      like = create(:like, user: another, quote: quote)
       new_activities = another.activities.reject { |activity| activity.key == 'user.create' }
 
       AccountConsolidator.new(user, another).consolidate
 
       expect(user.quotes).to include(quote)
       expect(user.comments).to include(comment)
-      expect(user.votes).to include(vote)
+      expect(user.likes).to include(like)
 
       new_activities.each do |activity|
         expect(activity.owner).to eq(user)

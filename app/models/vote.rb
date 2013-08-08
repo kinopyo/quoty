@@ -4,6 +4,8 @@ class Vote < ActiveRecord::Base
     summary: proc { |c, m| c && c.truncate(m.quote.content, length: 30) }
   }
 
+  has_one :like
+
   belongs_to :quote, touch: true
   belongs_to :user
 

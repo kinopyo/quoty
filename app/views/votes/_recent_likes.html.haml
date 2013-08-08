@@ -1,0 +1,4 @@
+%span.recent_likes
+  - quote.recent_likes.each do |like|
+    = user_avatar(like.user, size: '24x24', class: 'img-rounded user_avatar', as_link: false)
+  = '...' if quote.likes.size > 4

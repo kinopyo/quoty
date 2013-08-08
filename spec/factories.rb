@@ -41,8 +41,7 @@ FactoryGirl.define do
     content 'comment'
   end
 
-  factory :vote do
-    score 1
+  factory :like do
     user
     quote
   end

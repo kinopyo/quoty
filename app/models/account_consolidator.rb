@@ -13,7 +13,7 @@ class AccountConsolidator
 
     update_associations(:quotes,)
     update_associations(:comments)
-    update_associations(:votes)
+    update_associations(:likes)
 
     update_activites
 

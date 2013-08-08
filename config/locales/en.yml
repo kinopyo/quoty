@@ -52,11 +52,9 @@ en:
     create:
       success: 'Comment posted.'
       failure: 'Please insert comment.'
-  votes:
-    suggest_post_comment_html: '<p>You must have strong opinion or thoughts about it.</p><br><p>Would you like to ...</p>'
-    vote:
+  likes:
+    like:
       like: 'Like'
-      dislike: 'Dislike'
   layouts:
     application:
       new_quote: 'New Quote'
@@ -101,9 +99,8 @@ en:
       posted_a_new: 'posted a new %{trackable_type}.'
     user:
       joined_quoty: 'joined Quoty.'
-    vote:
+    like:
       liked: 'liked a %{quote}'
-      disliked: 'disliked a %{quote}'
 
   footer:
     about_this_site: 'About this site'
