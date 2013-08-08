@@ -18,8 +18,8 @@
     - if @quote.language
       = t('.in_language', language: link_to(@quote.language_in_its_own, language_path(@quote.language))).html_safe
 
-  .vote{id: dom_id(@quote, :voting)}
-    = render "votes/vote", quote: @quote
+  .like{id: dom_id(@quote, :like)}
+    = render "likes/like", quote: @quote
 
 - if @quote.user == current_user
   .form-actions.well

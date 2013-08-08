@@ -16,7 +16,7 @@ Quoty::Application.routes.draw do
 
   get '/language/:language', to: 'quotes#language', language: /[a-z]+/, as: :language
   resources :quotes do
-    post 'vote', to: 'votes#vote'
+    post 'like', to: 'likes#like'
 
     resources :comments, only: [:new, :create]
   end

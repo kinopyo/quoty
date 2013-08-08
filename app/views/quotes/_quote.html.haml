@@ -12,5 +12,5 @@
           = image_tag quote.photos.first.file.thumb.url
       = render 'quotes/quote_meta_info', quote: quote
   .actions
-    .vote{id: dom_id(quote, :voting)}
-      = render "votes/vote", quote: quote
+    .like{id: dom_id(quote, :like)}
+      = render "likes/like", quote: quote
