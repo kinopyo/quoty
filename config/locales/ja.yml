@@ -49,11 +49,9 @@ ja:
     create:
       success: 'コメントを投稿しました。'
       failure: 'コメントを記入してください。'
-  votes:
-    suggest_post_comment_html: '<p>この投稿に関して、強い意見や考えをお持ちですか？</p><br><p>コメントをしてください。</p>'
-    vote:
+  likes:
+    like:
       like: 'いいね'
-      dislike: 'よくないね'
   layouts:
     application:
       new_quote: '新しい引用'
@@ -98,9 +96,8 @@ ja:
       posted_a_new: 'が %{trackable_type}を投稿しました。'
     user:
       joined_quoty: 'Quotyに参加しました。'
-    vote:
+    like:
       liked: 'が %{quote}に「いいね」をしました。'
-      disliked: 'が %{quote}に「よくないね」をしました。'
 
   footer:
     about_this_site: 'このサイトについて'

@@ -1,0 +1,8 @@
+- single_content_for :action do
+  = t('public_activity.liked', quote: link_to_trackable(a.trackable.quote, t('global.quote'))).html_safe
+
+- if a.trackable
+  .comment_summary
+    %i.icon-thumbs-up
+    = link_to a.trackable.quote do
+      = p[:summary]

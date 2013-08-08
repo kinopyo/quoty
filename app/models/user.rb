@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   has_many :providers, dependent: :destroy
   has_many :quotes
   has_many :bookmarks, dependent: :destroy
-  has_many :votes, dependent: :destroy
+  has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_one :preference, class_name: 'UserPreference'
   accepts_nested_attributes_for :preference

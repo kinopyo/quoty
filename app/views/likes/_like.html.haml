@@ -1,0 +1,13 @@
+- like = quote.likes.select {|v| v.user == current_user}.first
+- cache_if like, like do
+  = link_to quote_like_path(quote), data: { toggle: "button" }, class: "btn up #{'active' if like}", remote: true, method: :post, id: dom_id(quote, :like_up), title: t('.like') do
+    %i.icon-thumbs-up
+    - if quote.likes_count > 0
+      = pluralize quote.likes_count, t('.like')
+    - else
+      = t('.like')
+
+%span.recent_likes
+  - quote.recent_likes.each do |like|
+    = user_avatar(like.user, size: '24x24', class: 'img-rounded user_avatar', no_link: true)
+  = '...' if quote.likes.size > 4
