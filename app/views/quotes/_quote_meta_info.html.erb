@@ -1,5 +1,5 @@
 <div class="meta_info">
-  <%= link_to quote.author_name, quote.author if quote.author %>
+  <%= link_to_if quote.author && quote.author.quotes_count > 1, quote.author_name, quote.author %>
   <% if quote.source? %>
     <% if quote.author.present? %>
       &mdash;
