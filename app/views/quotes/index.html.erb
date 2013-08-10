@@ -1,0 +1,16 @@
+<% unless signed_in? %>
+  <div class="hero-unit">
+    <h1><%= t('global.service_name') %></h1>
+    <h3><%= t('.tagline') %></h3>
+  </div>
+<% end %>
+
+<ul id="quotes">
+  <% cache @quotes do %>
+    <%= render @quotes %>
+  <% end %>
+</ul>
+
+<div class="well">
+  <%= render 'more_results' %>
+</div>
