@@ -18,6 +18,9 @@ class Quote < ActiveRecord::Base
 
   scope :recent, -> { order('quotes.created_at DESC') }
   scope :in, ->(language) { where(language: language) }
+  scope :popular, -> { where('likes_count > 0').order(likes_count: :desc) }
+  scope :liked_by, ->(user) { joins(:likes).where(likes: { user_id: user }) }
+  scope :with_associations, -> { includes(:photos, :user, :likes, :author) }
 
   before_create :detect_and_set_language
 
