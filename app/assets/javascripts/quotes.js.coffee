@@ -45,9 +45,5 @@ $ ->
       select: (event, ui) ->
         $('#quote_author_id').val(ui.item.id)
 
-  if $('#more_results').length
-    $('#more_results').click ->
-      url = $(this).attr('href')
-      $(this).text("Fetching more contents...")
-      $.getScript(url)
-
+  $('#more_results a').on 'ajax:before', ->
+    $(this).text("Fetching more contents...")

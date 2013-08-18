@@ -1,9 +1,9 @@
 class QuotesController < ApplicationController
-  before_filter :require_login, except: [:index, :show, :language]
+  before_filter :require_login, only: [:new, :create, :edit, :update, :destroy, :my, :likes]
 
   def index
     @quotes = Quote.in(current_user_languages).recent.page(params[:page])
-      .includes(:photos, :user, :likes, :author)
+      .with_associations
   end
 
   def show
@@ -49,7 +49,30 @@ class QuotesController < ApplicationController
 
   def language
     @quotes = Quote.in(params[:language]).recent.page(params[:page])
-      .includes(:photos, :user, :likes, :author)
+      .with_associations
+
+    render :index
+  end
+
+  def popular
+    @quotes = Quote.popular.in(current_user_languages).page(params[:page])
+      .with_associations
+
+    render :index
+  end
+
+  def my
+    @quotes = current_user.quotes.recent.page(params[:page])
+      .with_associations
+
+    render :index
+  end
+
+  def likes
+    @quotes = Quote.liked_by(current_user).recent.page(params[:page])
+      .with_associations
+
+    render :index
   end
 
   private
