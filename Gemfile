@@ -11,7 +11,7 @@ gem 'nested_form'
 
 gem 'twitter-bootstrap-rails', '~> 2.2.7'
 gem 'less-rails'
-gem 'therubyracer'
+gem 'therubyracer', '0.12.0'
 
 gem 'haml-rails'
 
@@ -70,15 +70,15 @@ group :test, :development do
   gem 'pry-remote'
   gem 'pry-rails'
   gem 'pry-nav'
-  gem 'factory_girl_rails'
   gem 'rspec-rails', '>= 2.13.0'
-  gem 'capybara'
-  gem 'capybara-webkit'
-  gem 'launchy'
-  gem 'database_cleaner'
 end
 
 group :test do
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'capybara-webkit'
+  gem 'launchy'
   gem 'rspec-json_matcher'
   gem 'simplecov', require: false
   gem 'simplecov-rcov', require: false
