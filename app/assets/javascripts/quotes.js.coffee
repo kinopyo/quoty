@@ -30,6 +30,8 @@ $ ->
         $('#quote_' + $(this).data('wiki-field')).val(ui.item.id)
 
     $('#quote_author_name').autocomplete
+      delay: 300
+      minLength: 2
       source: (request, response) ->
         $.ajax
           method: 'get'
