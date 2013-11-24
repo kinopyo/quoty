@@ -18,7 +18,7 @@ gem 'haml-rails'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-identity'
-gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby'
 
 # have to specify github now
 gem 'friendly_id', '5.0.0.alpha1', github: 'FriendlyId/friendly_id'
