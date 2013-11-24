@@ -9,7 +9,7 @@ gem 'jquery-rails'
 gem 'simple_form', '~> 3.0.0'
 gem 'nested_form'
 
-gem 'twitter-bootstrap-rails', branch: 'bootstrap3'
+gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
 gem 'less-rails'
 gem 'therubyracer', '0.12.0'
 
