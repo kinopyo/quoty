@@ -71,9 +71,6 @@ group :test, :development do
   gem 'pry-rails'
   gem 'pry-nav'
   gem 'rspec-rails', '~> 3.0.0.beta'
-end
-
-group :test do
   gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'capybara'
