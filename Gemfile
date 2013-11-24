@@ -70,7 +70,7 @@ group :test, :development do
   gem 'pry-remote'
   gem 'pry-rails'
   gem 'pry-nav'
-  gem 'rspec-rails', '>= 2.13.0'
+  gem 'rspec-rails', '~> 3.0.0.beta'
 end
 
 group :test do
