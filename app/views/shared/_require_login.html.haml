@@ -6,8 +6,8 @@
     .alert.alert-info
       %i.icon-info-sign
       = message
-    .row-fluid
-      .social_login_container.span6
+    .row
+      .social_login_container.col-md-6
         %ul.social-login
           %li
             = link_to '/auth/twitter', class: 'btn' do
@@ -17,7 +17,7 @@
             = link_to '/auth/facebook', class: 'btn' do
               %i.icon-facebook
               Login with Facebook
-      .account_login_container.span6
+      .account_login_container.col-md-6
         = form_tag "/auth/identity/callback" do
           .input-prepend
             %span.add-on

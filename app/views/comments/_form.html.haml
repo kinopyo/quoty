@@ -2,5 +2,5 @@
   = user_avatar(current_user, size: '30x30', class: 'avatar media-object', link_options: { class: 'pull-left' })
   .media-body
     = simple_form_for [quote, Comment.new], remote: true, html: { class: 'comment_form form-inline' } do |f|
-      = f.input_field :content, rows: '1', class: 'span6', placeholder: t('placeholders.comment.content')
+      = f.input_field :content, rows: '1', class: 'col-md-6', placeholder: t('placeholders.comment.content')
       = f.button :submit, class: 'btn', id: 'comment_submit', data: { disable_with: t('common.posting') }
