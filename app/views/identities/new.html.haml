@@ -1,7 +1,7 @@
 .well
   = simple_form_for @identity || Identity.new, url: '/auth/identity/register' do |f|
-    = f.input :name, input_html: { name: 'name' }
-    = f.input :email, input_html: { :name => 'email' }
-    = f.input :password, as: :password, input_html: { name: 'password' }
-    = f.input :password_confirmation, label: "Confirm Password", as: 'password', input_html: { name: 'password_confirmation' }
+    = f.input :name, controls_html: { name: 'name' }
+    = f.input :email, controls_html: { :name => 'email' }
+    = f.input :password, as: :password, controls_html: { name: 'password' }
+    = f.input :password_confirmation, label: "Confirm Password", as: 'password', controls_html: { name: 'password_confirmation' }
     = f.button :submit, 'Sign up'

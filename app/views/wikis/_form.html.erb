@@ -1,6 +1,6 @@
 <%= simple_form_for @wiki, html: { class: 'form-horizontal wiki_form' }  do |f| %>
-  <%= f.input :title, input_html: { class: 'col-md-4' } %>
-  <%= f.input :description, input_html: { rows: 5, class: 'col-md-4' } %>
+  <%= f.input :title, controls_html: { class: 'col-md-4' } %>
+  <%= f.input :description, controls_html: { rows: 5, class: 'col-md-4' } %>
   <%= f.input :parent_id, as: :select, collection: Wiki.roots %>
   <div class="form-actions">
     <%= f.button :submit, class: 'btn btn-primary' %>
