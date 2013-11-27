@@ -11,7 +11,7 @@
     = @quote.context
   .quote_photo
     - @quote.photos.each do |photo|
-      = image_tag photo.file_url, class: 'img-polaroid', alt: 'quote photo'
+      = image_tag photo.file_url, class: 'img-thumbnail', alt: 'quote photo'
 
   .uploader
     = t('.uploaded_by', user_name: link_to(@quote.user.name, @quote.user), time: time_ago_in_words(@quote.created_at)).html_safe
