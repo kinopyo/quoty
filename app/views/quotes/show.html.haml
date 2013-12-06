@@ -1,6 +1,12 @@
 = title truncate(@quote.content, length: 70)
 = description "#{@quote.content} - #{@quote.author_name} #{@quote.source}"
 
+- meta property: 'og:site_name', content: 'Quoty.me'
+- meta property: 'og:title', content: "Quote shared by #{@quote.user.name}"
+- meta property: 'og:description', content: "#{@quote.content}"
+- meta property: 'og:url', content: 'http://quoty.me'
+- meta name: 'twitter:card', content: 'summary'
+
 #quote.quote.well
   %blockquote
     .quote_body{class: @quote.language}
