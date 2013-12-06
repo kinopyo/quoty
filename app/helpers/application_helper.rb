@@ -15,6 +15,10 @@ module ApplicationHelper
     content_for(:head) { javascript_include_tag(*args) }
   end
 
+  def meta(options = {})
+    content_for(:meta, tag(:meta, options))
+  end
+
   # For generating time tags calculated using jquery.timeago
   def timeago(time, options = {})
     options[:class] ||= "timeago"
