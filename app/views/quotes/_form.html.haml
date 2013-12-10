@@ -1,17 +1,34 @@
-= simple_nested_form_for @quote, html: { class: 'form-horizontal quote_form', multipart: true, autocomplete: 'off' } do |f|
-  = f.input :content, controls_html: { class: 'col-md-8', rows: 5 }, placeholder: 'Quotes & Words...', autofocus: true
-  = f.input :author_name, as: :string, placeholder: 'by whom', label: 'Author', controls_html: { data: { wiki_field: 'author_wiki_id' } }
-  = f.input :source, placeholder: 'Book, Movie or any media', controls_html: { data: { wiki_field: 'source_wiki_id' } }
-  = f.input :author_id, as: :hidden
-  = f.input :source_wiki_id, as: :hidden
-  = f.input :context, placeholder: 'Under what context or circumstances...', controls_html: { class: 'col-md-8', rows: 2 }
+= nested_form_for @quote, html: { class: 'form-horizontal quote_form', multipart: true, autocomplete: 'off' } do |f|
+  .form-group
+    = f.label :content, class: 'col-sm-2 control-label'
+    .col-sm-8
+      = f.text_area :content, class: 'form-control', rows: 5, placeholder: 'Quotes & Words...', autofocus: true
+  .form-group
+    = f.label :author_name, 'Author', class: 'col-sm-2 control-label'
+    .col-sm-8
+      = f.text_field :author_name, placeholder: 'by whom', data: { wiki_field: 'author_wiki_id' }, class: 'form-control'
+  .form-group
+    = f.label :source, class: 'col-sm-2 control-label'
+    .col-sm-8
+      = f.text_field :source, placeholder: 'Book, Movie or any media', data: { wiki_field: 'source_wiki_id' }, class: 'form-control'
+  = f.hidden_field :author_id
+  = f.hidden_field :source_wiki_id
+  .form-group
+    = f.label :context, class: 'col-sm-2 control-label'
+    .col-sm-8
+      = f.text_area :context, placeholder: 'Under what context or circumstances...', class: 'form-control', rows: 2
   - if @quote.persisted?
-    = f.input :language, as: :select, collection: %w(english japanese chinese), prompt: 'Select language'
-  .control-group
-    = f.label :photos
-    .controls
-      .row= f.simple_fields_for :photos
+    .form-group
+      = f.label :language, class: 'col-sm-2 control-label'
+      .col-sm-8
+        = text_fieldut :language, as: :select, collection: %w(english japanese chinese), prompt: 'Select language'
+  .form-group
+    = f.label :photos, class: 'col-sm-2 control-label'
+    .col-sm-8
+      .row
+        = f.fields_for :photos
       = f.link_to_add 'Add more ...', :photos, class: 'btn btn-sm add_more_photos'
-  .form-actions
-    = f.button :submit, class: 'btn btn-primary'
-    = link_to 'Cancel', quotes_path, :class => 'btn'
+  .form-group
+    .col-sm-offset-2.col-sm-8
+      = f.button :submit, class: 'btn btn-primary'
+      = link_to 'Cancel', quotes_path, class: 'btn btn-default'
