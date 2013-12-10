@@ -1,0 +1,60 @@
+<div id="login_modal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 class="modal-title">Login to Quoty...</h4>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-info">
+          <i class="icon-info-sign" />
+          <%= message %>
+        </div>
+        <div class="row">
+          <div class="social_login_container col-md-6">
+            <ul class="social-login">
+              <li>
+                <%= link_to '/auth/twitter', class: 'btn btn-default' do %>
+                  <i class="icon-twitter"></i>
+                  Login with Twitter
+                <% end %>
+              </li>
+              <li>
+                <%= link_to '/auth/facebook', class: 'btn btn-default' do %>
+                  <i class="icon-facebook"></i>
+                  Login with Facebook
+                <% end %>
+              </li>
+            </ul>
+          </div>
+
+          <div class="account_login_container col-md-6">
+            <%= form_tag "/auth/identity/callback" do %>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="icon-envelope" /></span>
+                  <%= text_field_tag :auth_key, nil, placeholder: t('common.email'), class: 'form-control' %>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="icon-key" /></span>
+                  <%= password_field_tag :password, nil, placeholder: t('common.password'), class: 'form-control' %>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <%= submit_tag "Login", class: 'btn btn-default', data: { disable_with: t('common.logging_in')} %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <%= link_to 'Create an account', new_identity_path, class: 'btn btn-primary' %>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
