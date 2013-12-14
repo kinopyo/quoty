@@ -29,8 +29,7 @@ end
 SimpleForm.setup do |config|
   config.boolean_style = :nested
 
-  config.wrappers :bootstrap3, tag: 'div', class: 'form-group', error_class: 'has-error',
-      defaults: { input_html: { class: 'default_class' } } do |b|
+  config.wrappers :bootstrap3, tag: 'div', class: 'form-group', error_class: 'has-error' do |b|
 
     b.use :html5
     b.use :min_max
