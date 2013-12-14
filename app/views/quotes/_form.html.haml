@@ -21,7 +21,7 @@
     .form-group
       = f.label :language, class: 'col-sm-2 control-label'
       .col-sm-8
-        = text_fieldut :language, as: :select, collection: %w(english japanese chinese), prompt: 'Select language'
+        = text_field :language, as: :select, collection: %w(english japanese chinese), prompt: 'Select language'
   .form-group
     = f.label :photos, class: 'col-sm-2 control-label'
     .col-sm-8
