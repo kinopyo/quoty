@@ -1,4 +1,7 @@
 .well
+  .page-header
+    %h1 Sign Up
+
   = simple_form_for @identity || Identity.new, url: '/auth/identity/register' do |f|
     = f.input :name, input_html: { name: 'name' }
     = f.input :email, input_html: { :name => 'email' }
