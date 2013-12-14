@@ -23,7 +23,7 @@
 
 - if @quote.user == current_user
   .form-actions.well
-    = link_to t('.edit'), edit_quote_path(@quote), :class => 'btn'
+    = link_to t('.edit'), [:edit, @quote], class: 'btn btn-default'
     = link_to t('.destroy'), quote_path(@quote), :method => "delete", :data => { :confirm => 'Are you sure?' }, :class => 'btn btn-danger'
 
 #quote_comments.comment_container.well
