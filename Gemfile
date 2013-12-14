@@ -1,15 +1,15 @@
 source 'https://rubygems.org'
 ruby "2.0.0"
 
-gem 'rails', '4.0.0'
+gem 'rails', '4.0.1'
 gem 'turbolinks'
 gem 'jquery-turbolinks'
 gem 'thin'
 gem 'jquery-rails'
-gem 'simple_form', '3.0.0.rc'
+gem 'simple_form', '~> 3.0.0'
 gem 'nested_form'
 
-gem 'twitter-bootstrap-rails', '~> 2.2.7'
+gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
 gem 'less-rails'
 gem 'therubyracer', '0.12.0'
 
@@ -18,7 +18,7 @@ gem 'haml-rails'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-identity'
-gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby'
 
 # have to specify github now
 gem 'friendly_id', '5.0.0.alpha1', github: 'FriendlyId/friendly_id'
@@ -44,7 +44,7 @@ gem 'net-sftp'
 # automatically link URLs for quote sources
 gem 'rails_autolink'
 
-gem 'public_activity', github: 'pokonski/public_activity', branch: 'rails4'
+gem 'public_activity'
 
 gem 'rack-mini-profiler'
 gem 'carrierwave'
@@ -70,10 +70,7 @@ group :test, :development do
   gem 'pry-remote'
   gem 'pry-rails'
   gem 'pry-nav'
-  gem 'rspec-rails', '>= 2.13.0'
-end
-
-group :test do
+  gem 'rspec-rails', '~> 3.0.0.beta'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'capybara'

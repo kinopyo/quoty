@@ -5,7 +5,7 @@
 <% meta name: 'twitter:card', content: 'summary' %>
 
 <% if show_product_tagline? %>
-  <div class="hero-unit">
+  <div class="jumbotron">
     <h1><%= t('global.service_name') %></h1>
     <h3><%= t('.tagline') %></h3>
   </div>
@@ -16,26 +16,27 @@
 <% end %>
 
 <div class="row">
-  <div class="span2">
-    <div class="well sidebar-nav">
-      <ul class="nav nav-list">
-        <li class="nav-header">Discovery</li>
-        <%= nav_link 'Recent', root_path %>
-        <%= nav_link 'Popular', popular_quotes_path %>
-        <% if signed_in? %>
-          <li class="nav-header">My</li>
-          <%= nav_link 'Likes', likes_quotes_path %>
-          <%= nav_link 'Posts', my_quotes_path %>
-        <% end %>
-        <li class="nav-header">Language</li>
-        <%= nav_link 'English', language_path('english') %>
-        <%= nav_link '日本語', language_path('japanese') %>
-        <%= nav_link '中文', language_path('chinese') %>
-      </ul>
+  <div class="col-md-2">
+    <div class="list-group">
+      <%= nav_link 'Recent', root_path, class: 'list-group-item' %>
+      <%= nav_link 'Popular', popular_quotes_path, class: 'list-group-item' %>
+    </div>
+
+    <% if signed_in? %>
+      <div class="list-group">
+        <%= nav_link 'Likes', likes_quotes_path %>
+        <%= nav_link 'Posts', my_quotes_path %>
+      </div>
+    <% end %>
+
+    <div class="list-group">
+      <%= nav_link 'English', language_path('english') %>
+      <%= nav_link '日本語', language_path('japanese') %>
+      <%= nav_link '中文', language_path('chinese') %>
     </div>
   </div>
 
-  <div class="span10">
+  <div class="col-md-10">
     <% if @quotes.present? %>
       <ul id="quotes">
         <% cache @quotes do %>
