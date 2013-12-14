@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe ResetPasswordMailer do
   describe 'send_mail' do
-    let(:user) { stub(:user, email: 'foo@bar.com', reset_password_token: 'foobar') }
+    let(:user) { build(:user, email: 'foo@bar.com', reset_password_token: 'foobar') }
     let(:mail) { ResetPasswordMailer.send_mail(user) }
 
     it "renders the headers" do

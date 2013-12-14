@@ -1,16 +1,16 @@
 <footer class="footer">
   <div class="container">
-    <div class="row-fluid">
-      <div class="span4">
+    <div class="row">
+      <div class="col-md-4">
         <p><%= link_to t('footer.about_this_site'), about_path %></p>
         <p><%= t('footer.designed_by', user_name: link_to('@kinopyo', 'https://twitter.com/fantasyday')).html_safe %></p>
         <p><%= t('footer.source_code_on', github: link_to('Github', 'https://github.com/kinopyo/quoty')).html_safe %><%= image_tag 'github_icon.png', size: '20x20' %></p>
         <p><%= link_to t('footer.feedback'), 'http://quoty.uservoice.com', target: '_blank' %></p>
       </div>
-      <div class="span4 recent_joined_footer">
+      <div class="col-md-4 recent_joined_footer">
         <%= render 'layouts/recent_joined' %>
       </div>
-      <div class="span4 social_footer">
+      <div class="col-md-4 social_footer">
         <div class="fb-like" data-href="https://www.facebook.com/pages/Quoty/465845253461976" data-send="false" data-width="<%= mobile?  ? '360' : '450' %>" data-show-faces="true"></div>
       </div>
     </div>

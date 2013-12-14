@@ -1,5 +1,5 @@
-<div class="row-fluid">
-  <div class="span9">
+<div class="row">
+  <div class="col-md-9">
     <% unless @wiki.is_root? %>
       <ul class="breadcrumb">
         <li><%= link_to 'Wiki', wikis_path %><span class="divider">/</span></li>
@@ -36,7 +36,7 @@
   </div>
 
   <% if @wiki.is_root? && @wiki.has_children? %>
-    <div class="span3">
+    <div class="col-md-3">
       <div class="well sidebar-nav">
         <h2>See also</h2>
         <ul>
@@ -49,7 +49,7 @@
   <% end %>
 
   <% if !@wiki.is_root? && @wiki.has_siblings? %>
-    <div class="span3">
+    <div class="col-md-3">
       <div class="well sidebar-nav">
         <h2>See also</h2>
         <ul>

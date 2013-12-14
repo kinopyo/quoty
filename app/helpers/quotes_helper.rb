@@ -35,10 +35,9 @@ module QuotesHelper
       class_name = current_page?(url) ? 'active' : nil
 
       href = html_options['href']
-      tag_options = tag_options(html_options)
 
       href_attr = "href=\"#{ERB::Util.html_escape(url)}\"" unless href
-      "<li class=\"#{class_name}\"><a #{href_attr}#{tag_options}>#{ERB::Util.html_escape(name || url)}</a></li>".html_safe
+      "<a #{href_attr} class='#{class_name} list-group-item'>#{ERB::Util.html_escape(name || url)}</a>".html_safe
     end
   end
 end

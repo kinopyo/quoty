@@ -1,9 +1,22 @@
 = simple_form_for @user, html: { class: 'form-horizontal', id: 'user_form' } do |f|
-  = f.input :name
-  = f.input :email
-  = f.input :profile, input_html: { rows: 5, class: 'span6' }
+  .form-group
+    = f.label :name, class: 'col-sm-2 control-label'
+    .col-sm-8
+      = f.text_field :name, class: 'form-control'
+  .form-group
+    = f.label :email, class: 'col-sm-2 control-label'
+    .col-sm-8
+      = f.email_field :email, class: 'form-control'
+  .form-group
+    = f.label :profile, class: 'col-sm-2 control-label'
+    .col-sm-8
+      = f.text_area :profile, class: 'form-control', rows: 5
   %hr
-  = f.simple_fields_for :preference do |preference_form|
-    = preference_form.input :languages, as: :select, collection: %w(english japanese chinese), prompt: 'Select language'
-  .form-actions
-    = f.button :submit, data: { disable_with: 'Updating...' }, id: 'user_submit', class: 'btn btn-primary'
+  = f.fields_for :preference do |preference_form|
+    .form-group
+      = preference_form.label :languages, class: 'col-sm-2 control-label'
+      .col-sm-8
+        = preference_form.select :languages, %w(english japanese chinese), { prompt: 'Select language' }, class: 'form-control'
+  .form-group
+    .col-sm-offset-2.col-sm-8
+      = f.submit data: { disable_with: 'Updating...' }, id: 'user_submit', class: 'btn btn-primary'

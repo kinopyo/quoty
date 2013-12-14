@@ -1,0 +1,35 @@
+<div class="well">
+  <ul class="social-login">
+    <li>
+      <%= link_to '/auth/twitter', class: 'btn btn-default' do %>
+        <i class="icon-twitter"></i>
+        <%= t('.login_with_twitter') %>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to '/auth/facebook', class: 'btn btn-default' do %>
+        <i class="icon-facebook"></i>
+        <%= t('.login_with_facebook') %>
+      <% end %>
+    </li>
+  </ul>
+
+  <p>
+    <strong><%= t('.dont_use_these_services?') %></strong>
+    <%= link_to t('.create_an_account'), new_identity_path %>
+    <%= t('.or_login_below') %>
+  </p>
+
+  <%= form_tag "/auth/identity/callback", class: 'form-inline' do %>
+    <div class="form-group">
+      <%= text_field_tag :auth_key, nil, placeholder: t('common.email'), class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= password_field_tag :password, nil, placeholder: t('common.password'), class: 'form-control' %>
+    </div>
+    <%= submit_tag t('global.login'), class: 'btn btn-primary' %>
+  <% end %>
+  <div>
+    <%= link_to t('.forget_your_password?'), new_reset_password_path, class: 'reset_password_link secondary' %>
+  </div>
+</div>

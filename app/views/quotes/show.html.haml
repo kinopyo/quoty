@@ -17,7 +17,7 @@
     = @quote.context
   .quote_photo
     - @quote.photos.each do |photo|
-      = image_tag photo.file_url, class: 'img-polaroid', alt: 'quote photo'
+      = image_tag photo.file_url, class: 'img-thumbnail', alt: 'quote photo'
 
   .uploader
     = t('.uploaded_by', user_name: link_to(@quote.user.name, @quote.user), time: time_ago_in_words(@quote.created_at)).html_safe
@@ -29,7 +29,7 @@
 
 - if @quote.user == current_user
   .form-actions.well
-    = link_to t('.edit'), edit_quote_path(@quote), :class => 'btn'
+    = link_to t('.edit'), [:edit, @quote], class: 'btn btn-default'
     = link_to t('.destroy'), quote_path(@quote), :method => "delete", :data => { :confirm => 'Are you sure?' }, :class => 'btn btn-danger'
 
 #quote_comments.comment_container.well

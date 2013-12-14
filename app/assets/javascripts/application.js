@@ -17,11 +17,11 @@
 //= require jquery.ui.autocomplete
 //= require_tree ../../../lib/assets/javascripts
 //= require jquery_nested_form
-//= require twitter/bootstrap/bootstrap-tooltip
-//= require twitter/bootstrap/bootstrap-popover
-//= require twitter/bootstrap/bootstrap-dropdown
-//= require twitter/bootstrap/bootstrap-modal
-//= require twitter/bootstrap/bootstrap-tab
-//= require twitter/bootstrap/bootstrap-collapse
+//= require twitter/bootstrap/tooltip
+//= require twitter/bootstrap/popover
+//= require twitter/bootstrap/dropdown
+//= require twitter/bootstrap/modal
+//= require twitter/bootstrap/tab
+//= require twitter/bootstrap/collapse
 //= require mousetrap
 //= require_tree .
