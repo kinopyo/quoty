@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'friendly_id' do
+describe 'friendly_id', :reliable do
   it "generates slug when save" do
     user = build(:user, name: 'my name')
     user.save
