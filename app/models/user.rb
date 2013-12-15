@@ -47,7 +47,7 @@ class User < ActiveRecord::Base
   def slug_candidates
     [
       :name,
-      [:name, :id],
+      [:name, proc { Time.now.to_i }],
     ]
   end
 end
