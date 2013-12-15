@@ -21,7 +21,7 @@ gem 'omniauth-identity'
 gem 'bcrypt-ruby'
 
 # have to specify github now
-gem 'friendly_id', '5.0.0.alpha1', github: 'FriendlyId/friendly_id'
+gem 'friendly_id', '5.0.2'
 gem 'babosa'
 
 gem 'active_model_serializers'

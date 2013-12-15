@@ -3,8 +3,7 @@ class User < ActiveRecord::Base
   tracked skip_defaults: true
 
   extend FriendlyId
-  friendly_id :name, use: :slugged
-  include FriendlyIdSlugHelper
+  friendly_id :slug_candidates
 
   has_many :activities, class_name: '::PublicActivity::Activity', as: :owner, dependent: :destroy
   has_many :wikis
@@ -41,5 +40,14 @@ class User < ActiveRecord::Base
 
   def admin?
     is_admin
+  end
+
+  private
+
+  def slug_candidates
+    [
+      :name,
+      [:name, :id],
+    ]
   end
 end
