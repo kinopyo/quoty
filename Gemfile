@@ -21,7 +21,7 @@ gem 'omniauth-identity'
 gem 'bcrypt-ruby'
 
 # have to specify github now
-gem 'friendly_id', '5.0.0.alpha1', github: 'FriendlyId/friendly_id'
+gem 'friendly_id', '5.0.2'
 gem 'babosa'
 
 gem 'active_model_serializers'
@@ -57,6 +57,8 @@ gem 'kaminari'
 gem 'mousetrap-rails'
 
 group :development do
+  gem 'spring'
+  gem 'spring-commands-rspec', require: false
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'awesome_print'
@@ -79,6 +81,7 @@ group :test, :development do
   gem 'rspec-json_matcher'
   gem 'simplecov', require: false
   gem 'simplecov-rcov', require: false
+  gem 'timecop'
 end
 
 gem 'sass-rails',   '~> 4.0.0'
