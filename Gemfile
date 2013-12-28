@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
-gem 'rails', '4.0.2'
+gem 'rails', '4.1.0.beta1'
 gem 'turbolinks'
 gem 'jquery-turbolinks'
 gem 'thin'
@@ -21,7 +21,7 @@ gem 'omniauth-identity'
 gem 'bcrypt-ruby'
 
 # have to specify github now
-gem 'friendly_id', '5.0.2'
+gem 'friendly_id', github: 'norman/friendly_id', ref: 'master'
 gem 'babosa'
 
 gem 'active_model_serializers'
@@ -58,7 +58,6 @@ gem 'mousetrap-rails'
 
 group :development do
   gem 'spring'
-  gem 'spring-commands-rspec', require: false
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'awesome_print'
@@ -84,7 +83,7 @@ group :test, :development do
   gem 'timecop'
 end
 
-gem 'sass-rails',   '~> 4.0.0'
+gem 'sass-rails',   '~> 4.0.0.rc1'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 
