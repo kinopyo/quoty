@@ -3,7 +3,7 @@ require File.expand_path('../boot', __FILE__)
 require 'rails/all'
 
 # Assets should be precompiled for production (so we don't need the gems loaded then)
-Bundler.require(:default, Rails.env)
+Bundler.require(*Rails.groups)
 
 module Quoty
   class Application < Rails::Application
