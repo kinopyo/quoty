@@ -54,7 +54,14 @@ class ApplicationController < ActionController::Base
     if current_user.try(:preference).try(:languages).present?
       current_user.preference.languages
     else
-      cookies[:languages]
+      case cookies.permanent[:locale]
+      when 'ja'
+        'japanese'
+      when 'zh'
+        'chinese'
+      else
+        'english'
+      end
     end
   end
 
@@ -63,7 +70,7 @@ class ApplicationController < ActionController::Base
   end
 
   def default_url_options(options = {})
-    { :locale => I18n.locale }
+    { locale: I18n.locale }
   end
 
   private

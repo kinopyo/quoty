@@ -47,13 +47,6 @@ class QuotesController < ApplicationController
     end
   end
 
-  def language
-    @quotes = Quote.in(params[:language]).recent.page(params[:page])
-      .with_associations
-
-    render :index
-  end
-
   def popular
     @quotes = Quote.popular.in(current_user_languages).page(params[:page])
       .with_associations

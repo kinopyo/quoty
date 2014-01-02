@@ -22,7 +22,7 @@
   .uploader
     = t('.uploaded_by', user_name: link_to(@quote.user.name, @quote.user), time: time_ago_in_words(@quote.created_at)).html_safe
     - if @quote.language
-      = t('.in_language', language: link_to(@quote.language_in_its_own, language_path(@quote.language))).html_safe
+      = t('.in_language', language: @quote.language_in_its_own).html_safe
 
   .like{id: dom_id(@quote, :like)}
     = render "likes/like", quote: @quote
