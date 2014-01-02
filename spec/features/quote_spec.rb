@@ -21,4 +21,22 @@ describe 'Quote' do
     click_button 'Update'
     page.should have_content('new author')
   end
+
+  it "user sees English quotes by default" do
+    ja_quote = create(:quote, content: '日本語の名言')
+    en_quote = create(:quote, content: 'English quote')
+    visit quotes_path
+
+    expect(page).to     have_content(en_quote.content)
+    expect(page).not_to have_content(ja_quote.content)
+  end
+
+  it 'user sees Japanese quotes when visiting /ja/quotes' do
+    ja_quote = create(:quote, content: '日本語の名言')
+    en_quote = create(:quote, content: 'English quote')
+    visit quotes_path(locale: :ja)
+
+    expect(page).to     have_content(ja_quote.content)
+    expect(page).not_to have_content(en_quote.content)
+  end
 end
