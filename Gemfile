@@ -56,6 +56,8 @@ gem 'kaminari'
 
 gem 'mousetrap-rails'
 
+gem 'http_accept_language'
+
 group :development do
   gem 'spring'
   gem 'spring-commands-rspec', require: false
