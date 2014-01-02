@@ -45,15 +45,20 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-    params[:locale] = 'en' if params[:locale].present? && !I18n.available_locales.include?(params[:locale].to_sym)
-    I18n.locale = params[:locale] || cookies[:locale] || http_accept_language.preferred_language_from(I18n.available_locales) || I18n.default_locale
-    cookies.permanent[:locale] = I18n.locale if I18n.locale.to_s != cookies[:locale]
+    if params[:locale].present? && I18n.available_locales.include?(params[:locale].to_sym)
+      I18n.locale = params[:locale]
+      return
+    end
+
+    I18n.locale =  cookies[:locale] || http_accept_language.preferred_language_from(I18n.available_locales) || I18n.default_locale
+    cookies.permanent[:locale] = I18n.locale unless I18n.locale.to_s == cookies[:locale]
   end
 
   def current_user_languages
     if current_user.try(:preference).try(:languages).present?
       current_user.preference.languages
     else
+
       case cookies.permanent[:locale]
       when 'ja'
         'japanese'

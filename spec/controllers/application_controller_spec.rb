@@ -22,6 +22,11 @@ describe ApplicationController do
           expect(I18n.locale).to eq(:en)
         end
       end
+
+      it "doesn't store to cookie" do
+        get :index, locale: 'en'
+        expect(cookies.permanent[:locale]).to eq(nil)
+      end
     end
 
     context "when params[:locale] is blank" do
@@ -37,14 +42,14 @@ describe ApplicationController do
         get :index
         expect(I18n.locale).to eq(:ja)
       end
-    end
 
-    it "stores locale to cookie" do
-      get :index, locale: 'ja'
-      expect(cookies.permanent[:locale]).to eq(:ja)
+      it "stores locale to cookie" do
+        get :index
+        expect(cookies.permanent[:locale]).to eq(:en)
 
-      get :index, locale: 'ja'
-      expect { get :index, locale: 'ja' }.not_to change { cookies.permanent[:locale] }
+        get :index
+        expect { get :index }.not_to change { cookies.permanent[:locale] }
+      end
     end
   end
 end
