@@ -46,7 +46,7 @@ class ApplicationController < ActionController::Base
 
   def set_locale
     I18n.locale = (Array(cookies[:locale]) & I18n.available_locales).first ||
-                  http_accept_language.preferred_language_from(I18n.available_locales) ||
+                  (Array(extract_locale_from_accept_language_header) & I18n.available_locales.map(&:to_s)).first ||
                   I18n.default_locale
 
     cookies.permanent[:locale] = I18n.locale unless I18n.locale.to_s == cookies[:locale]
@@ -54,16 +54,26 @@ class ApplicationController < ActionController::Base
 
   def current_user_languages
     if params[:locale].present?
-      case params[:locale]
-      when 'ja'
-        'japanese'
-      when 'zh'
-        'chinese'
-      else
-        'english'
-      end
+      extract_language_from_locale(params[:locale])
     elsif current_user.try(:preference).try(:languages).present?
       current_user.preference.languages
+    else
+      extract_language_from_locale(cookies[:locale])
+    end
+  end
+
+  def extract_locale_from_accept_language_header
+    return if request.env['HTTP_ACCEPT_LANGUAGE'].blank?
+
+    request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
+  end
+
+  def extract_language_from_locale(locale)
+    case locale.to_s
+    when 'ja'
+      'japanese'
+    when 'zh'
+      'chinese'
     else
       'english'
     end

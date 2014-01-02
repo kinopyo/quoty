@@ -25,7 +25,7 @@ describe 'Quote' do
   it "user sees English quotes by default" do
     ja_quote = create(:quote, content: '日本語の名言')
     en_quote = create(:quote, content: 'English quote')
-    visit quotes_path
+    visit '/'
 
     expect(page).to     have_content(en_quote.content)
     expect(page).not_to have_content(ja_quote.content)
@@ -35,6 +35,17 @@ describe 'Quote' do
     ja_quote = create(:quote, content: '日本語の名言')
     en_quote = create(:quote, content: 'English quote')
     visit quotes_path(locale: :ja)
+
+    expect(page).to     have_content(ja_quote.content)
+    expect(page).not_to have_content(en_quote.content)
+  end
+
+  it "user sees Japanese quotes if browser langauge is Japanese" do
+    page.driver.browser.header('Accept-Language', 'ja')
+
+    ja_quote = create(:quote, content: '日本語の名言')
+    en_quote = create(:quote, content: 'English quote')
+    visit '/'
 
     expect(page).to     have_content(ja_quote.content)
     expect(page).not_to have_content(en_quote.content)

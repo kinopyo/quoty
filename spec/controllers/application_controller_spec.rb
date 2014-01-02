@@ -21,8 +21,7 @@ describe ApplicationController do
     end
 
     it "sets locale to the one extracted from header if cookie is blank" do
-      pending 'just does not work'
-      request.env['HTTP_ACCEPT_LANGUAGE'] = 'ja-JP,fr-FR;q=0.5'
+      request.headers['Accept-Language'] = 'ja-JP,fr-FR;q=0.5'
       get :index
       expect(I18n.locale).to eq(:ja)
     end
@@ -32,6 +31,5 @@ describe ApplicationController do
 
       expect { get :index }.not_to change { cookies.permanent[:locale] }
     end
-
   end
 end
