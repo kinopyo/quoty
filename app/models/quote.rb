@@ -60,10 +60,21 @@ class Quote < ActiveRecord::Base
   private
 
   def detect_and_set_language
-     result = CLD.detect_language(content)
-     lang = result[:name].downcase
-     lang = 'chinese' if lang == 'chineset'
-     self.language = lang
+    # Example
+    #
+    # [1] pry(main)> CLD.detect_language 'A place where people can share a...'
+    # => {:name=>"ENGLISH", :code=>"en", :reliable=>true}
+    # [2] pry(main)> CLD.detect_language '100の失敗より、一つの後悔をしたくない。'
+    # => {:name=>"Japanese", :code=>"ja", :reliable=>true}
+    # [3] pry(main)> CLD.detect_language '可能殘酷一點也要說'
+    # => {:name=>"ChineseT", :code=>"zh-TW", :reliable=>true}
+    # [4] pry(main)> CLD.detect_language '好好学习天天向上'
+    # => {:name=>"Chinese", :code=>"zh", :reliable=>true}
+
+    result = CLD.detect_language(content)
+    lang = result[:name].downcase
+    lang = 'chinese' if lang == 'chineset'
+    self.language = lang
   end
 
   def find_or_create_author_and_source_wiki

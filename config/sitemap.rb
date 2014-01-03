@@ -11,8 +11,8 @@ SitemapGenerator::Sitemap.create do
   add quotes_path, priority: 0.7, changefreq: 'daily'
 
   # languages
-  %w(english japanese chinese).each do |language|
-    add language_path(language), changefreq: 'daily'
+  %w(en ja).each do |locale|
+    add quotes_path(locale: locale), changefreq: 'daily'
   end
 
   # quotes

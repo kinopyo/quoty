@@ -58,6 +58,7 @@ gem 'mousetrap-rails'
 
 group :development do
   gem 'spring'
+  gem 'spring-commands-rspec', require: false
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'awesome_print'

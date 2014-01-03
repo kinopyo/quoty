@@ -30,9 +30,9 @@
     <% end %>
 
     <div class="list-group">
-      <%= nav_link 'English', language_path('english') %>
-      <%= nav_link '日本語', language_path('japanese') %>
-      <%= nav_link '中文', language_path('chinese') %>
+      <%= nav_link 'English', quotes_path(locale: :en) %>
+      <%= nav_link '日本語', quotes_path(locale: :ja) %>
+      <%= nav_link '中文', quotes_path(locale: :zh) %>
     </div>
   </div>
 

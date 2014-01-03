@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   include PublicActivity::StoreController
   include ActionView::Helpers::TextHelper
 
-  before_filter :set_locale_and_language
+  before_filter :set_locale
   before_filter :enable_profiler_for_admin
   before_filter :set_browser_type
 
@@ -44,31 +44,38 @@ class ApplicationController < ActionController::Base
     "That action needs to login."
   end
 
-  def set_locale_and_language
-    return unless request.env['HTTP_ACCEPT_LANGUAGE']
+  def set_locale
+    I18n.locale = (Array(cookies[:locale]) & I18n.available_locales).first ||
+                  (Array(extract_locale_from_accept_language_header) & I18n.available_locales.map(&:to_s)).first ||
+                  I18n.default_locale
 
-    language_short = extract_locale_from_accept_language_header
-    I18n.locale = language_short
-    language_full = case language_short
-      when 'zh' then 'chinese'
-      when 'ja' then 'japanese'
-      else 'english'
-    end
-
-    if signed_in?
-      if current_user.preference.try(:languages).blank?
-        current_user.create_preference(languages: language_full)
-      end
-    else
-      cookies[:languages] = language_full if cookies[:languages].blank?
-    end
+    cookies.permanent[:locale] = I18n.locale unless I18n.locale.to_s == cookies[:locale]
   end
 
   def current_user_languages
-    if current_user.try(:preference).try(:languages).present?
+    if params[:locale].present?
+      extract_language_from_locale(params[:locale])
+    elsif current_user.try(:preference).try(:languages).present?
       current_user.preference.languages
     else
-      cookies[:languages]
+      extract_language_from_locale(cookies[:locale])
+    end
+  end
+
+  def extract_locale_from_accept_language_header
+    return if request.env['HTTP_ACCEPT_LANGUAGE'].blank?
+
+    request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
+  end
+
+  def extract_language_from_locale(locale)
+    case locale.to_s
+    when 'ja'
+      'japanese'
+    when 'zh'
+      'chinese'
+    else
+      'english'
     end
   end
 
@@ -76,11 +83,11 @@ class ApplicationController < ActionController::Base
     @browser_type = detect_browser
   end
 
-  private
-
-  def extract_locale_from_accept_language_header
-    request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
+  def default_url_options(options = {})
+    { locale: params[:locale] }
   end
+
+  private
 
   def enable_profiler_for_admin
     Rack::MiniProfiler.authorize_request if current_user.try(:admin?)
