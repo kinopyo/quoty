@@ -28,6 +28,12 @@
         <%= nav_link 'Posts', my_quotes_path %>
       </div>
     <% end %>
+
+    <div class="list-group">
+      <%= nav_link 'English', quotes_path(locale: :en) %>
+      <%= nav_link '日本語', quotes_path(locale: :ja) %>
+      <%= nav_link '中文', quotes_path(locale: :zh) %>
+    </div>
   </div>
 
   <div class="col-md-10">
