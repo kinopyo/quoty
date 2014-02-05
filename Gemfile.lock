@@ -179,6 +179,7 @@ GEM
     net-ssh (2.6.8)
     newrelic_rpm (3.6.4.122)
     nokogiri (1.5.10)
+    nprogress-rails (0.1.2.3)
     oauth (0.4.7)
     oauth2 (0.8.1)
       faraday (~> 0.8)
@@ -371,6 +372,7 @@ DEPENDENCIES
   nested_form
   net-sftp
   newrelic_rpm
+  nprogress-rails
   omniauth-facebook
   omniauth-identity
   omniauth-twitter

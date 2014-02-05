@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require turbolinks
+//= require nprogress
+//= require nprogress-turbolinks
 //= require jquery_ujs
 //= require jquery.ui.autocomplete
 //= require_tree ../../../lib/assets/javascripts
