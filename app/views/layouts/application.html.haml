@@ -17,7 +17,7 @@
     = stylesheet_link_tag "application", media: "all"
     = javascript_include_tag "application"
 
-  %body
+  %body{ class: "#{params[:controller]}_controller #{params[:action]}_action" }
     .navbar.navbar-default.navbar-fixed-top
       .navbar-inner
         .container
