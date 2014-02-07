@@ -1,0 +1,20 @@
+<div class="media profile_header well">
+  <%= user_avatar(@user, link_options: { class: 'pull-left' }) %>
+  <div class="media-body">
+    <h1 class="user_name media-heading"><%= @user.name %></h1>
+    <ul class="profile_detail list-unstyled <%= current_user == @user ? 'profile_owner' : 'visitor' %>">
+      <li>Posted Quotes: <%= @user.quotes.count %></li>
+      <li>Liked Quotes: <%= @user.likes.count %></li>
+    </ul>
+  </div>
+</div>
+
+<div class="well">
+  <ul class="activities">
+    <% cache @activities do %>
+      <% @activities.each do |activity| %>
+        <li><%= render_activity(activity, layout: 'layouts/activity_wrapper') %></li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
