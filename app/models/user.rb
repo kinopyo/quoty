@@ -18,10 +18,10 @@ class User < ActiveRecord::Base
   scope :recent, -> { order("users.created_at DESC") }
 
   def self.create_with_omniauth(info)
-    create(name: info['name'],
-      image: info['image'],
-      email: info['email'],
-      profile: info['description'],
+    create(name: info[:name],
+      image: info[:image],
+      email: info[:email],
+      profile: info[:description],
       omniauth_info_updated_at: Time.now)
   end
 
