@@ -1,7 +1,11 @@
 require 'spec_helper'
 
 describe 'User' do
-  it 'creates an account' do
+  before do
+    OmniAuth.config.test_mode = false
+  end
+
+  it 'creates an account with email & password' do
     visit login_path
     click_link 'Create an account'
     fill_in 'identity_name', with: 'alice'
