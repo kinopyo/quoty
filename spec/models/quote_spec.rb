@@ -5,7 +5,7 @@ describe Quote do
     it 'set find and set author_id if author_id is not changed' do
       quote = Quote.new
       author = stub_model(Author)
-      Author.should_receive(:find_or_create_author).with('foo').and_return(author)
+      allow(Author).to receive(:find_or_create_author).with('foo').and_return(author)
 
       quote.author_name = 'foo'
 

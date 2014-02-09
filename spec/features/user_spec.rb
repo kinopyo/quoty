@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'User' do
-  before do
+  background do
     OmniAuth.config.test_mode = false
   end
 
