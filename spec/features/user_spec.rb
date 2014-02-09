@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe 'User' do
+feature 'User' do
   background do
     OmniAuth.config.test_mode = false
   end
 
-  it 'creates an account with email & password' do
+  scenario 'creates an account with email & password' do
     visit login_path
     click_link 'Create an account'
     fill_in 'identity_name', with: 'alice'
@@ -16,7 +16,7 @@ describe 'User' do
     page.should have_content('Signed in')
   end
 
-  it 'logs in' do
+  scenario 'logs in' do
     # TODO move this to factory_girl
     identity = Identity.create(name: 'alice', email: 'alice@example.com',
         password: '1234567', password_confirmation: '1234567')

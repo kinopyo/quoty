@@ -73,7 +73,7 @@ group :test, :development do
   gem 'pry-remote'
   gem 'pry-rails'
   gem 'pry-nav'
-  gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'capybara'

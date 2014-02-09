@@ -79,4 +79,5 @@ RSpec.configure do |config|
   config.include RSpec::JsonMatcher
   config.include UserMacros::Controller, type: :controller
   config.include UserMacros::Feature, type: :feature
+  config.treat_symbols_as_metadata_keys_with_true_values = true
 end
