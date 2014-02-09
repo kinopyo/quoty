@@ -3,8 +3,8 @@
   <div class="media-body">
     <h1 class="user_name media-heading"><%= @user.name %></h1>
     <ul class="profile_detail list-unstyled <%= current_user == @user ? 'profile_owner' : 'visitor' %>">
-      <li>Posted Quotes: <%= @user.quotes.count %></li>
-      <li>Liked Quotes: <%= @user.likes.count %></li>
+      <li>Posted Quotes: <%= link_to @user.quotes.count, [:quotes, @user] %></li>
+      <li>Liked Quotes: <%= link_to @user.likes.count, [:likes, @user] %></li>
     </ul>
   </div>
 </div>

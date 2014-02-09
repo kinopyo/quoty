@@ -30,6 +30,11 @@ Rails.application.routes.draw do
     end
 
     resources :users, only: [:show, :edit, :update] do
+      member do
+        get :quotes
+        get :likes
+      end
+
       resources :activities, only: [:index]
     end
     resources :authors, only: [:show] do
