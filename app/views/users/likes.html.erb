@@ -1,0 +1,13 @@
+<div class="page-header well">
+  <h1><%= @user.name %>'s Liked Quotes</h1>
+</div>
+
+<ul id="quotes">
+  <% cache @quotes do %>
+    <%= render collection: @quotes, partial: 'quotes/quote' %>
+  <% end %>
+</ul>
+
+<div id="more_results" class="well">
+  <%= link_to_next_page @quotes, 'Show more quotes', remote: true, class: 'btn btn-block btn-default btn-lg btn-info' %>
+</div>

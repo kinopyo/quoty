@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :require_login, except: :show
+  before_filter :require_login, only: [:edit, :update]
 
   def show
     @user = User.friendly.includes(:quotes).find(params[:id])
@@ -22,6 +22,26 @@ class UsersController < ApplicationController
       redirect_to @user, notice: t('users.update.success')
     else
       render :edit
+    end
+  end
+
+  def quotes
+    @user = User.friendly.find(params[:id])
+    @quotes = @user.quotes.recent.page(params[:page])
+
+    respond_to do |format|
+      format.html
+      format.js { render 'quotes/index' }
+    end
+  end
+
+  def likes
+    @user = User.friendly.find(params[:id])
+    @quotes = @user.liked_quotes.with_associations.recent.page(params[:page])
+
+    respond_to do |format|
+      format.html
+      format.js { render 'quotes/index' }
     end
   end
 
