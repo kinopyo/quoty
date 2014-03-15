@@ -57,6 +57,8 @@ gem 'kaminari'
 
 gem 'mousetrap-rails'
 
+gem 'intercom-rails'
+
 group :development do
   gem 'spring'
   gem 'spring-commands-rspec', require: false
