@@ -21,3 +21,6 @@
 public/uploads/
 
 coverage/
+
+# Ignore Pivotal Tracker config file
+.pt
